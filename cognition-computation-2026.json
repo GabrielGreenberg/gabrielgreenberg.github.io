@@ -10,6 +10,13 @@
     "syllabusUrl": "",
     "description": "This seminar introduces students to the philosophical foundations of cognitive science. Our focus will be the core hypothesis that cognition is rooted in computations carried out in the brain. We will approach these issues through the lens of classic theoretical texts from the last 75 years, including works by Craik, Turing, Chomsky, Marr, Fodor, and others. This literature will be interleaved with contemporary real-world cases from cognitive science (face recognition, spatial maps in the hippocampus, and semantic priming) and from computer science (finite-state machines, neural networks, and transformer architectures). The last three weeks of the course will focus on understanding contemporary AI models, and comparing them to human cognition."
   },
+  "announcements": [
+    {
+      "date": "9/15",
+      "title": "Cross-enrolling with Phil 133.",
+      "html": "I will be concurrently teaching Philosophy 133 (Computational Theory of Mind), which covers much of the formal background in the theory of computation. Graduate students are more than welcome to attend and enroll (or audit). The two courses will be highly complementary. Course website: <a href=\"https://www.makingminds.org/\">makingminds.org</a>"
+    }
+  ],
   "sessions": [
     {
       "number": 1,

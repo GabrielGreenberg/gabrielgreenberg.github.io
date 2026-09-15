@@ -87,6 +87,12 @@
             border-top: 1px solid rgba(0, 0, 0, 0.13);
             margin: 35px 0;
         }
+        .announcement + .announcement {
+            margin-top: 20px;
+        }
+        .announcement-date {
+            color: rgb(36, 103, 141);
+        }
         .session-title {
             font-weight: 700;
             color: #3f3f3f;
@@ -219,6 +225,29 @@
         function renderCourse(data) {
             const c = data.course;
             let html = '';
+
+            // ============ ANNOUNCEMENTS ============
+            if (data.announcements && data.announcements.length > 0) {
+                html += '<div class="row">';
+                html += '<div class="col-left"><div class="section-label">ANNOUNCEMENTS</div></div>';
+                html += '<div class="col-right">';
+                data.announcements.forEach(a => {
+                    html += '<div class="announcement">';
+                    if (a.date) {
+                        html += `<div class="announcement-date">${a.date}</div>`;
+                    }
+                    html += '<p>';
+                    if (a.title) {
+                        html += `<strong>${a.title}</strong> `;
+                    }
+                    html += a.html || '';
+                    html += '</p>';
+                    html += '</div>';
+                });
+                html += '</div>';
+                html += '</div>';
+                html += '<hr class="styled-hr">';
+            }
 
             // ============ ABOUT ============
             html += '<div class="row">';
