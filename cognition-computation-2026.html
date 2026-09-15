@@ -286,7 +286,7 @@
                         if (a.title) ann += a.title;
                         ann += '</div>';
                     }
-                    ann += `<p class="announcement-body">${a.html || ''}</p>`;
+                    if (a.html) ann += `<p class="announcement-body">${a.html}</p>`;
                     ann += '</div>';
                 });
                 ann += '</div></div></div>';

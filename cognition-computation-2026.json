@@ -13,6 +13,10 @@
   "announcements": [
     {
       "date": "9/15",
+      "title": "Please note there is reading for the first day."
+    },
+    {
+      "date": "9/15",
       "title": "Cross-enrolling with Phil 133.",
       "html": "I will be concurrently teaching Philosophy 133 (Computational Theory of Mind), which covers much of the formal background in the theory of computation. Graduate students are more than welcome to attend and enroll (or audit). The two courses will be highly complementary. Course website: <a href=\"https://www.makingminds.org/\">makingminds.org</a>"
     }
