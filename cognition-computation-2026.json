@@ -39,6 +39,7 @@
     {
       "label": "Long paper meeting",
       "due": "Before 12/11",
+      "date": "12/11",
       "anchor": "meeting"
     },
     {
@@ -424,7 +425,6 @@
     }
   ],
   "assignments": {
-    "note": "Always include: title, date, name, bibliography, and page numbering. Always submit papers as PDFs, by email to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>.",
     "items": [
       {
         "id": "short-paper",
@@ -450,6 +450,14 @@
           [
             "Note",
             "the challenge in (2) could be a counterexample, a lacuna, a missed opportunity, etc."
+          ],
+          [
+            "Include",
+            "title, date, name, bibliography, and page numbering."
+          ],
+          [
+            "Submit",
+            "as a PDF, by email to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>, with your name in the file name (e.g., <i>Lastname &ndash; Short paper.pdf</i>)."
           ]
         ]
       },
@@ -465,6 +473,14 @@
           [
             "Contents",
             "a working title; your thesis, in a sentence or two; a section-by-section plan; and the main readings you will engage with."
+          ],
+          [
+            "Include",
+            "title, date, name, bibliography, and page numbering."
+          ],
+          [
+            "Submit",
+            "as a PDF, by email to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>, with your name in the file name (e.g., <i>Lastname &ndash; Outline.pdf</i>)."
           ]
         ]
       },
@@ -503,6 +519,14 @@
           [
             "Notes",
             "include at least two diagrams or figures, with captions, inserted inline (not as an appendix). The long paper may build upon the short paper."
+          ],
+          [
+            "Include",
+            "title, date, name, bibliography, and page numbering."
+          ],
+          [
+            "Submit",
+            "as a PDF, by email to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>, with your name in the file name (e.g., <i>Lastname &ndash; Long paper.pdf</i>)."
           ]
         ]
       }
@@ -516,10 +540,6 @@
     {
       "label": "Attendance and participation",
       "html": "Come every week having done the reading, ready to discuss. If you have to miss a session, let me know in advance."
-    },
-    {
-      "label": "Submitting papers",
-      "html": "Email a PDF to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>, with your name in the file name (e.g., <i>Lastname &ndash; Short paper.pdf</i>)."
     },
     {
       "label": "Extensions",
