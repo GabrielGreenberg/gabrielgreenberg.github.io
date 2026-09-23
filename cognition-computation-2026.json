@@ -26,8 +26,8 @@
   "requirements": [
     {
       "label": "Short paper",
-      "due": "Sun 11/8",
-      "date": "11/8",
+      "due": "Sun 11/1",
+      "date": "11/1",
       "anchor": "short-paper"
     },
     {
@@ -429,7 +429,7 @@
       {
         "id": "short-paper",
         "title": "Short paper",
-        "due": "Due Sun 11/8",
+        "due": "Due Sun 11/1",
         "fields": [
           [
             "Length",
