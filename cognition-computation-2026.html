@@ -11,483 +11,911 @@
       gtag('config', 'G-GQ900QDSEE');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cognition &amp; Computation (2026)</title>
+    <title>Cognition &amp; Computation · Phil 286 · Fall 2026</title>
+    <meta name="description" content="PHIL 286 (Fall 2026, UCLA): Cognition and Computation, a graduate seminar on the philosophical foundations of cognitive science. Schedule, readings, requirements, and policies.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        /* Cognition & Computation (Phil 286, Fall 2026)
+           One page, three views (Syllabus / Policies / Resources), switched by the top bar via #hash.
+           Everything is rendered from cognition-computation-2026.json. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;          /* bullets and rules only */
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --accent: #B34512;         /* orange for text on light backgrounds */
+            --accent-bright: #F2712B;  /* the announcements label; bars and underlines */
+            --accent-soft: #FDF1E9;
+            --accent-line: #F5D3BE;
+            --date: #24678D;
+            --link: #1382D6;
+            --black: #111111;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
         * { box-sizing: border-box; }
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-        }
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 16px;
-            line-height: 26px;
-            color: #3f3f3f;
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
         }
-        a {
-            color: #1382d6;
+        .page {
+            max-width: var(--page-max);
+            margin-inline: auto;
+            padding-inline: clamp(16px, 4vw, 40px);
+        }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        b, strong { font-weight: 700; }
+        [hidden] { display: none !important; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+        h3 { font-size: 17px; line-height: 1.35; margin: 0; color: var(--ink); }
+
+        /* ============ TOP BAR ============ */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--line);
+        }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
         }
+        .topbar nav a:hover { color: var(--ink); }
+        .topbar nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent-bright); }
 
         /* ============ BANNER ============ */
         .banner {
-            background: url(images/sun-banner.jpg) no-repeat;
-            background-position: top center;
-            background-size: 100% auto;
-            min-height: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-        }
-        .banner h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 72px;
-            letter-spacing: 1px;
-            color: #f5f5f5;
-            text-align: center;
-            margin: 0;
-            line-height: 1.1;
-        }
-
-        /* ============ ANNOUNCEMENTS BAR ============ */
-        .announcements {
-            display: none;               /* shown by the script when there are items */
-            background: #111;
-            color: #d9d9d9;
-        }
-        .announcements.has-items {
-            display: block;
-        }
-        .announcements-inner {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 30px 15px 32px 15px;
-        }
-        .announcements-label {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: #f2712b;
-            line-height: 26px;
-            padding-top: 1px;
-        }
-        .announcement + .announcement {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
-        }
-        .announcement-head {
-            font-weight: 700;
+            background: #000 url(images/sun-banner.jpg) no-repeat center top;
+            background-size: cover;
             color: #fff;
         }
-        .announcement-date {
-            font-weight: 400;
-            color: #9a9a9a;
-            margin-right: 10px;
-        }
-        .announcement-body {
-            margin: 4px 0 0 0;
-        }
-        .announcements a {
-            color: #ffb27a;
-        }
-
-        /* ============ CONTENT ============ */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 50px 15px 70px 15px;
-        }
-        .row {
+        .banner-inner {
+            min-height: 300px;
             display: flex;
-            gap: 30px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
         }
-        .col-left {
-            width: 28.8%;
-            flex-shrink: 0;
-        }
-        .col-right {
-            flex: 1;
-            min-width: 0;
-        }
-        .section-label {
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.3;
-            color: #3f3f3f;
-        }
-        .styled-hr {
-            border: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.13);
-            margin: 35px 0;
-        }
-        .session-title {
-            font-weight: 700;
-            color: #3f3f3f;
-        }
-        .session-date {
-            color: rgb(36, 103, 141);
-        }
-        .handout a {
-            font-weight: 700;
-        }
-        .reading-label {
-            font-weight: 700;
-            margin-top: 20px;
-        }
-        .reading-label:first-child {
-            margin-top: 0;
-        }
-        .col-right p {
-            margin: 0 0 10px 0;
-        }
-        .col-right p:last-child {
-            margin-bottom: 0;
-        }
-        ul.readings {
-            margin: 5px 0 0 0;
-            padding-left: 28px;
-        }
-        ul.readings li {
-            margin-bottom: 2px;
-        }
-        .reading-tag {
-            color: #999;
-            font-size: 15px;
-        }
-        .session-note {
-            margin-top: 18px;
-            font-size: 15px;
-            line-height: 24px;
-            color: #8a8a8a;
-            font-style: italic;
-        }
-        .session-due {
-            margin-top: 14px;
-            font-weight: 700;
-            color: #c24e14;
-        }
-        .session-due div + div {
-            margin-top: 2px;
-        }
-
-        /* ============ REQUIREMENTS / ASSIGNMENTS / POLICIES ============ */
-        .req-list {
+        .banner .eyebrow { color: #F6DCC8; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner h1 {
             margin: 0;
-            padding: 0;
-            list-style: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: #F7F7F7;
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
         }
-        .req-list li {
-            display: flex;
-            gap: 18px;
-            margin-bottom: 4px;
+        body.sub .banner-inner { min-height: 176px; padding-block: 26px; gap: 8px; }
+        body.sub .banner h1 { font-size: clamp(30px, 4.4vw, 46px); }
+
+        /* ============ ANNOUNCEMENTS BAR ============ */
+        .announcements { background: var(--black); color: #D6D6D6; }
+        .ann-inner {
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            gap: 10px 40px;
+            padding-block: 26px 28px;
         }
-        .req-due {
-            flex: 0 0 110px;
-            color: rgb(36, 103, 141);
+        .ann-label { color: var(--accent-bright); font-size: 13px; letter-spacing: 0.18em; line-height: 26px; }
+        .announcement + .announcement {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
         }
-        .req-footnote {
-            margin-top: 14px !important;
+        .ann-head { font-weight: 700; color: #fff; }
+        .ann-date { font-weight: 400; color: #9A9A9A; margin-right: 10px; font-variant-numeric: tabular-nums; }
+        .ann-body { margin: 3px 0 0; max-width: 78ch; }
+        .announcements a { color: #FFB27A; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        /* ---------- Syllabus: intro (description + course facts) ---------- */
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 384px;
+            gap: 28px 56px;
+            align-items: start;
+        }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; }
+        .fact .d { color: var(--date); font-variant-numeric: tabular-nums; }
+        .fact .dow, .asg-due .dow { color: var(--ink-3); margin-right: 5px; }
+        .fact .dl-row { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; }
+        .fact.next .d { display: block; }
+        .fact.next dd a { color: var(--ink); font-weight: 600; }
+        .fact.next dd a:hover { color: var(--accent); text-decoration: none; }
+        .fact .more { display: inline-block; margin-top: 4px; font-size: 13.5px; }
+
+        /* ---------- Syllabus: schedule table ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+        }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 20%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched thead th:first-child { border-top-left-radius: 4px; }
+        table.sched thead th:last-child { border-top-right-radius: 4px; }
+        table.sched td {
+            padding: 18px 18px 20px;
+            vertical-align: top;
+            border-bottom: 1px solid var(--line);
+        }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }   /* clear the sticky column heads */
+
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.date .chip {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 1px 7px 0;
+            border-radius: 3px;
+            background: var(--accent-bright);
+            color: #fff;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            line-height: 17px;
+        }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        a.due-tag:hover { text-decoration: none; border-color: var(--accent); }
+
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        /* next session */
+        tr.is-next td.date { box-shadow: inset 4px 0 0 var(--accent-bright); }
+
+        /* deadline and no-class rows */
+        tr.due-row td { background: var(--accent-soft); padding-top: 12px; padding-bottom: 12px; }
+        tr.due-row td.date { color: var(--accent); box-shadow: inset 4px 0 0 var(--accent-bright); }
+        tr.due-row td.date .dow { color: var(--accent); opacity: 0.8; }
+        tr.due-row .due-what { font-weight: 700; color: var(--accent); }
+        tr.due-row .due-more { margin-left: 12px; font-size: 14px; }
+        tr.due-row .due-len { margin-left: 12px; font-size: 14px; color: var(--ink-3); }
+        tr.break-row td { padding-top: 12px; padding-bottom: 12px; color: var(--ink-3); }
+        tr.break-row td.date, tr.break-row td.date .dow { color: var(--ink-3); font-weight: 400; }
+        tr.break-row .break-what { font-style: italic; }
+
+        /* ---------- Reading lists (schedule and resources) ---------- */
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+
+        /* ---------- Policies / Resources: prose with an "on this page" rail ---------- */
+        .withtoc { display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 56px; align-items: start; }
+        .withtoc > .body { max-width: 760px; min-width: 0; }
+        .toc { position: sticky; top: calc(var(--topbar-h) + 28px); font-size: 13.5px; }
+        .toc .eyebrow { color: var(--ink-3); margin-bottom: 10px; font-size: 10.5px; }
+        .toc ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line-2); display: grid; gap: 5px; }
+        .toc li { padding-left: 14px; line-height: 1.4; }
+        .toc li.sub { padding-left: 26px; font-size: 13px; }
+        .toc a { color: var(--ink-2); }
+        .toc a:hover { color: var(--accent); text-decoration: none; }
+        .body > section + section { margin-top: 48px; padding-top: 34px; border-top: 1px solid var(--line-2); }
+        .body p { margin: 0 0 12px; }
+        .body .lede-p { color: var(--ink-2); }
+
+        /* requirements table */
+        table.deadlines {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border: 1px solid var(--line);
             font-size: 15px;
-            color: #6f6f6f;
         }
-        .assignment {
-            scroll-margin-top: 20px;
+        table.deadlines th {
+            text-align: left;
+            color: var(--ink-3);
+            background: var(--surface-2);
+            padding: 9px 16px;
+            border-bottom: 1px solid var(--line-2);
         }
-        .assignment + .assignment {
-            margin-top: 26px;
+        table.deadlines td { padding: 11px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+        table.deadlines tr:last-child td { border-bottom: 0; }
+        table.deadlines td.d { width: 150px; color: var(--date); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        table.deadlines td.d .dow { color: var(--ink-3); font-weight: 400; margin-right: 5px; }
+        table.deadlines td.len { color: var(--ink-3); width: 150px; }
+        table.deadlines td.what a { font-weight: 600; }
+
+        /* writing assignments */
+        .note-box {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin: 0 0 22px;
+            font-size: 14.5px;
+            color: var(--ink-2);
         }
-        .assignment-head {
-            margin-bottom: 6px;
+        .asg {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 18px 22px 16px;
         }
-        .assignment-title {
-            font-weight: 700;
+        .asg + .asg { margin-top: 16px; }
+        .asg-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 12px; }
+        .asg-due { color: var(--date); font-weight: 600; font-size: 14.5px; }
+        dl.fields { margin: 0; display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 7px 18px; font-size: 15px; }
+        dl.fields dt { color: var(--ink-3); font-weight: 600; font-size: 14px; padding-top: 1px; }
+        dl.fields dd { margin: 0; }
+        dl.fields dd.span { grid-column: 1 / -1; }
+
+        /* policies */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* resources */
+        ul.res { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+        ul.res li { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 18px; }
+        ul.res .r-title { font-weight: 700; font-size: 15.5px; }
+        ul.res .r-title a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; }
+        ul.res .r-note { margin-top: 3px; color: var(--ink-2); font-size: 14.5px; }
+        ul.index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-2); }
+        ul.index li {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 168px;
+            gap: 4px 24px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+            color: var(--ink-2);
         }
-        .assignment-due {
-            color: rgb(36, 103, 141);
-            margin-left: 10px;
+        ul.index .where { text-align: right; font-size: 13.5px; white-space: nowrap; }
+        ul.index .where a { color: var(--date); }
+        ul.index .kind { display: block; color: var(--ink-3); font-size: 10px; margin-top: 2px; }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 4px 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
         }
-        .col-right p.assignment-field {
-            margin: 0 0 4px 0;
-        }
-        .assignments-note {
-            margin-bottom: 26px !important;
-        }
-        .policy + .policy {
-            margin-top: 12px;
-        }
-        .policy-label {
-            font-weight: 700;
-        }
-        #writing-assignments, #policies {
-            scroll-margin-top: 20px;
-        }
+        footer a { color: var(--ink-3); }
 
         /* ============ RESPONSIVE ============ */
-        @media screen and (max-width: 900px) {
-            .banner h1 {
-                font-size: 48px;
-            }
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+            .withtoc { grid-template-columns: 1fr; gap: 0; }
+            .toc { display: none; }
         }
-        @media screen and (max-width: 768px) {
-            .banner {
-                min-height: 240px;
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 24px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            body.sub .banner-inner { min-height: 130px; }
+            .ann-inner { grid-template-columns: 1fr; gap: 8px; padding-block: 20px 22px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+
+            /* schedule: each row becomes a card */
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; box-shadow: none !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            td.date br { display: none; }
+            td.date .chip { margin: 0 0 0 10px; vertical-align: 1px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
             }
-            .banner h1 {
-                font-size: 36px;
-            }
-            .container {
-                padding: 30px 15px 50px 15px;
-            }
-            .announcements-inner {
-                padding: 22px 15px 26px 15px;
-            }
-            .row {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .col-left {
-                width: 100%;
-            }
-            .section-label {
-                font-size: 26px;
-            }
+            table.sched tr.is-next { border-color: var(--accent-bright); box-shadow: inset 4px 0 0 var(--accent-bright); }
+            table.sched tr.due-row { background: var(--accent-soft); border-color: var(--accent-line); box-shadow: inset 4px 0 0 var(--accent-bright); }
+            table.sched tr.due-row td.topic, table.sched tr.break-row td.topic { margin-top: 2px; }
+            table.sched tr.break-row { background: transparent; border-style: dashed; }
+            tr.due-row .due-len { margin-left: 8px; }
+            tr.due-row .due-more { margin-left: 0; display: block; }
+
+            dl.fields { grid-template-columns: 1fr; gap: 0; }
+            dl.fields dt { margin-top: 8px; }
+            dl.fields dt:first-child { margin-top: 0; }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+            dl.policies dt:first-of-type { padding-top: 2px; }
+            table.deadlines td.len { display: none; }
+            table.deadlines th:last-child { display: none; }
+            table.deadlines td.d { width: 128px; }
+            ul.index li { grid-template-columns: 1fr; }
+            ul.index .where { text-align: left; }
+            ul.index .kind { display: inline; margin-left: 8px; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, .announcements, footer, .toc { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner, body.sub .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after { content: ""; }
         }
     </style>
 </head>
 <body>
 
-    <header class="banner">
-        <h1 id="banner-title">Cognition &amp; Computation</h1>
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#syllabus">Cognition &amp; Computation<span class="course">Phil 286</span></a>
+            <nav aria-label="Course pages">
+                <a href="#syllabus" data-nav="syllabus">Syllabus</a>
+                <a href="#policies" data-nav="policies">Policies</a>
+                <a href="#resources" data-nav="resources">Resources</a>
+            </nav>
+        </div>
     </header>
 
-    <section class="announcements" id="announcements">
-        <!-- Rendered from the "announcements" list in cognition-computation-2026.json -->
-    </section>
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow" id="banner-eyebrow">Phil 286 &middot; Fall 2026 &middot; UCLA</div>
+            <h1 id="banner-title">Cognition &amp; Computation</h1>
+        </div>
+    </header>
 
-    <div class="container" id="course-container">
-        <!-- Content rendered from cognition-computation-2026.json -->
-    </div>
+    <!-- Rendered from the "announcements" list in the JSON; shown on the Syllabus view only -->
+    <section class="announcements" id="announcements" hidden></section>
+
+    <main class="page">
+        <div class="view" data-view="syllabus" id="view-syllabus">
+            <noscript><p>This page is rendered from <a href="cognition-computation-2026.json">cognition-computation-2026.json</a>; please enable JavaScript.</p></noscript>
+        </div>
+        <div class="view" data-view="policies" id="view-policies" hidden></div>
+        <div class="view" data-view="resources" id="view-resources" hidden></div>
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>Phil 286 &middot; Cognition &amp; Computation &middot; Fall 2026 &middot; UCLA Department of Philosophy</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
 
     <script>
-        fetch('cognition-computation-2026.json')
-            .then(response => response.json())
-            .then(data => renderCourse(data))
-            .catch(error => {
-                console.error('Error loading course data:', error);
-                document.getElementById('course-container').innerHTML =
-                    '<p>Error loading course data.</p>';
+    (function () {
+        'use strict';
+
+        var VIEWS = ['syllabus', 'policies', 'resources'];
+        var VIEW_TITLES = { syllabus: 'Syllabus', policies: 'Policies', resources: 'Resources' };
+        var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        var data = null, year = null, currentView = null;
+
+        // ---------- helpers ----------
+        function isOutside(url) { return /^https?:/i.test(url || ''); }
+        function linkAttrs(url) { return isOutside(url) ? ' target="_blank" rel="noopener"' : ''; }
+        function stripTags(s) { var d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; }
+        function dashes(s) { return String(s || '').replace(/(\d)-(\d)/g, '$1&ndash;$2'); }
+
+        // "9/24" (in the course year) -> {iso: "2026-09-24", dow: "Thu", md: "9/24"}
+        function parseMD(md) {
+            var m = /^(\d{1,2})\/(\d{1,2})$/.exec(String(md || '').trim());
+            if (!m || !year) return null;
+            var d = new Date(year, +m[1] - 1, +m[2], 12);
+            return {
+                iso: year + '-' + String(+m[1]).padStart(2, '0') + '-' + String(+m[2]).padStart(2, '0'),
+                dow: DOW[d.getDay()],
+                md: (+m[1]) + '/' + (+m[2])
+            };
+        }
+        function dateHtml(p, raw) {
+            return p ? '<span class="dow">' + p.dow + '</span>' + p.md : (raw || '');
+        }
+        // A requirement's date: "Sun 11/8" from its date field, or its own wording ("Before 12/11") when that is not a plain day.
+        function dueHtml(r) {
+            var p = parseMD(r.date);
+            if (p && !/before|by|after/i.test(r.due || '')) return dateHtml(p);
+            var m = /^(\S+)\s+(.+)$/.exec(r.due || '');
+            return m ? '<span class="dow">' + m[1] + '</span>' + m[2] : (r.due || '');
+        }
+        function todayISO() {   // today's date in Los Angeles
+            try {
+                var parts = {};
+                new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' })
+                    .formatToParts(new Date()).forEach(function (x) { parts[x.type] = x.value; });
+                return parts.year + '-' + parts.month + '-' + parts.day;
+            } catch (e) {
+                var n = new Date();
+                return n.getFullYear() + '-' + String(n.getMonth() + 1).padStart(2, '0') + '-' + String(n.getDate()).padStart(2, '0');
+            }
+        }
+
+        // One reading -> "Author (year) Title, detail"; title linked, outside links marked with an arrow.
+        function citation(r) {
+            if (r.html) return r.html;
+            var title = r.title || '';
+            if (title) title = r.style === 'quotes' ? '&ldquo;' + title + '&rdquo;' : '<i>' + title + '</i>';
+            if (r.url && title) {
+                title = '<a href="' + r.url + '"' + (isOutside(r.url) ? ' class="out"' : '') + linkAttrs(r.url) + '>' + title + '</a>';
+            }
+            var out = '';
+            if (r.author) out += '<span class="au">' + r.author + '</span>';
+            if (r.year) out += ' <span class="yr">(' + r.year + ')</span>';
+            if (title) out += ' <span class="ti">' + title + '</span>';
+            if (r.detail) out += '<span class="dt">' + r.detail + '</span>';
+            return out;
+        }
+        function list(readings) {
+            return '<ul class="rl">' + readings.map(function (r) { return '<li>' + citation(r) + '</li>'; }).join('') + '</ul>';
+        }
+        function tagOf(r) { return r.tag || 'main'; }
+
+        // ---------- announcements ----------
+        function renderAnnouncements() {
+            var bar = document.getElementById('announcements');
+            var items = data.announcements || [];
+            if (!items.length) { bar.innerHTML = ''; bar.dataset.empty = '1'; return; }
+            bar.dataset.empty = '';
+            var h = '<div class="page ann-inner"><div class="eyebrow ann-label">Announcements</div><div>';
+            items.forEach(function (a) {
+                h += '<div class="announcement">';
+                if (a.date || a.title) {
+                    h += '<div class="ann-head">' + (a.date ? '<span class="ann-date">' + a.date + '</span>' : '') + (a.title || '') + '</div>';
+                }
+                if (a.html) h += '<p class="ann-body">' + a.html + '</p>';
+                h += '</div>';
             });
-
-        function renderReading(reading) {
-            // Either a pre-formatted html string, or structured fields
-            if (reading.html) {
-                return `<li>${reading.html}</li>`;
-            }
-            let citation = '';
-            if (reading.author) {
-                citation += reading.author;
-            }
-            if (reading.year) {
-                citation += ` (${reading.year})`;
-            }
-            let title = reading.title || '';
-            if (reading.style === 'quotes') {
-                title = `&ldquo;${title}&rdquo;`;
-            } else if (title) {
-                title = `<em>${title}</em>`;
-            }
-            if (reading.url && title) {
-                title = `<a href="${reading.url}">${title}</a>`;
-            }
-            let entry = `${citation} ${title}`;
-            if (reading.detail) {
-                entry += reading.detail;
-            }
-            return `<li>${entry}</li>`;
+            bar.innerHTML = h + '</div></div>';
         }
 
-        function renderReadingGroup(readings, tag, label) {
-            const group = readings.filter(r => (r.tag || 'main') === tag);
-            if (group.length === 0) return '';
-            let html = `<div class="reading-label">${label}:</div>`;
-            html += '<ul class="readings">';
-            group.forEach(r => { html += renderReading(r); });
-            html += '</ul>';
-            return html;
+        // ---------- syllabus view ----------
+        function buildRows() {
+            // sessions, deadlines (requirements with a date) and breaks, in date order.
+            // A deadline that falls on a session day is shown inside that session's row.
+            var rows = [];
+            data.sessions.forEach(function (s, i) {
+                rows.push({ kind: 'session', s: s, p: parseMD(s.date), dues: [], order: i });
+            });
+            (data.breaks || []).forEach(function (b) {
+                rows.push({ kind: 'break', b: b, p: parseMD(b.date), order: 1000 });
+            });
+            (data.requirements || []).forEach(function (r) {
+                var p = parseMD(r.date);
+                if (!p) return;
+                var host = rows.filter(function (x) { return x.kind === 'session' && x.p && x.p.iso === p.iso; })[0];
+                if (host) host.dues.push(r);
+                else rows.push({ kind: 'due', r: r, p: p, order: 2000 });
+            });
+            rows.sort(function (a, b) {
+                var ai = a.p ? a.p.iso : '9999', bi = b.p ? b.p.iso : '9999';
+                return ai < bi ? -1 : ai > bi ? 1 : a.order - b.order;
+            });
+            return rows;
+        }
+        function nextSession(rows) {
+            var t = todayISO();
+            return rows.filter(function (x) { return x.kind === 'session' && x.p && x.p.iso >= t; })[0] || null;
+        }
+        function assignmentFor(anchor) {
+            var items = (data.assignments && data.assignments.items) || [];
+            return items.filter(function (a) { return a.id === anchor; })[0] || null;
+        }
+        function lengthOf(anchor) {
+            var a = assignmentFor(anchor);
+            var f = a && (a.fields || []).filter(function (x) { return x[0] === 'Length'; })[0];
+            return f ? f[1] : '';
         }
 
-        function renderCourse(data) {
-            const c = data.course;
-            let html = '';
+        function renderSyllabus() {
+            var c = data.course;
+            var rows = buildRows();
+            var next = nextSession(rows);
+            var h = '';
 
-            // ============ ANNOUNCEMENTS (full-width bar under the banner) ============
-            const bar = document.getElementById('announcements');
-            if (data.announcements && data.announcements.length > 0) {
-                let ann = '<div class="announcements-inner"><div class="row">';
-                ann += '<div class="col-left"><div class="announcements-label">Announcements</div></div>';
-                ann += '<div class="col-right">';
-                data.announcements.forEach(a => {
-                    ann += '<div class="announcement">';
-                    if (a.date || a.title) {
-                        ann += '<div class="announcement-head">';
-                        if (a.date) ann += `<span class="announcement-date">${a.date}</span>`;
-                        if (a.title) ann += a.title;
-                        ann += '</div>';
+            // --- intro: description + facts ---
+            h += '<section class="intro">';
+            h += '<div><div class="eyebrow lede-label">About the seminar</div>';
+            h += '<p class="lede">' + (c.description || '') + '</p></div>';
+            h += '<aside class="facts" aria-label="Course information"><dl>';
+            function fact(k, v, cls) { h += '<div class="fact' + (cls ? ' ' + cls : '') + '"><dt class="eyebrow">' + k + '</dt><dd>' + v + '</dd></div>'; }
+            if (next) {
+                fact('Next', '<a href="#s' + next.s.number + '"><span class="d">' + dateHtml(next.p) + '</span> ' + next.s.title + '</a>', 'next');
+            }
+            if (c.when || c.where) fact('Meets', [dashes(c.when), c.where].filter(Boolean).join(' &middot; '));
+            if (c.instructor) fact('Instructor', c.instructor + (c.email ? '<br><a href="mailto:' + c.email + '">' + c.email + '</a>' : ''));
+            if (c.officeHours) fact('Office hrs', dashes(c.officeHours));
+            if (data.requirements && data.requirements.length) {
+                var dl = data.requirements.map(function (r) {
+                    return '<div class="dl-row"><span class="d">' + dueHtml(r) + '</span><span>' + r.label + '</span></div>';
+                }).join('');
+                fact('Papers', dl + '<a class="more" href="#requirements">Requirements &amp; policies &rarr;</a>');
+            }
+            if (c.syllabusUrl) fact('Syllabus', '<a href="' + c.syllabusUrl + '">PDF</a>');
+            h += '</dl></aside></section>';
+
+            // --- schedule ---
+            h += '<section id="schedule">';
+            h += '<div class="sched-head"><h2 class="sec">Schedule</h2>';
+            h += '<p class="legend">Titles link to the reading &middot; &#8599; opens an outside site</p></div>';
+            h += '<div class="sched-wrap"><table class="sched">';
+            h += '<colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>';
+            h += '<thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead><tbody>';
+
+            rows.forEach(function (x) {
+                if (x.kind === 'session') {
+                    var s = x.s, isNext = next === x;
+                    var rd = s.readings || [];
+                    var main = rd.filter(function (r) { return tagOf(r) === 'main'; });
+                    var rec = rd.filter(function (r) { return tagOf(r) === 'recommended'; });
+                    var opt = rd.filter(function (r) { return tagOf(r) === 'optional'; });
+
+                    var dateCell = dateHtml(x.p, s.date) + (isNext ? '<br><span class="chip eyebrow">Next</span>' : '');
+
+                    var topic = '<span class="num eyebrow">Session ' + s.number + '</span><span class="title">' + s.title + '</span>';
+                    if (s.handouts && s.handouts.length) {
+                        topic += '<div class="handouts">' + s.handouts.map(function (hd) {
+                            return '<a href="' + hd.url + '"' + linkAttrs(hd.url) + '>' + (hd.label || 'Handout') + '</a>';
+                        }).join('<br>') + '</div>';
                     }
-                    if (a.html) ann += `<p class="announcement-body">${a.html}</p>`;
-                    ann += '</div>';
+                    var dueLines = x.dues.map(function (r) {
+                        return '<a class="due-tag" href="#' + r.anchor + '">' + r.label + ' due</a>';
+                    }).concat((s.due || []).map(function (d) { return '<span class="due-tag">' + d + '</span>'; }));
+                    if (dueLines.length) topic += '<div class="s-due">' + dueLines.join('') + '</div>';
+                    if (s.note) topic += '<div class="s-note">' + s.note + '</div>';
+
+                    var readCell = '';
+                    if (s.readingsLabel) readCell += '<span class="group-label eyebrow">' + s.readingsLabel + '</span>';
+                    readCell += main.length ? list(main) : '<span class="none">&mdash;</span>';
+
+                    var recCell = '';
+                    if (rec.length) recCell += list(rec);
+                    if (opt.length) recCell += '<span class="group-label eyebrow">Optional</span>' + list(opt);
+
+                    h += '<tr id="s' + s.number + '"' + (isNext ? ' class="is-next"' : '') + '>';
+                    h += '<td class="date">' + dateCell + '</td>';
+                    h += '<td class="topic">' + topic + '</td>';
+                    h += '<td class="read' + (main.length ? '' : ' empty') + '"' + (s.readingsLabel ? '' : ' data-label="Reading"') + '>' + readCell + '</td>';
+                    h += '<td class="rec' + (recCell ? '' : ' empty') + '" data-label="Recommended">' + (recCell || '<span class="none">&mdash;</span>') + '</td>';
+                    h += '</tr>';
+                } else if (x.kind === 'due') {
+                    var r = x.r, len = lengthOf(r.anchor);
+                    h += '<tr class="due-row" id="due-' + r.anchor + '">';
+                    h += '<td class="date">' + dateHtml(x.p, r.due) + '</td>';
+                    h += '<td class="topic" colspan="3"><span class="due-what">' + r.label + ' due</span>';
+                    if (len) h += '<span class="due-len">' + len + '</span>';
+                    if (r.anchor) h += '<a class="due-more" href="#' + r.anchor + '">Assignment details &rarr;</a>';
+                    h += '</td></tr>';
+                } else if (x.kind === 'break') {
+                    var b = x.b;
+                    h += '<tr class="break-row">';
+                    h += '<td class="date">' + dateHtml(x.p, b.date) + '</td>';
+                    h += '<td class="topic" colspan="3"><span class="break-what">' + (b.title || 'No class') + '</span>' + (b.note ? ' &middot; ' + b.note : '') + '</td>';
+                    h += '</tr>';
+                }
+            });
+            h += '</tbody></table></div></section>';
+            document.getElementById('view-syllabus').innerHTML = h;
+        }
+
+        // ---------- policies view ----------
+        function renderPolicies() {
+            var h = '<div class="withtoc"><div class="body">';
+            var toc = [];
+
+            // requirements
+            if (data.requirements && data.requirements.length) {
+                toc.push(['requirements', 'Requirements']);
+                h += '<section id="requirements"><h2 class="sec">Requirements</h2>';
+                h += '<table class="deadlines"><thead><tr><th class="eyebrow">Due</th><th class="eyebrow">What</th><th class="eyebrow">Length</th></tr></thead><tbody>';
+                data.requirements.forEach(function (r) {
+                    h += '<tr><td class="d">' + dueHtml(r) + '</td>';
+                    h += '<td class="what">' + (r.anchor ? '<a href="#' + r.anchor + '">' + r.label + '</a>' : r.label) + '</td>';
+                    h += '<td class="len">' + (lengthOf(r.anchor) || '') + '</td></tr>';
                 });
-                ann += '</div></div></div>';
-                bar.innerHTML = ann;
-                bar.classList.add('has-items');
-            } else {
-                bar.innerHTML = '';
-                bar.classList.remove('has-items');
+                h += '</tbody></table></section>';
             }
 
-            // ============ ABOUT ============
-            html += '<div class="row">';
-            html += '<div class="col-left"><div class="section-label">ABOUT</div></div>';
-            html += '<div class="col-right"><p>';
-            html += `${c.instructor}<br>`;
-            html += `${c.listing} &bull; ${c.term} &bull; ${c.institution}<br>`;
-            const aboutLines = [];
-            if (c.when) aboutLines.push(`<strong>When:</strong> ${c.when}`);
-            if (c.where) aboutLines.push(`<strong>Where:</strong> ${c.where}`);
-            if (c.officeHours) aboutLines.push(`<strong>Office hours:</strong> ${c.officeHours}`);
-            if (c.email) aboutLines.push(`<strong>Email:</strong> <a href="mailto:${c.email}">${c.email}</a>`);
-            html += aboutLines.join('<br>');
-            html += '</p></div>';
-            html += '</div>';
-
-            html += '<hr class="styled-hr">';
-
-            // ============ SYLLABUS ============
-            html += '<div class="row">';
-            html += '<div class="col-left"><div class="section-label">SYLLABUS</div></div>';
-            html += '<div class="col-right">';
-            if (c.syllabusUrl) {
-                html += `<p><a href="${c.syllabusUrl}">Syllabus</a></p>`;
-            }
-            html += `<p${c.syllabusUrl ? ' style="margin-top: 20px;"' : ''}><strong>Course description:</strong> ${c.description}</p>`;
-            html += '</div>';
-            html += '</div>';
-
-            // ============ REQUIREMENTS (dated list; links to descriptions below) ============
-            if (data.requirements && data.requirements.length > 0) {
-                html += '<hr class="styled-hr">';
-                html += '<div class="row">';
-                html += '<div class="col-left"><div class="section-label">REQUIREMENTS</div></div>';
-                html += '<div class="col-right">';
-                html += '<ul class="req-list">';
-                data.requirements.forEach(r => {
-                    const label = r.anchor ? `<a href="#${r.anchor}">${r.label}</a>` : r.label;
-                    html += `<li><span class="req-due">${r.due || ''}</span><span>${label}</span></li>`;
+            // writing assignments
+            var asg = data.assignments;
+            if (asg && asg.items && asg.items.length) {
+                toc.push(['writing-assignments', 'Writing assignments']);
+                h += '<section id="writing-assignments"><h2 class="sec">Writing assignments</h2>';
+                if (asg.note) h += '<div class="note-box">' + asg.note + '</div>';
+                asg.items.forEach(function (a) {
+                    toc.push([a.id, a.title, 'sub']);
+                    h += '<article class="asg"' + (a.id ? ' id="' + a.id + '"' : '') + '>';
+                    h += '<div class="asg-head"><h3>' + a.title + '</h3>' + (a.due ? '<span class="asg-due">' + a.due + '</span>' : '') + '</div>';
+                    h += '<dl class="fields">';
+                    (a.fields || []).forEach(function (f) {
+                        var text = f[1] ? f[1].charAt(0).toUpperCase() + f[1].slice(1) : '';
+                        h += f[0] ? '<dt>' + f[0] + '</dt><dd>' + text + '</dd>' : '<dd class="span">' + text + '</dd>';
+                    });
+                    h += '</dl></article>';
                 });
-                html += '</ul>';
-                const links = [];
-                if (data.assignments) links.push('<a href="#writing-assignments">writing assignments</a>');
-                if (data.policies && data.policies.length > 0) links.push('<a href="#policies">course policies</a>');
-                if (links.length) {
-                    html += `<p class="req-footnote">See ${links.join(' and ')} below the schedule.</p>`;
-                }
-                html += '</div>';
-                html += '</div>';
+                h += '</section>';
             }
 
-            // ============ SESSIONS ============
-            data.sessions.forEach(session => {
-                html += '<hr class="styled-hr">';
-                html += '<div class="row">';
-                html += '<div class="col-left">';
-                html += `<div class="session-title">${session.number}. ${session.title}</div>`;
-                if (session.date) {
-                    html += `<div class="session-date">${session.date}</div>`;
-                }
-                html += '</div>';
-                html += '<div class="col-right">';
-                if (session.handouts && session.handouts.length > 0) {
-                    html += '<div class="handout">';
-                    html += session.handouts
-                        .map(h => `<a href="${h.url}">${h.label || 'Handout'}</a>`)
-                        .join('<br>');
-                    html += '</div>';
-                }
-                if (session.readings && session.readings.length > 0) {
-                    html += renderReadingGroup(session.readings, 'main', session.readingsLabel || 'Reading');
-                    html += renderReadingGroup(session.readings, 'recommended', 'Recommended');
-                    html += renderReadingGroup(session.readings, 'optional', 'Optional');
-                }
-                if (session.due && session.due.length > 0) {
-                    html += '<div class="session-due">';
-                    html += session.due.map(d => `<div>${d}</div>`).join('');
-                    html += '</div>';
-                }
-                if (session.note) {
-                    html += `<div class="session-note">Note: ${session.note}</div>`;
-                }
-                html += '</div>';
-                html += '</div>';
+            // policies
+            if (data.policies && data.policies.length) {
+                toc.push(['course-policies', 'Policies']);
+                h += '<section id="course-policies"><h2 class="sec">Policies</h2><dl class="policies">';
+                data.policies.forEach(function (p) {
+                    h += '<dt>' + p.label + '</dt><dd>' + p.html + '</dd>';
+                });
+                h += '</dl></section>';
+            }
+            h += '</div>';
+            h += '<nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ul>' + toc.map(function (t) {
+                return '<li' + (t[2] ? ' class="' + t[2] + '"' : '') + '><a href="#' + t[0] + '">' + t[1] + '</a></li>';
+            }).join('') + '</ul></nav></div>';
+            document.getElementById('view-policies').innerHTML = h;
+        }
+
+        // ---------- resources view ----------
+        function renderResources() {
+            var h = '<div class="withtoc"><div class="body">';
+            var toc = [];
+            (data.resources || []).forEach(function (g, i) {
+                var id = 'res-' + (g.heading || i).toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                toc.push([id, g.heading]);
+                h += '<section id="' + id + '"><h2 class="sec">' + g.heading + '</h2><ul class="res">';
+                (g.items || []).forEach(function (it) {
+                    var t = it.url ? '<a href="' + it.url + '"' + (isOutside(it.url) ? ' class="out"' : '') + linkAttrs(it.url) + '>' + it.title + '</a>' : it.title;
+                    h += '<li><div class="r-title">' + t + '</div>' + (it.note ? '<div class="r-note">' + it.note + '</div>' : '') + '</li>';
+                });
+                h += '</ul></section>';
             });
 
-            // ============ WRITING ASSIGNMENTS ============
-            const asg = data.assignments;
-            if (asg && asg.items && asg.items.length > 0) {
-                html += '<hr class="styled-hr">';
-                html += '<div class="row" id="writing-assignments">';
-                html += '<div class="col-left"><div class="section-label">WRITING ASSIGNMENTS</div></div>';
-                html += '<div class="col-right">';
-                if (asg.note) html += `<p class="assignments-note">${asg.note}</p>`;
-                asg.items.forEach(a => {
-                    html += `<div class="assignment"${a.id ? ` id="${a.id}"` : ''}>`;
-                    html += '<div class="assignment-head">';
-                    html += `<span class="assignment-title">${a.title}</span>`;
-                    if (a.due) html += `<span class="assignment-due">${a.due}</span>`;
-                    html += '</div>';
-                    (a.fields || []).forEach(([label, text]) => {
-                        html += label
-                            ? `<p class="assignment-field"><strong>${label}:</strong> ${text}</p>`
-                            : `<p class="assignment-field">${text}</p>`;
-                    });
-                    html += '</div>';
+            // every reading on the schedule, by author
+            var all = [];
+            data.sessions.forEach(function (s) {
+                (s.readings || []).forEach(function (r) { all.push({ r: r, s: s }); });
+            });
+            if (all.length) {
+                all.sort(function (a, b) {
+                    var ka = stripTags(a.r.author || a.r.html).toLowerCase(), kb = stripTags(b.r.author || b.r.html).toLowerCase();
+                    if (ka !== kb) return ka.localeCompare(kb);
+                    return String(a.r.year).localeCompare(String(b.r.year)) || a.s.number - b.s.number;
                 });
-                html += '</div>';
-                html += '</div>';
-            }
-
-            // ============ POLICIES ============
-            if (data.policies && data.policies.length > 0) {
-                html += '<hr class="styled-hr">';
-                html += '<div class="row" id="policies">';
-                html += '<div class="col-left"><div class="section-label">POLICIES</div></div>';
-                html += '<div class="col-right">';
-                data.policies.forEach(p => {
-                    html += `<div class="policy"><span class="policy-label">${p.label}.</span> ${p.html}</div>`;
+                toc.push(['all-readings', 'All readings']);
+                h += '<section id="all-readings"><h2 class="sec">All readings</h2>';
+                h += '<p class="lede-p">Everything on the schedule in one list, by author.</p><ul class="index">';
+                var kinds = { recommended: 'Recommended', optional: 'Optional' };
+                all.forEach(function (x) {
+                    var p = parseMD(x.s.date), k = kinds[tagOf(x.r)];
+                    h += '<li><div>' + citation(x.r) + '</div>';
+                    h += '<div class="where"><a href="#s' + x.s.number + '">Session ' + x.s.number + (p ? ' &middot; ' + p.md : '') + '</a>' + (k ? '<span class="kind eyebrow">' + k + '</span>' : '') + '</div></li>';
                 });
-                html += '</div>';
-                html += '</div>';
+                h += '</ul></section>';
             }
+            h += '</div>';
+            h += '<nav class="toc" aria-label="On this page"><div class="eyebrow">On this page</div><ul>' + toc.map(function (t) {
+                return '<li><a href="#' + t[0] + '">' + t[1] + '</a></li>';
+            }).join('') + '</ul></nav></div>';
+            document.getElementById('view-resources').innerHTML = h;
+        }
 
-            document.getElementById('course-container').innerHTML = html;
-
-            // Anchor links (e.g. #short-paper) point at content rendered after load
-            if (location.hash) {
-                const target = document.getElementById(location.hash.slice(1));
-                if (target) target.scrollIntoView();
+        // ---------- views (#syllabus, #policies, #resources; any other #id opens the view that holds it) ----------
+        function show(view) {
+            document.querySelectorAll('.view').forEach(function (v) { v.hidden = v.dataset.view !== view; });
+            document.querySelectorAll('[data-nav]').forEach(function (a) {
+                if (a.dataset.nav === view) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+            });
+            var sub = view !== 'syllabus';
+            document.body.classList.toggle('sub', sub);
+            var ann = document.getElementById('announcements');
+            ann.hidden = sub || !ann.innerHTML;
+            document.getElementById('banner-title').innerHTML = sub ? VIEW_TITLES[view] : 'Cognition &amp; Computation';
+            document.getElementById('banner-eyebrow').innerHTML = sub
+                ? 'Cognition &amp; Computation &middot; Phil 286'
+                : 'Phil 286 &middot; ' + ((data && data.course.term) || 'Fall 2026') + ' &middot; UCLA';
+            document.title = (sub ? VIEW_TITLES[view] + ' · ' : '') + 'Cognition & Computation · Phil 286 · ' + ((data && data.course.term) || 'Fall 2026');
+        }
+        function route() {
+            var h = decodeURIComponent(location.hash.replace(/^#/, ''));
+            var view = 'syllabus', target = null;
+            if (VIEWS.indexOf(h) >= 0) {
+                view = h;
+            } else if (h) {
+                target = document.getElementById(h);
+                var holder = target && target.closest('[data-view]');
+                if (holder) view = holder.dataset.view; else target = null;
+            }
+            var changed = view !== currentView;
+            show(view);
+            currentView = view;
+            if (target) {
+                requestAnimationFrame(function () { target.scrollIntoView({ block: 'start' }); });
+            } else if (changed || VIEWS.indexOf(h) >= 0) {
+                window.scrollTo(0, 0);
             }
         }
+
+        // ---------- go ----------
+        show('syllabus');
+        fetch('cognition-computation-2026.json', { cache: 'no-cache' })
+            .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+            .then(function (d) {
+                data = d;
+                var m = /(\d{4})/.exec(d.course.term || '');
+                year = m ? +m[1] : new Date().getFullYear();
+                renderAnnouncements();
+                renderSyllabus();
+                renderPolicies();
+                renderResources();
+                currentView = null;
+                route();
+                window.addEventListener('hashchange', route);
+            })
+            .catch(function (err) {
+                console.error('Error loading course data:', err);
+                document.getElementById('view-syllabus').innerHTML = '<p>Error loading course data.</p>';
+            });
+    })();
     </script>
 </body>
 </html>
