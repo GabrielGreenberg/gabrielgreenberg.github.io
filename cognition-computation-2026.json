@@ -7,6 +7,8 @@
     "institution": "UCLA",
     "when": "Thu 2:00-4:50",
     "where": "Dodd 321",
+    "officeHours": "Wed 2:00-3:00, Dodd 351",
+    "email": "gabriel.greenberg@gmail.com",
     "syllabusUrl": "",
     "description": "This seminar introduces students to the philosophical foundations of cognitive science. Our focus will be the core hypothesis that cognition is rooted in computations carried out in the brain. We will approach these issues through the lens of classic theoretical texts from the last 75 years, including works by Craik, Turing, Chomsky, Marr, Fodor, and others. This literature will be interleaved with contemporary real-world cases from cognitive science (face recognition, spatial maps in the hippocampus, and semantic priming) and from computer science (finite-state machines, neural networks, and transformer architectures). The last three weeks of the course will focus on understanding contemporary AI models, and comparing them to human cognition."
   },
@@ -19,6 +21,28 @@
       "date": "9/15",
       "title": "Cross-enrolling with Phil 133.",
       "html": "I will be concurrently teaching Philosophy 133 (Computational Theory of Mind), which covers much of the formal background in the theory of computation. Graduate students are more than welcome to attend and enroll (or audit). The two courses will be highly complementary. Course website: <a href=\"https://www.makingminds.org/\">makingminds.org</a>"
+    }
+  ],
+  "requirements": [
+    {
+      "label": "Short paper",
+      "due": "Sun 11/8",
+      "anchor": "short-paper"
+    },
+    {
+      "label": "Long paper outline",
+      "due": "Thu 12/3",
+      "anchor": "outline"
+    },
+    {
+      "label": "Long paper meeting",
+      "due": "Before 12/11",
+      "anchor": "meeting"
+    },
+    {
+      "label": "Long paper",
+      "due": "Fri 12/11",
+      "anchor": "long-paper"
     }
   ],
   "sessions": [
@@ -233,6 +257,9 @@
           "url": "docs/cc2026/bowers-2022-deep-problems.pdf",
           "tag": "optional"
         }
+      ],
+      "due": [
+        "Short paper due Sun 11/8"
       ]
     },
     {
@@ -311,7 +338,8 @@
           "url": "docs/cc2026/vaswani-2017-attention-is-all-you-need.pdf",
           "tag": "optional"
         }
-      ]
+      ],
+      "note": "No class 11/26 (Thanksgiving)."
     },
     {
       "number": 10,
@@ -386,7 +414,130 @@
           "url": "https://distill.pub/2020/circuits/zoom-in/",
           "tag": "optional"
         }
+      ],
+      "due": [
+        "Long paper outline due Thu 12/3",
+        "Long paper due Fri 12/11"
       ]
+    }
+  ],
+  "assignments": {
+    "note": "Always include: title, date, name, bibliography, and page numbering. Always submit papers as PDFs, by email to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>.",
+    "items": [
+      {
+        "id": "short-paper",
+        "title": "Short paper",
+        "due": "Due Sun 11/8",
+        "fields": [
+          [
+            "Length",
+            "~5 pages"
+          ],
+          [
+            "Primary goal",
+            "exposition and strengthening comprehension."
+          ],
+          [
+            "Topic",
+            "pick one article we&rsquo;ve read, and isolate one key idea or argument from that article to discuss."
+          ],
+          [
+            "Structure",
+            "(1) Present and explain the idea or argument; (2) identify some weakness or challenge for that view; (3) briefly, indicate some way out of the problem."
+          ],
+          [
+            "Note",
+            "the challenge in (2) could be a counterexample, a lacuna, a missed opportunity, etc."
+          ]
+        ]
+      },
+      {
+        "id": "outline",
+        "title": "Long paper outline",
+        "due": "Due Thu 12/3",
+        "fields": [
+          [
+            "Length",
+            "1&ndash;2 pages"
+          ],
+          [
+            "Contents",
+            "a working title; your thesis, in a sentence or two; a section-by-section plan; and the main readings you will engage with."
+          ]
+        ]
+      },
+      {
+        "id": "meeting",
+        "title": "Long paper meeting",
+        "due": "Before 12/11",
+        "fields": [
+          [
+            "",
+            "Once you&rsquo;ve sent your outline, schedule a meeting with me (office hours or Zoom) to talk it through. Earlier is better."
+          ]
+        ]
+      },
+      {
+        "id": "long-paper",
+        "title": "Long paper",
+        "due": "Due Fri 12/11",
+        "fields": [
+          [
+            "Length",
+            "~12&ndash;15 pages"
+          ],
+          [
+            "Primary goal",
+            "develop a long-form philosophical thesis."
+          ],
+          [
+            "Topic",
+            "pick a topic of your choice from the reading, or from areas that are (more or less) related to the course."
+          ],
+          [
+            "Structure",
+            "your choice. Be sure to have a clear thesis, consider possible objections to your claim, and include multiple detailed examples to illustrate. Prioritize depth over breadth."
+          ],
+          [
+            "Notes",
+            "include at least two diagrams or figures, with captions, inserted inline (not as an appendix). The long paper may build upon the short paper."
+          ]
+        ]
+      }
+    ]
+  },
+  "policies": [
+    {
+      "label": "Reading",
+      "html": "Do the main reading before each session. Recommended and optional readings are for going deeper, and are a good place to start looking for paper topics."
+    },
+    {
+      "label": "Attendance and participation",
+      "html": "Come every week having done the reading, ready to discuss. If you have to miss a session, let me know in advance."
+    },
+    {
+      "label": "Submitting papers",
+      "html": "Email a PDF to <a href=\"mailto:gabriel.greenberg@gmail.com\">gabriel.greenberg@gmail.com</a>, with your name in the file name (e.g., <i>Lastname &ndash; Short paper.pdf</i>)."
+    },
+    {
+      "label": "Extensions",
+      "html": "Ask by email before the deadline; short extensions are normally fine. Final grades are due 12/21, so long papers can&rsquo;t come in after Tue 12/15 unless we&rsquo;ve arranged an Incomplete."
+    },
+    {
+      "label": "AI tools",
+      "html": "Fine as a tutor: to explain background (e.g., how a transformer works), to work through examples, or to find literature (check every reference yourself). Not fine for writing: drafting or rewriting your prose, or generating the arguments and objections in your papers. Language models are also a subject of this course, so if you probe a model as part of a paper, that&rsquo;s welcome &mdash; just say what you did."
+    },
+    {
+      "label": "Auditors",
+      "html": "Auditors are welcome. Please do the reading and come regularly; no written work is required."
+    },
+    {
+      "label": "Accommodations",
+      "html": "If you need academic accommodations, contact the <a href=\"https://cae.ucla.edu/\">Center for Accessible Education</a> as early in the quarter as you can, and let me know."
+    },
+    {
+      "label": "Academic integrity",
+      "html": "Your papers must be your own work, with every source cited. UCLA&rsquo;s <a href=\"https://studentconduct.ucla.edu/\">Student Conduct Code</a> applies."
     }
   ]
 }
