@@ -58,7 +58,12 @@
       "number": 1,
       "title": "Mental Computation",
       "date": "9/24",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w1-mental-computation-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Craik",
