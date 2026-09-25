@@ -95,6 +95,15 @@
           "title": "Syntactic Structures",
           "detail": ", excerpts",
           "url": "docs/cc2026/chomsky-1957-syntactic-structures-selections.pdf"
+        },
+        {
+          "author": "Fitch and Friederici",
+          "year": "2012",
+          "title": "Artificial Grammar Learning Meets Formal Language Theory: An Overview",
+          "style": "quotes",
+          "detail": ", <i>Philosophical Transactions of the Royal Society B</i> 367: 1933&ndash;1955",
+          "url": "docs/cc2026/fitch-friederici-2012-artificial-grammar-learning.pdf",
+          "tag": "recommended"
         }
       ]
     },
