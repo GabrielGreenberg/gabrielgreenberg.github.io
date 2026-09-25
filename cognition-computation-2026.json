@@ -93,16 +93,8 @@
           "author": "Chomsky",
           "year": "1957",
           "title": "Syntactic Structures",
-          "detail": ", Chs. 3&ndash;5",
+          "detail": ", excerpts",
           "url": "docs/cc2026/chomsky-1957-syntactic-structures-selections.pdf"
-        },
-        {
-          "author": "Chomsky",
-          "year": "1957",
-          "title": "Syntactic Structures",
-          "detail": ", Chs. 1&ndash;2 and 6",
-          "url": "docs/cc2026/chomsky-1957-syntactic-structures-chs-1-2-6.pdf",
-          "tag": "recommended"
         }
       ]
     },
@@ -585,7 +577,7 @@
         {
           "title": "Chomsky (1957), <i>Syntactic Structures</i>",
           "url": "docs/cc2026/chomsky-1957-syntactic-structures-book.pdf",
-          "note": "The whole book (PDF; 2nd ed., 2002, with David Lightfoot's introduction). Selections are assigned in session 2."
+          "note": "The whole book (PDF; 2nd ed., 2002, with David Lightfoot's introduction). Excerpts are assigned in session 2."
         },
         {
           "title": "Prince (2023), <i>Understanding Deep Learning</i>",
