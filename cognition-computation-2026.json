@@ -583,6 +583,11 @@
       "heading": "Reference",
       "items": [
         {
+          "title": "Chomsky (1957), <i>Syntactic Structures</i>",
+          "url": "docs/cc2026/chomsky-1957-syntactic-structures-book.pdf",
+          "note": "The whole book (PDF; 2nd ed., 2002, with David Lightfoot's introduction). Selections are assigned in session 2."
+        },
+        {
           "title": "Prince (2023), <i>Understanding Deep Learning</i>",
           "url": "docs/cc2026/prince-understanding-deep-learning.pdf",
           "note": "The whole book (PDF). Chapters are assigned in sessions 7 and 9."
