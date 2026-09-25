@@ -5,7 +5,7 @@
     "listing": "PHIL 286: Philosophy of Psychology",
     "term": "Fall 2026",
     "institution": "UCLA",
-    "when": "Thu 2:00-4:50",
+    "when": "Thu 2:30-5:30",
     "where": "Dodd 321",
     "officeHours": "Wed 2:00-3:00, Dodd 351",
     "email": "gabriel.greenberg@gmail.com",
@@ -13,14 +13,6 @@
     "description": "This seminar introduces students to the philosophical foundations of cognitive science. Our focus will be the core hypothesis that cognition is rooted in computations carried out in the brain. We will approach these issues through the lens of classic theoretical texts from the last 75 years, including works by Craik, Turing, Chomsky, Marr, Fodor, and others. This literature will be interleaved with contemporary real-world cases from cognitive science (face recognition, spatial maps in the hippocampus, and semantic priming) and from computer science (finite-state machines, neural networks, and transformer architectures). The last three weeks of the course will focus on understanding contemporary AI models, and comparing them to human cognition."
   },
   "announcements": [
-    {
-      "date": "9/23",
-      "title": "Thursday 9/24: we will be starting at 2:15 (not 2:00)."
-    },
-    {
-      "date": "9/15",
-      "title": "Please note there is reading for the first day."
-    },
     {
       "date": "9/15",
       "title": "Cross-enrolling with Phil 133.",
