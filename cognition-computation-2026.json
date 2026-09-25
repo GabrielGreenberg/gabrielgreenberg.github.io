@@ -127,6 +127,32 @@
           "style": "quotes",
           "detail": ", <i>Artificial Intelligence</i> 18, excerpts",
           "url": "docs/cc2026/newell-1982-knowledge-level-excerpts.pdf"
+        },
+        {
+          "author": "Marr",
+          "year": "1982",
+          "title": "Vision",
+          "detail": ", Ch. 7: &ldquo;In Defense of the Approach&rdquo;",
+          "url": "docs/cc2026/marr-1982-vision-ch7.pdf",
+          "tag": "recommended"
+        },
+        {
+          "author": "Newell",
+          "year": "1982",
+          "title": "The Knowledge Level",
+          "style": "quotes",
+          "detail": ", <i>Artificial Intelligence</i> 18: 87&ndash;127 (full paper)",
+          "url": "docs/cc2026/newell-1982-knowledge-level.pdf",
+          "tag": "recommended"
+        },
+        {
+          "author": "Cooper and Peebles",
+          "year": "2026",
+          "title": "Levels of Analysis",
+          "style": "quotes",
+          "detail": ", <i>Open Encyclopedia of Cognitive Science</i>",
+          "url": "https://oecs.mit.edu/pub/ztivn7hx/",
+          "tag": "recommended"
         }
       ]
     },
