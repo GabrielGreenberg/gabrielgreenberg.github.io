@@ -117,8 +117,16 @@
           "author": "Marr",
           "year": "1982",
           "title": "Vision",
-          "detail": ", Ch. 1: &ldquo;The Philosophy and the Approach&rdquo;",
+          "detail": ", excerpts",
           "url": "docs/cc2026/marr-1982-vision-ch1.pdf"
+        },
+        {
+          "author": "Newell",
+          "year": "1982",
+          "title": "The Knowledge Level",
+          "style": "quotes",
+          "detail": ", <i>Artificial Intelligence</i> 18, excerpts",
+          "url": "docs/cc2026/newell-1982-knowledge-level-excerpts.pdf"
         }
       ]
     },
@@ -587,6 +595,11 @@
           "title": "Chomsky (1957), <i>Syntactic Structures</i>",
           "url": "docs/cc2026/chomsky-1957-syntactic-structures-book.pdf",
           "note": "The whole book (PDF; 2nd ed., 2002, with David Lightfoot's introduction). Excerpts are assigned in session 2."
+        },
+        {
+          "title": "Marr (1982), <i>Vision</i>",
+          "url": "docs/cc2026/marr-1982-vision-book.pdf",
+          "note": "The whole book (PDF; MIT Press 2010 reissue). Excerpts from Ch. 1 are assigned in session 3."
         },
         {
           "title": "Prince (2023), <i>Understanding Deep Learning</i>",
