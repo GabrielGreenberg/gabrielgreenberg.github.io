@@ -592,6 +592,15 @@
         // ---------- helpers ----------
         function isOutside(url) { return /^https?:/i.test(url || ''); }
         function linkAttrs(url) { return isOutside(url) ? ' target="_blank" rel="noopener"' : ''; }
+        // A reading hosted here opens in the Reader (cognition-computation-2026-reader.html), keyed by its PDF's
+        // file name as the Reader keys it (#marr-1982-vision-ch1), plus /p<n> when the part starts inside the PDF.
+        var READER = 'cognition-computation-2026-reader.html';
+        function readingHref(r) {
+            var u = r && r.url;
+            if (!u || isOutside(u) || !/\.pdf$/i.test(u)) return u;
+            var key = r.id || u.split('/').pop().replace(/\.pdf$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return READER + '#' + key + (r.page ? '/p' + r.page : '');
+        }
         function stripTags(s) { var d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; }
         function dashes(s) { return String(s || '').replace(/(\d)-(\d)/g, '$1&ndash;$2'); }
 
@@ -634,7 +643,7 @@
             var title = r.title || '';
             if (title) title = r.style === 'quotes' ? '&ldquo;' + title + '&rdquo;' : '<i>' + title + '</i>';
             if (r.url && title) {
-                title = '<a href="' + r.url + '"' + (isOutside(r.url) ? ' class="out"' : '') + linkAttrs(r.url) + '>' + title + '</a>';
+                title = '<a href="' + readingHref(r) + '"' + (isOutside(r.url) ? ' class="out"' : '') + linkAttrs(r.url) + '>' + title + '</a>';
             }
             var out = '';
             if (r.author) out += '<span class="au">' + r.author + '</span>';
@@ -740,7 +749,7 @@
             // --- schedule ---
             h += '<section id="schedule">';
             h += '<div class="sched-head"><h2 class="sec">Schedule</h2>';
-            h += '<p class="legend">Titles link to the reading &middot; &#8599; opens an outside site</p></div>';
+            h += '<p class="legend">Titles open the reading in the <a href="' + READER + '">Reader</a> &middot; &#8599; opens an outside site</p></div>';
             h += '<div class="sched-wrap"><table class="sched">';
             h += '<colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>';
             h += '<thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead><tbody>';
@@ -863,7 +872,7 @@
                 toc.push([id, g.heading]);
                 h += '<section id="' + id + '"><h2 class="sec">' + g.heading + '</h2><ul class="res">';
                 (g.items || []).forEach(function (it) {
-                    var t = it.url ? '<a href="' + it.url + '"' + (isOutside(it.url) ? ' class="out"' : '') + linkAttrs(it.url) + '>' + it.title + '</a>' : it.title;
+                    var t = it.url ? '<a href="' + readingHref(it) + '"' + (isOutside(it.url) ? ' class="out"' : '') + linkAttrs(it.url) + '>' + it.title + '</a>' : it.title;
                     h += '<li><div class="r-title">' + t + '</div>' + (it.note ? '<div class="r-note">' + it.note + '</div>' : '') + '</li>';
                 });
                 h += '</ul></section>';
