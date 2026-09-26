@@ -1,0 +1,1 @@
+pdfjs-dist 4.10.38 — legacy/build/pdf.min.mjs + legacy/build/pdf.worker.min.mjs (Apache-2.0), renamed .js so any server sends a JavaScript MIME type. Same files as the Phil 133 site (makingminds.org/book/pdfjs/). Used by cognition-computation-2026-reader.html.

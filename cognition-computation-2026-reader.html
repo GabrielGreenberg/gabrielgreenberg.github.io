@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader · Cognition &amp; Computation · Phil 286</title>
+    <meta name="description" content="The readings for PHIL 286 (Cognition and Computation, UCLA, Fall 2026) in one place, readable in the page, with the full books and articles that the assigned excerpts come from.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Cognition & Computation (Phil 286) · Reader.
+           Modelled on the Phil 133 Reader (makingminds.org/reader/). Everything comes from cognition-computation-2026.json:
+           the sessions' readings, grouped into one entry per PDF (or per outside link), and the full texts that excerpts
+           are taken from (a reading's `full`, plus the local PDFs under resources → Reference). PDFs are drawn in the
+           page with pdf.js (docs/pdfjs/). Hash forms: #<key> and #<key>/p12 (PDF page 12). */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --accent: #B34512;
+            --accent-2: #93370C;
+            --accent-bright: #F2712B;
+            --accent-soft: #FDF1E9;
+            --accent-line: #F5D3BE;
+            --date: #24678D;
+            --link: #1382D6;
+            --black: #111111;
+            --page-max: 1120px;
+            --side-w: 300px;
+            --bar-h: 42px;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--surface-2);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [hidden] { display: none !important; }
+        .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 10.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .num { font-variant-numeric: tabular-nums; }
+
+        /* ============ TOP BAR (same as the course page) ============ */
+        .topbar { flex: none; position: relative; z-index: 31; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            max-width: var(--page-max);
+            margin-inline: auto;
+            padding-inline: clamp(16px, 4vw, 40px);
+            min-height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+            text-decoration: none;
+        }
+        .topbar nav a:hover { color: var(--ink); }
+        .topbar nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent-bright); }
+        .band { flex: none; height: 6px; background: var(--black); }
+
+        /* ============ READER BAR ============ */
+        .rb-top {
+            flex: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            height: var(--bar-h);
+            padding: 0 16px 0 18px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            z-index: 30;
+        }
+        .rb-menu { display: none; flex: none; width: 34px; height: 34px; margin-left: -8px; padding: 9px 7px; border: 0; background: none; cursor: pointer; flex-direction: column; justify-content: space-between; }
+        .rb-menu span { display: block; height: 2px; background: var(--ink-2); border-radius: 1px; }
+        .crumb { flex: 1 1 auto; min-width: 0; font-size: 13.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .crumb a { color: var(--ink-2); }
+        .crumb a:hover { color: var(--accent); text-decoration: none; }
+        .crumb .sess { color: var(--date); font-weight: 600; }
+        .crumb .sep { color: var(--ink-4); margin: 0 7px; }
+        .crumb .cur { color: var(--ink); font-weight: 600; }
+        .crumb .ttl { color: var(--ink-3); }
+        .rb-tools { flex: none; display: flex; align-items: center; gap: 12px; font-size: 13px; }
+        .pageno { color: var(--ink-3); font-size: 12.5px; white-space: nowrap; }
+        .goto { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-3); font-size: 12.5px; }
+        .goto input {
+            width: 58px;
+            font: inherit;
+            font-size: 12.5px;
+            color: var(--ink);
+            padding: 3px 6px;
+            border: 1px solid var(--line-2);
+            border-radius: 4px;
+            background: var(--surface);
+        }
+        .goto input:focus { outline: 2px solid var(--accent-line); border-color: var(--accent-bright); }
+        .zoom select { font: inherit; font-size: 12.5px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line-2); border-radius: 4px; padding: 3px 4px; }
+        .filelink a { font-size: 12.5px; color: var(--ink-2); padding: 3px 9px; border: 1px solid var(--line-2); border-radius: 4px; white-space: nowrap; }
+        .filelink a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+        /* ============ BODY: SIDEBAR + MAIN ============ */
+        .rb-body { flex: 1 1 auto; min-height: 0; display: flex; position: relative; }
+        .side { flex: none; width: var(--side-w); background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; }
+        .main { flex: 1 1 auto; min-width: 0; overflow: auto; overscroll-behavior: contain; position: relative; outline: none; }
+        .backdrop { display: none; }
+
+        /* sidebar: tabs, then the sort toggle */
+        .tabs { display: flex; gap: 20px; padding: 12px 16px 0; background: var(--surface); }
+        .tab {
+            font: inherit;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ink-3);
+            background: none;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            padding: 2px 0 7px;
+            cursor: pointer;
+        }
+        .tab:hover { color: var(--ink); }
+        .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent-bright); }
+        .tab .n { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--ink-3); margin-left: 3px; font-size: 12px; }
+        .sort { position: sticky; top: 0; z-index: 2; background: var(--surface); padding: 10px 16px; border-bottom: 1px solid var(--line); display: flex; }
+        .sortbtn { flex: 1 1 0; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink-3); background: var(--bg); border: 1px solid var(--line-2); padding: 5px 6px; cursor: pointer; }
+        .sortbtn:first-child { border-radius: 5px 0 0 5px; }
+        .sortbtn:last-child { border-radius: 0 5px 5px 0; margin-left: -1px; }
+        .sortbtn:hover { color: var(--ink); }
+        .sortbtn[aria-checked="true"] { background: var(--accent-soft); border-color: var(--accent-line); color: var(--ink); position: relative; z-index: 1; }
+        .fullhead { padding: 12px 16px 10px; border-bottom: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3); line-height: 1.45; }
+
+        /* sidebar: the list */
+        .list { padding-bottom: 14px; }
+        .list ol { list-style: none; margin: 0; padding: 0; }
+        .sess { padding: 8px 0 6px; }
+        .sess + .sess { border-top: 1px solid var(--line); }
+        .sh { display: block; padding: 4px 16px 3px 30px; position: relative; color: var(--ink); text-decoration: none; }
+        .sh:hover { text-decoration: none; }
+        .sh::before { content: ""; position: absolute; left: 16px; top: 8px; width: 3px; height: 14px; background: var(--line-2); border-radius: 1px; }
+        .sess.next .sh::before { background: var(--accent-bright); }
+        .sh .d { display: block; font-size: 11.5px; color: var(--date); font-weight: 600; }
+        .sh .d .k { color: var(--ink-3); font-weight: 400; }
+        .sh .chip { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 3px; background: var(--accent-bright); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; vertical-align: 1px; line-height: 15px; }
+        .sh .t { display: block; font-size: 13px; font-weight: 700; line-height: 1.3; }
+        .none { padding: 2px 16px 6px 30px; font-size: 12px; color: var(--ink-3); font-style: italic; }
+        .row { position: relative; }
+        .row > a.go { display: block; padding: 5px 50px 6px 30px; color: var(--ink-2); text-decoration: none; line-height: 1.35; }
+        .row > a.go:hover { color: var(--ink); background: var(--bg); }
+        .row.cur > a.go { color: var(--ink); background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent-bright); }
+        .row .l1 { display: block; font-size: 13.5px; }
+        .row .au { color: var(--ink); font-weight: 600; }
+        .row .yr { color: var(--ink-3); }
+        .row .l2 { display: block; font-size: 12px; color: var(--ink-3); margin-top: 1px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .row .l2 i { font-style: italic; }
+        .row.rec > a.go .au { color: var(--ink-2); font-weight: 600; }
+        .row .av { position: absolute; right: 16px; top: 7px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.6; padding: 0 5px; border-radius: 3px; pointer-events: none; }
+        .row .av.pdf { background: var(--accent-soft); color: var(--accent); }
+        .row .av.ext { color: var(--ink-3); font-size: 12px; padding: 0 3px; font-weight: 400; }
+        .row .av.no { color: var(--ink-4); font-weight: 400; }
+        .row .fl { display: inline-block; margin: -3px 0 5px 30px; font-size: 11.5px; font-weight: 600; color: var(--accent); }
+        .row .fl:hover { color: var(--accent-2); }
+        .row .fl .x { font-weight: 400; color: var(--ink-3); }
+        /* recommended and optional: a quiet fold per session */
+        .recbox { padding: 1px 0 2px 30px; }
+        .rectog { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; color: var(--ink-3); background: none; border: 0; padding: 3px 0; cursor: pointer; }
+        .rectog::before { content: ""; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 5px solid currentColor; opacity: .8; transition: transform .15s; }
+        .recbox.open .rectog::before { transform: rotate(90deg); }
+        .rectog:hover { color: var(--accent); }
+        .reclist { display: none; margin: 1px 0 2px -30px !important; }
+        .recbox.open .reclist { display: block; }
+        .reclist .row > a.go { padding-left: 42px; }
+        .reclist .row .fl { margin-left: 42px; }
+        .reclist .row .l1 { font-size: 13px; }
+        .reclist .optl { padding: 6px 16px 2px 42px; color: var(--ink-3); font-size: 9.5px; }
+        /* A–Z */
+        .az { padding-top: 4px; }
+        .letter { padding: 12px 16px 3px 30px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink-3); border-top: 1px solid var(--line); margin-top: 6px; }
+        .letter:first-child { border-top: 0; margin-top: 0; }
+        .whens { display: inline-block; margin-left: 5px; vertical-align: 1px; }
+        .when { display: inline-block; font-size: 10.5px; font-weight: 600; color: var(--date); margin-right: 5px; font-variant-numeric: tabular-nums; }
+        .when.rec { color: var(--ink-3); font-weight: 400; }
+        .sidefoot { margin-top: auto; padding: 12px 18px 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-2); display: grid; gap: 5px; }
+        .sidefoot a { color: var(--ink-2); }
+        .sidefoot a:hover { color: var(--accent); text-decoration: none; }
+        .sidefoot .hint { color: var(--ink-3); }
+
+        /* ============ MAIN: LANDING ============ */
+        .landing { max-width: 740px; margin: 0 auto; padding: 38px 24px 60px; }
+        .landing h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.2; margin: 0; }
+        .landing .lede { font-size: 15.5px; color: var(--ink-2); margin: 12px 0 0; line-height: 1.65; }
+        .cont { margin: 20px 0 0; }
+        .cont a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 15px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--ink); border: 1px solid var(--accent-line); background: var(--accent-soft); }
+        .cont a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+        .cont a .sub { font-weight: 400; opacity: .8; }
+        .nextbox { margin-top: 26px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent-bright); border-radius: 4px; padding: 14px 18px 16px; display: grid; grid-template-columns: 112px 1fr; gap: 12px; font-size: 14px; }
+        .nextbox .lbl { color: var(--accent); margin-top: 3px; }
+        .nextbox .nx { color: var(--ink); font-weight: 700; }
+        .nextbox .nx:hover { color: var(--accent); text-decoration: none; }
+        .nextbox .nx .d { color: var(--date); font-weight: 600; margin-right: 6px; }
+        .nextlist { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+        .nextlist a { color: var(--ink); font-weight: 600; border-bottom: 1px dotted var(--line-2); }
+        .nextlist a:hover { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
+        .nextlist .part { color: var(--ink-3); font-size: 13px; }
+        .nextlist .fullx { font-size: 12.5px; margin-left: 4px; white-space: nowrap; }
+        .nextlist .fullx a { font-weight: 600; color: var(--accent); border: 0; }
+        .nextrec { margin-top: 8px; font-size: 13px; color: var(--ink-3); }
+        .how { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line-2); font-size: 14px; color: var(--ink-2); }
+        .how h2 { margin: 0 0 8px; color: var(--ink-3); }
+        .how ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+        .how b { color: var(--ink); }
+        .stats { margin: 22px 0 0; font-size: 12.5px; color: var(--ink-3); }
+        .stats b { color: var(--ink-2); font-weight: 600; }
+
+        /* ============ MAIN: A READING ============ */
+        .doc { padding: 22px 16px 44px; }
+        .card { max-width: 1000px; margin: 0 auto 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px 22px 16px; font-size: 14px; }
+        .tags { display: flex; gap: 6px; min-height: 0; }
+        .tag { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 9.5px; }
+        .tag.ex { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
+        .tag.full { background: var(--black); color: #fff; }
+        .card h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.25; margin: 6px 0 0; }
+        .card h1 .yr { color: var(--ink-3); font-weight: 600; }
+        .card .title { font-size: 17px; color: var(--ink-2); margin-top: 2px; line-height: 1.4; }
+        .card .note { margin: 8px 0 0; color: var(--ink-3); font-size: 13.5px; }
+        .asg { list-style: none; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: grid; gap: 9px; }
+        .asg .hd { margin: 0 0 -2px; color: var(--ink-3); }
+        .asg li { line-height: 1.45; }
+        .asg li.cur { position: relative; }
+        .asg li.cur::before { content: ""; position: absolute; left: -12px; top: 3px; bottom: 3px; width: 3px; border-radius: 1px; background: var(--accent-bright); }
+        .asg .wh { font-size: 12.5px; color: var(--ink-3); }
+        .asg .wh .d { color: var(--date); font-weight: 600; }
+        .asg .wh .t { color: var(--ink-2); font-weight: 600; }
+        .asg .req { margin-left: 7px; color: var(--accent); }
+        .asg .req.rec { color: var(--ink-3); }
+        .asg .what { color: var(--ink-2); }
+        .asg .what a.jump { margin-left: 8px; font-size: 12.5px; white-space: nowrap; }
+        .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .actions a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink); border: 1px solid var(--line-2); background: var(--surface); }
+        .actions a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+        .actions a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .actions a.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+        .actions a.fullbtn { border-color: var(--accent-line); background: var(--accent-soft); }
+        .actions a .sub { font-weight: 400; opacity: .75; font-size: 12px; }
+        .nofile { margin: 12px 0 0; color: var(--ink-3); font-size: 13px; }
+
+        /* pages */
+        .pages { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .pg { position: relative; flex: none; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.10), 0 6px 20px rgba(40,30,20,.10); width: var(--pw); height: var(--ph); overflow: hidden; }
+        .pg canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        .chapnav { max-width: 1000px; margin: 26px auto 0; display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+        .chapnav a { display: inline-flex; flex-direction: column; gap: 2px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; color: var(--ink); max-width: 48%; }
+        .chapnav a:hover { border-color: var(--accent); text-decoration: none; }
+        .chapnav a .k { color: var(--ink-3); }
+        .chapnav a .dim { color: var(--ink-3); }
+        .chapnav a.next { margin-left: auto; text-align: right; align-items: flex-end; }
+        .status { text-align: center; color: var(--ink-3); font-size: 13.5px; padding: 40px 16px; }
+
+        /* pdf.js 4.10 text layer (subset of web/pdf_viewer.css; the page div carries --scale-factor) */
+        .textLayer { position: absolute; text-align: initial; inset: 0; overflow: clip; opacity: 1; line-height: 1;
+          -webkit-text-size-adjust: none; text-size-adjust: none; forced-color-adjust: none; transform-origin: 0 0; caret-color: CanvasText; z-index: 1; }
+        .textLayer :is(span, br) { color: transparent; position: absolute; white-space: pre; cursor: text; transform-origin: 0% 0%; }
+        .textLayer > :not(.markedContent), .textLayer .markedContent span:not(.markedContent) { z-index: 1; }
+        .textLayer span.markedContent { top: 0; height: 0; }
+        .textLayer span[role="img"] { -webkit-user-select: none; user-select: none; cursor: default; }
+        .textLayer ::selection { background: rgba(19,130,214,.28); color: transparent; }
+        .textLayer br::selection { background: transparent; }
+        .textLayer .endOfContent { display: block; position: absolute; inset: 100% 0 0; z-index: 0; cursor: default; -webkit-user-select: none; user-select: none; }
+        .textLayer.selecting .endOfContent { top: 0; }
+        /* pdf.js appends a measuring canvas per language to <body>; unstyled, it takes a slice of the flex column and squeezes the reader */
+        .hiddenCanvasElement { position: absolute; top: 0; left: 0; width: 0; height: 0; display: none; }
+
+        /* ============ SMALL SCREENS ============ */
+        @media (max-width: 900px) {
+            .rb-top { gap: 10px; padding: 0 12px; }
+            .rb-menu { display: flex; }
+            .pageno, .filelink, .goto .k { display: none; }
+            .side { position: absolute; z-index: 20; top: 0; bottom: 0; left: 0; width: min(var(--side-w), 88vw); transform: translateX(-102%); transition: transform .2s ease; }
+            .side.open { transform: none; box-shadow: 0 0 40px rgba(20,15,10,.35); }
+            .backdrop { display: block; position: absolute; inset: 0; z-index: 15; background: rgba(20,15,10,.35); opacity: 0; pointer-events: none; transition: opacity .2s; }
+            .backdrop.on { opacity: 1; pointer-events: auto; }
+            .doc { padding: 12px 8px 32px; }
+            .pages { gap: 10px; }
+            .card { padding: 14px 14px 12px; }
+            .card h1 { font-size: 20px; }
+            .landing { padding: 26px 16px 40px; }
+            .nextbox { grid-template-columns: 1fr; gap: 4px; }
+            .chapnav { flex-direction: column; }
+            .chapnav a { max-width: none; }
+            .chapnav a.next { margin-left: 0; align-items: flex-start; text-align: left; }
+        }
+        @media (max-width: 760px) {
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 24px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .zoom { display: none; }
+            .crumb { font-size: 12.5px; }
+            .crumb .sess, .crumb .sess + .sep { display: none; }
+        }
+        @media print {
+            .side, .rb-top, .topbar, .band, .chapnav, .actions { display: none; }
+            body { height: auto; overflow: visible; }
+            .main { overflow: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="cognition-computation-2026.html#syllabus">Cognition &amp; Computation<span class="course">Phil 286</span></a>
+            <nav aria-label="Course pages">
+                <a href="cognition-computation-2026.html#syllabus">Syllabus</a>
+                <a href="cognition-computation-2026.html#policies">Policies</a>
+                <a href="cognition-computation-2026.html#resources">Resources</a>
+                <a href="cognition-computation-2026-reader.html" aria-current="page">Reader</a>
+            </nav>
+        </div>
+    </header>
+    <div class="band" aria-hidden="true"></div>
+
+    <div class="rb-top">
+        <button class="rb-menu" id="menu" type="button" aria-label="Readings" aria-controls="side" aria-expanded="false"><span></span><span></span><span></span></button>
+        <nav class="crumb" id="crumb" aria-label="Position"></nav>
+        <div class="rb-tools">
+            <span class="pageno num" id="pageno"></span>
+            <label class="goto" id="gotowrap" hidden><span class="k">Go to p.</span><input id="goto" type="text" autocomplete="off" placeholder="p." aria-label="Go to page"></label>
+            <label class="zoom" id="zoomwrap" hidden><span class="vh">Zoom</span>
+                <select id="zoom" aria-label="Zoom">
+                    <option value="0.75">75%</option>
+                    <option value="1" selected>Fit width</option>
+                    <option value="1.25">125%</option>
+                    <option value="1.5">150%</option>
+                    <option value="2">200%</option>
+                </select>
+            </label>
+            <span class="filelink" id="filelink"></span>
+        </div>
+    </div>
+
+    <div class="rb-body">
+        <aside class="side" id="side" aria-label="Readings">
+            <div class="tabs" role="tablist" aria-label="Sidebar">
+                <button type="button" class="tab" data-tab="readings" role="tab" aria-selected="true">Readings</button>
+                <button type="button" class="tab" data-tab="full" role="tab" aria-selected="false">Full texts<span class="n" id="fullcount"></span></button>
+            </div>
+            <div class="sort" id="sort" role="radiogroup" aria-label="Sort readings">
+                <button type="button" class="sortbtn" data-sort="date" role="radio" aria-checked="true">By session</button>
+                <button type="button" class="sortbtn" data-sort="name" role="radio" aria-checked="false">By author</button>
+            </div>
+            <div class="fullhead" id="fullhead" hidden>The whole books and articles that the assigned excerpts and chapters come from.</div>
+            <nav class="list" id="list" aria-label="Readings"></nav>
+            <div class="sidefoot" id="sidefoot"></div>
+        </aside>
+        <div class="backdrop" id="backdrop"></div>
+
+        <main class="main" id="main" tabindex="-1">
+            <section class="landing" id="landing" hidden></section>
+            <section class="doc" id="doc" hidden>
+                <article class="card" id="card"></article>
+                <div class="pages" id="pages"></div>
+                <nav class="chapnav" id="chapnav" aria-label="Previous and next reading"></nav>
+            </section>
+            <p class="status" id="status" hidden></p>
+        </main>
+    </div>
+
+    <script type="module">
+    import * as pdfjsLib from './docs/pdfjs/pdf.min.js';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = './docs/pdfjs/pdf.worker.min.js';
+
+    const DATA = 'cognition-computation-2026.json';
+    const COURSE = 'cognition-computation-2026.html';
+    const TZ = 'America/Los_Angeles';
+    const PAGE_MAX = 1000;
+    const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    const $ = (id) => document.getElementById(id);
+    const el = {
+        main: $('main'), side: $('side'), backdrop: $('backdrop'), menu: $('menu'), crumb: $('crumb'), pageno: $('pageno'),
+        goto: $('goto'), gotowrap: $('gotowrap'), zoom: $('zoom'), zoomwrap: $('zoomwrap'), filelink: $('filelink'),
+        list: $('list'), sidefoot: $('sidefoot'), sort: $('sort'), fullhead: $('fullhead'), fullcount: $('fullcount'),
+        landing: $('landing'), doc: $('doc'), card: $('card'), pages: $('pages'), chapnav: $('chapnav'), status: $('status')
+    };
+    const store = {
+        get(k, d) { try { const v = localStorage.getItem('cc286.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+        set(k, v) { try { localStorage.setItem('cc286.' + k, JSON.stringify(v)); } catch (e) { /* private mode etc. */ } }
+    };
+    const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    const strip = (s) => { const d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; };
+    const slug = (s) => strip(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    const isExt = (u) => /^(https?:|mailto:)/i.test(u || '');
+    const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+    const cap = (s) => String(s || '').replace(/^\s*\w/, (c) => c.toUpperCase());
+    const dashes = (s) => String(s || '').replace(/(\d)-(\d)/g, '$1&ndash;$2');
+    function nowIn(tz) {
+        const p = {};
+        try {
+            new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+                .formatToParts(new Date()).forEach((x) => { p[x.type] = x.value; });
+            return p.year + '-' + p.month + '-' + p.day + 'T' + (p.hour === '24' ? '00' : p.hour) + ':' + p.minute;
+        } catch (e) { return new Date().toISOString().slice(0, 16); }
+    }
+
+    let D = null, year = 2026, endHM = '23:59';
+    let works = [], byKey = {};      // one entry per PDF (or per outside link / citation)
+    let sessions = [];               // [{n, date, iso, dow, md, title, endAt, main:[a], rec:[a], opt:[a]}]
+    let fulls = [];                  // the full texts, A–Z
+    let links = [];                  // outside resources (companion course etc.) for the sidebar foot
+    let rows = { date: [], name: [] };
+    let az = [];
+    let sort = store.get('sort', 'date') === 'name' ? 'name' : 'date';
+    let tab = 'readings';
+    let zoom = +store.get('zoom', 1) || 1;
+    let cur = null, gen = 0, observer = null, curPage = null;
+    // let go of the open PDF (and its worker) before showing something else: whole books are large
+    function dropPdf() { if (cur && cur.pdf) { const d = cur.pdf; cur.pdf = null; d.destroy().catch(() => {}); } }
+    // destroying a PDF mid-download aborts its range requests; that is expected, not an error
+    window.addEventListener('unhandledrejection', (e) => { if (e.reason && e.reason.name === 'AbortError') e.preventDefault(); });
+
+    // ------------------------------------------------------------ data → entries
+    function parseMD(md) {
+        const m = /^(\d{1,2})\/(\d{1,2})$/.exec(String(md || '').trim());
+        if (!m) return null;
+        const dt = new Date(year, +m[1] - 1, +m[2], 12);
+        return { iso: year + '-' + String(+m[1]).padStart(2, '0') + '-' + String(+m[2]).padStart(2, '0'), dow: DOW[dt.getDay()], md: (+m[1]) + '/' + (+m[2]) };
+    }
+    // "Chomsky (1957), <i>Syntactic Structures</i>" → {author, year, title}
+    function parseCite(html) {
+        const text = strip(html).trim();
+        const m = text.match(/^(.+?)\s*\((\d{4}[a-z]?)\)/);
+        if (!m) return { author: text, year: '', title: '' };
+        const i = html.indexOf('(' + m[2] + ')');
+        return { author: m[1].trim(), year: m[2], title: (i >= 0 ? html.slice(i + m[2].length + 2) : '').replace(/^[\s,:.—–-]+/, '').trim() };
+    }
+    function sortName(a) {
+        // "Quian Quiroga" and "Fodor and Pylyshyn" sort by the first author's surname; "3Blue1Brown" by itself
+        const first = strip(a).split(/\s*(?:,|\band\b|&|\bet al\.?)\s*/)[0].trim();
+        return (/^quian quiroga$/i.test(first) ? 'quian quiroga' : first.split(/\s+/).pop()).toLowerCase();
+    }
+    function fileKey(f) { return f.split('/').pop().replace(/\.pdf$/i, '').toLowerCase().replace(/[^a-z0-9]+/g, '-'); }
+    function titleHtml(r) { return r.title ? (r.style === 'quotes' ? '&ldquo;' + r.title + '&rdquo;' : '<i>' + r.title + '</i>') : ''; }
+    function shortTitle(r) {
+        // books: drop the subtitle ("Computation and Cognition: Toward a Foundation…" → "Computation and Cognition")
+        if (r.title && r.style !== 'quotes') return '<i>' + r.title.split(/:\s/)[0] + '</i>';
+        return titleHtml(r);
+    }
+    // "Vision" + "excerpts" → "Vision, excerpts"; "“But What Is a Neural Network?”" + "(video series)" → no comma
+    function part(title, detail) { return !detail ? (title || '') : !title ? detail : title + (/^\(/.test(detail) ? ' ' : ', ') + detail; }
+    function detailOf(r) { return (r.detail || '').replace(/^\s*[,;:]\s*/, '').trim(); }
+    function tagOf(r) { return r.tag === 'recommended' || r.tag === 'optional' ? r.tag : 'main'; }
+
+    function workFor(key, init) {
+        let w = byKey[key];
+        if (!w) { w = byKey[key] = Object.assign({ key, assignments: [], from: [], file: null, ext: null, full: null, isFull: false, note: '' }, init); works.push(w); }
+        return w;
+    }
+    function buildModel(data) {
+        D = data; works = []; byKey = {}; sessions = []; fulls = []; links = [];
+        const m = /(\d{4})/.exec((data.course && data.course.term) || ''); year = m ? +m[1] : new Date().getFullYear();
+        const t = /(\d{1,2}):(\d{2})\s*[-–]\s*(\d{1,2}):(\d{2})/.exec((data.course && data.course.when) || '');
+        if (t) { let h = +t[3]; if (h < 8) h += 12; endHM = String(h).padStart(2, '0') + ':' + t[4]; }
+
+        // 1. the readings, one entry per PDF / outside link
+        data.sessions.forEach((s) => {
+            const p = parseMD(s.date);
+            const S = { n: s.number, title: s.title, date: s.date, p, endAt: p ? p.iso + 'T' + endHM : '9999', main: [], rec: [], opt: [] };
+            (s.readings || []).forEach((r) => {
+                if (r.html) return;
+                const file = r.url && !isExt(r.url) ? r.url : null;
+                const key = r.id || (file ? fileKey(file) : slug(r.author + ' ' + r.year + ' ' + strip(r.title || '').split(/\s+/).slice(0, 4).join(' ')));
+                const w = workFor(key, { author: r.author, year: r.year, r, file, ext: file ? null : (r.url || null) });
+                const a = { r, w, s: S, kind: tagOf(r), page: r.page || null, detail: detailOf(r), full: r.full || null };
+                w.assignments.push(a);
+                S[a.kind === 'main' ? 'main' : a.kind === 'recommended' ? 'rec' : 'opt'].push(a);
+            });
+            sessions.push(S);
+        });
+        // 2. the full texts: a reading's `full`, and the PDFs under resources (an item whose PDF is already an entry joins it)
+        const fileWork = (f) => works.find((w) => w.file === f);
+        (data.resources || []).forEach((g) => (g.items || []).forEach((it) => {
+            if (!it.url || isExt(it.url)) { if (it.url) links.push(it); return; }
+            const c = parseCite(it.title);
+            let w = fileWork(it.url);
+            if (!w) w = workFor(fileKey(it.url), { author: c.author, year: c.year, file: it.url, citeTitle: c.title });
+            w.isFull = true; w.res = it; w.note = it.note || '';
+            if (!w.citeTitle) w.citeTitle = c.title;
+            if (c.year) w.fullYear = c.year;
+        }));
+        works.slice().forEach((w) => w.assignments.forEach((a) => {
+            const f = a.full;
+            if (!f || !f.url) return;
+            let fw = isExt(f.url) ? works.find((x) => x.ext === f.url && x.isFull) : fileWork(f.url);
+            if (!fw) {
+                const r = a.r;
+                fw = workFor(isExt(f.url) ? slug(r.author + ' ' + r.year + ' full') : fileKey(f.url),
+                    { author: r.author, year: r.year, r, file: isExt(f.url) ? null : f.url, ext: isExt(f.url) ? f.url : null });
+            }
+            fw.isFull = true;
+            if (!fw.fullText) fw.fullText = f.text || '';
+            if (!fw.fullNote && f.note) fw.fullNote = f.note;
+            fw.from.push(a);
+            a.fullWork = fw;
+        }));
+        works.forEach((w) => {
+            const r = w.r || {};
+            w.label = esc(strip(w.author || '')) + (w.fullYear || w.year ? ' <span class="yr">(' + esc(w.fullYear || w.year) + ')</span>' : '');
+            w.labelText = strip(w.author || '') + (w.fullYear || w.year ? ' (' + (w.fullYear || w.year) + ')' : '');
+            w.title = w.citeTitle || titleHtml(r);
+            w.short = w.citeTitle ? w.citeTitle.replace(/:\s[^<]*/, '') : shortTitle(r);
+            w.sortName = sortName(w.author || '');
+            w.kindWord = /book/i.test((w.fullText || '') + ' ' + (w.note || '')) ? 'book' : (w.r && w.r.style !== 'quotes' && w.isFull ? 'book' : 'paper');
+            w.excerpt = w.assignments.some((a) => a.fullWork);
+            // a full text that says more than "full book" / "full paper" (e.g. "with the peer commentary…") gets that as its note
+            if (!w.note) w.note = w.fullNote || (w.fullText && !/^full (book|paper)$/i.test(w.fullText) ? cap(w.fullText) + '.' : '');
+        });
+        const byName = (a, b) => a.sortName.localeCompare(b.sortName) || String(a.fullYear || a.year).localeCompare(String(b.fullYear || b.year)) || a.labelText.localeCompare(b.labelText);
+        fulls = works.filter((w) => w.isFull).sort(byName);
+        az = works.filter((w) => w.assignments.length).sort(byName);
+        // prev/next orders: date mode walks the sessions (required, then recommended, then optional); name mode walks A–Z; both end with the full texts
+        rows.date = []; sessions.forEach((S) => S.main.concat(S.rec, S.opt).forEach((a) => rows.date.push({ key: a.w.key, page: a.page, a })));
+        rows.name = az.map((w) => ({ key: w.key, page: null }));
+        fulls.forEach((w) => { if (!w.assignments.length) { rows.date.push({ key: w.key, page: null }); rows.name.push({ key: w.key, page: null }); } });
+    }
+
+    // ------------------------------------------------------------ sidebar
+    const hashFor = (key, page) => '#' + key + (page ? '/p' + page : '');
+    function avail(w) {
+        return w.file ? '<span class="av pdf eyebrow" title="Read it here">PDF</span>'
+            : (w.ext ? '<span class="av ext" title="Opens on ' + esc(host(w.ext)) + '">&#8599;</span>' : '<span class="av no" title="No link yet">&ndash;</span>');
+    }
+    function fullLink(a) {
+        const fw = a.fullWork;
+        if (!fw) return '';
+        return '<a class="fl" href="' + hashFor(fw.key, a.full.page) + '" title="' + esc(cap(a.full.text || 'full text')) + '">+ full ' + fw.kindWord + (fw.file ? '' : ' <span class="x">&#8599;</span>') + '</a>';
+    }
+    function rowHtml(w, a, extra, rec) {
+        // a session's row: short title + what is assigned; an A–Z row: the same for all of its assignments; a full text: its title
+        const sub = a ? part(w.short, a.detail)
+            : (extra && w.assignments.length ? part(w.short, w.assignments.map((x) => x.detail).filter(Boolean).join('; ')) : (w.title || ''));
+        return '<li class="row' + (rec ? ' rec' : '') + '" data-key="' + esc(w.key) + '"><a class="go" href="' + hashFor(w.key, a ? a.page : null) + '">' +
+            '<span class="l1"><span class="au">' + esc(strip(w.author || '')) + '</span> <span class="yr">(' + esc(w.fullYear || w.year) + ')</span>' + (extra || '') + '</span>' +
+            (sub ? '<span class="l2">' + sub + '</span>' : '') + '</a>' + avail(w) + (a ? fullLink(a) : '') + '</li>';
+    }
+    function nextSession() { const now = nowIn(TZ); return sessions.find((S) => S.endAt > now) || null; }
+    function buildList() {
+        let h = '';
+        document.querySelectorAll('.tab').forEach((b) => b.setAttribute('aria-selected', b.dataset.tab === tab ? 'true' : 'false'));
+        el.sort.hidden = tab !== 'readings';
+        el.fullhead.hidden = tab !== 'full';
+        if (tab === 'full') {
+            h += '<ol class="az">';
+            let last = '';
+            fulls.forEach((w) => {
+                const letter = (w.sortName[0] || '').toUpperCase();
+                if (letter !== last) { last = letter; h += '<li class="letter" aria-hidden="true">' + esc(letter) + '</li>'; }
+                const seen = {};
+                const chips = w.from.concat(w.assignments).filter((a) => { const k = a.s.n; if (seen[k]) return false; seen[k] = 1; return true; })
+                    .map((a) => '<span class="when' + (a.kind === 'main' ? '' : ' rec') + '" title="Session ' + a.s.n + ' · ' + esc(a.s.title) + '">S' + a.s.n + '</span>').join('');
+                h += rowHtml(w, null, chips ? '<span class="whens">' + chips + '</span>' : '');
+            });
+            h += '</ol>';
+        } else if (sort === 'date') {
+            const nx = nextSession();
+            sessions.forEach((S) => {
+                h += '<div class="sess' + (nx === S ? ' next' : '') + '" id="side-s' + S.n + '"><div class="sh">' +
+                    '<span class="d num"><span class="k">Session ' + S.n + ' &middot;</span> ' + (S.p ? S.p.dow + ' ' + S.p.md : esc(S.date)) + (nx === S ? '<span class="chip">Next</span>' : '') + '</span>' +
+                    '<span class="t">' + S.title + '</span></div>';
+                if (!S.main.length && !S.rec.length && !S.opt.length) h += '<div class="none">no reading</div>';
+                if (S.main.length) h += '<ol>' + S.main.map((a) => rowHtml(a.w, a)).join('') + '</ol>';
+                if (S.rec.length || S.opt.length) {
+                    const n = S.rec.length + S.opt.length;
+                    h += '<div class="recbox"><button class="rectog" type="button" aria-expanded="false">Recommended' + (S.opt.length ? ' &amp; optional' : '') + ' (' + n + ')</button><ol class="reclist">' +
+                        S.rec.map((a) => rowHtml(a.w, a, '', true)).join('') +
+                        (S.opt.length ? '<li class="optl eyebrow" aria-hidden="true">Optional</li>' + S.opt.map((a) => rowHtml(a.w, a, '', true)).join('') : '') + '</ol></div>';
+                }
+                h += '</div>';
+            });
+        } else {
+            let last = '';
+            h += '<ol class="az">';
+            az.forEach((w) => {
+                const letter = (w.sortName[0] || '').toUpperCase();
+                if (letter !== last) { last = letter; h += '<li class="letter" aria-hidden="true">' + esc(/[0-9]/.test(letter) ? '#' : letter) + '</li>'; }
+                const seen = {};
+                const chips = w.assignments.filter((a) => { if (seen[a.s.n]) return false; seen[a.s.n] = 1; return true; })
+                    .map((a) => '<span class="when' + (a.kind === 'main' ? '' : ' rec') + '" title="' + cap(a.kind === 'main' ? 'required' : a.kind) + ' for session ' + a.s.n + ' · ' + esc(a.s.title) + '">S' + a.s.n + '</span>').join('');
+                const req = w.assignments.some((a) => a.kind === 'main');
+                h += rowHtml(w, null, '<span class="whens">' + chips + '</span>', !req);
+            });
+            h += '</ol>';
+        }
+        el.list.innerHTML = h;
+        document.querySelectorAll('.sortbtn').forEach((b) => b.setAttribute('aria-checked', b.dataset.sort === sort ? 'true' : 'false'));
+        el.fullcount.textContent = fulls.length ? String(fulls.length) : '';
+        el.sidefoot.innerHTML = '<a href="' + COURSE + '#syllabus">Syllabus</a><a href="' + COURSE + '#resources">Resources</a>' +
+            links.map((l) => '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + l.title + ' &#8599;</a>').join('') +
+            '<span class="hint">Readings marked <b>PDF</b> open here; <b>+ full book</b> and <b>+ full paper</b> open the whole text an excerpt comes from.</span>';
+        if (cur) markCurrent(cur.work);
+    }
+    function markCurrent(w) {
+        el.list.querySelectorAll('.cur').forEach((x) => x.classList.remove('cur'));
+        if (!w) return;
+        let first = null;
+        el.list.querySelectorAll('.row[data-key="' + CSS.escape(w.key) + '"]').forEach((li) => {
+            li.classList.add('cur'); if (!first) first = li;
+            const box = li.closest('.recbox'); if (box) { box.classList.add('open'); box.querySelector('.rectog').setAttribute('aria-expanded', 'true'); }
+        });
+        if (first) keepInView(first);
+    }
+    function keepInView(node) {
+        if (!node || node.offsetParent === null) return;
+        const r = node.getBoundingClientRect(), s = el.side.getBoundingClientRect();
+        if (r.top < s.top + 80 || r.bottom > s.bottom - 20) node.scrollIntoView({ block: 'center' });
+    }
+    function openSide(on) { el.side.classList.toggle('open', on); el.backdrop.classList.toggle('on', on); el.menu.setAttribute('aria-expanded', on ? 'true' : 'false'); }
+    function setSort(s) { if (s !== 'date' && s !== 'name') return; sort = s; store.set('sort', s); buildList(); if (cur) { cur.row = null; chapNav(cur.work); } }
+    function setTab(t) { if (t !== 'readings' && t !== 'full') return; tab = t; buildList(); }
+
+    // ------------------------------------------------------------ landing
+    function showLanding() {
+        gen++; dropPdf(); cur = null; curPage = null;
+        if (observer) observer.disconnect();
+        el.doc.hidden = true; el.status.hidden = true; el.landing.hidden = false;
+        el.pages.innerHTML = ''; el.card.innerHTML = ''; el.chapnav.innerHTML = '';
+        const assigned = works.filter((w) => w.assignments.length);
+        const here = assigned.filter((w) => w.file).length, out = assigned.filter((w) => !w.file && w.ext).length, none = assigned.length - here - out;
+        const excerpts = works.filter((w) => w.assignments.some((a) => a.fullWork)).length;
+        let h = '<h1>Reader</h1><p class="lede">All of the seminar&rsquo;s readings in one place, readable right here. ' +
+            'Where only an excerpt or a chapter is assigned, the <b>full book or article</b> it comes from is here too.</p>';
+        const last = store.get('last', null);
+        if (last && byKey[last.key] && byKey[last.key].file) {
+            const w = byKey[last.key];
+            h += '<p class="cont"><a href="' + hashFor(w.key, last.page) + '">Continue <span class="sub">&middot; ' + esc(w.labelText) + (last.page ? ', p. ' + esc(last.label || last.page) : '') + '</span></a></p>';
+        }
+        const S = nextSession();
+        if (S) {
+            const today = S.p && S.p.iso === nowIn(TZ).slice(0, 10);
+            h += '<section class="nextbox"><div class="lbl eyebrow">' + (today ? 'Today' : 'Next session') + '</div><div>' +
+                '<a class="nx" href="' + COURSE + '#s' + S.n + '"><span class="d num">' + (S.p ? S.p.dow + ' ' + S.p.md : esc(S.date)) + '</span>' + S.title + '</a>';
+            if (S.main.length) {
+                h += '<ul class="nextlist">' + S.main.map((a) => '<li><a href="' + hashFor(a.w.key, a.page) + '">' + esc(a.w.labelText) + '</a> <span class="part">' +
+                    part(a.w.short, a.detail) + '</span>' +
+                    (a.fullWork ? '<span class="fullx">&middot; <a href="' + hashFor(a.fullWork.key, a.full.page) + '">full ' + a.fullWork.kindWord + '</a></span>' : '') + '</li>').join('') + '</ul>';
+            } else h += '<div class="none" style="padding-left:0">No reading.</div>';
+            if (S.rec.length || S.opt.length) h += '<div class="nextrec">+ ' + (S.rec.length + S.opt.length) + ' recommended or optional</div>';
+            h += '</div></section>';
+        }
+        h += '<section class="how"><h2 class="eyebrow">How it works</h2><ul>' +
+            '<li>The sidebar lists the readings <b>by session</b> (recommended and optional ones folded under each session) or <b>by author</b>.</li>' +
+            '<li><b>Full texts</b> lists the whole books and articles. Each excerpt links to its full text (<b>+ full book</b>), and each full text lists the excerpts taken from it.</li>' +
+            '<li>For long books, type a page number in <b>Go to p.</b> (the book&rsquo;s own numbering where the PDF has it).</li>' +
+            '<li>Keys: <b>j</b>/<b>k</b> or &larr;/&rarr; page down and up; <b>[</b> and <b>]</b> go to the previous or next reading.</li></ul></section>';
+        h += '<p class="stats">' + assigned.length + ' readings on the syllabus &middot; <b>' + here + '</b> open here &middot; ' + out + ' link out' +
+            (none ? ' &middot; ' + none + ' without a link yet' : '') + ' &middot; <b>' + fulls.length + '</b> full texts</p>';
+        el.landing.innerHTML = h;
+        el.crumb.innerHTML = '<span class="cur">Readings</span>';
+        el.pageno.textContent = ''; el.filelink.innerHTML = ''; el.zoomwrap.hidden = true; el.gotowrap.hidden = true;
+        document.title = 'Reader · Cognition & Computation · Phil 286';
+        markCurrent(null);
+        el.main.scrollTop = 0;
+    }
+
+    // ------------------------------------------------------------ one reading
+    function sessHtml(a) {
+        const S = a.s;
+        return '<span class="wh"><a class="d num" href="' + COURSE + '#s' + S.n + '" title="On the syllabus">' + (S.p ? S.p.dow + ' ' + S.p.md : esc(S.date)) + '</a> &middot; Session ' + S.n +
+            ' &middot; <span class="t">' + S.title + '</span></span><span class="req eyebrow' + (a.kind === 'main' ? '' : ' rec') + '">' + (a.kind === 'main' ? 'Required' : a.kind) + '</span>';
+    }
+    function cardHtml(w, ctx) {
+        let h = '<div class="tags">' + (w.isFull ? '<span class="tag full eyebrow">Full ' + w.kindWord + '</span>' : '') +
+            (w.excerpt && !w.isFull ? '<span class="tag ex eyebrow">Excerpt</span>' : '') + '</div>';
+        h += '<h1>' + w.label + '</h1>' + (w.title ? '<div class="title">' + w.title + '</div>' : '');
+        if (w.note) h += '<p class="note">' + w.note + '</p>';
+        if (w.assignments.length) {
+            h += '<ul class="asg">' + w.assignments.map((a) => '<li' + (ctx && ctx.a === a ? ' class="cur"' : '') + '><div>' + sessHtml(a) + '</div>' +
+                '<div class="what">' + (a.detail ? cap(dashes(a.detail)) : (w.isFull ? 'The whole ' + w.kindWord : '')) +
+                (a.page && w.file ? ' <a class="jump" href="' + hashFor(w.key, a.page) + '">open at this part &darr;</a>' : '') + '</div></li>').join('') + '</ul>';
+        }
+        if (w.from.length) {
+            h += '<ul class="asg"><li class="hd eyebrow">Excerpts assigned from this ' + w.kindWord + '</li>' + w.from.map((a) =>
+                '<li><div>' + sessHtml(a) + '</div><div class="what">' + (a.detail ? cap(dashes(a.detail)) : titleHtml(a.r)) +
+                ' <a class="jump" href="' + hashFor(a.w.key, a.page) + '">read the excerpt &rarr;</a>' +
+                (a.full.page && w.file ? ' <a class="jump" href="' + hashFor(w.key, a.full.page) + '">find it in this ' + w.kindWord + ' &darr;</a>' : '') + '</div></li>').join('') + '</ul>';
+        }
+        h += '<div class="actions">';
+        if (w.file) h += '<a class="primary" href="' + esc(w.file) + '" download>Download PDF</a>';
+        // the full text(s) this reading's excerpts come from
+        const seen = {};
+        w.assignments.forEach((a) => {
+            const fw = a.fullWork;
+            if (!fw || fw === w || seen[fw.key]) return;
+            seen[fw.key] = 1;
+            h += '<a class="fullbtn" href="' + (fw.file ? hashFor(fw.key, a.full.page) : esc(fw.ext)) + '"' + (fw.file ? '' : ' target="_blank" rel="noopener"') + '>' +
+                esc(cap(a.full.text && a.full.text.length <= 26 ? a.full.text : 'full ' + fw.kindWord)) + ' <span class="sub">' + (fw.file ? 'read here &rarr;' : esc(host(fw.ext)) + ' &#8599;') + '</span></a>';
+        });
+        if (w.ext) h += '<a href="' + esc(w.ext) + '" target="_blank" rel="noopener">Open on ' + esc(host(w.ext)) + ' <span class="sub">&#8599;</span></a>';
+        h += '</div>';
+        if (!w.file) h += '<p class="nofile">' + (w.ext ? 'Not hosted here &mdash; this one opens on ' + esc(host(w.ext)) + '.' : 'No file or link for this one yet.') + '</p>';
+        return h;
+    }
+    function chapNav(w) {
+        const list = rows[sort];
+        let i = list.findIndex((r) => r.key === w.key);
+        if (cur && cur.row != null && list[cur.row] && list[cur.row].key === w.key) i = cur.row;
+        const prev = i > 0 ? list[i - 1] : null, next = i >= 0 && i < list.length - 1 ? list[i + 1] : null;
+        const lab = (r) => { const x = byKey[r.key]; return esc(x.labelText) + (r.a ? ' <span class="dim">&middot; session ' + r.a.s.n + '</span>' : (x.isFull ? ' <span class="dim">&middot; full ' + x.kindWord + '</span>' : '')); };
+        el.chapnav.innerHTML = (prev ? '<a class="prev" href="' + hashFor(prev.key, prev.page) + '" data-row="' + (i - 1) + '"><span class="k eyebrow">Previous</span><span>' + lab(prev) + '</span></a>' : '') +
+            (next ? '<a class="next" href="' + hashFor(next.key, next.page) + '" data-row="' + (i + 1) + '"><span class="k eyebrow">Next</span><span>' + lab(next) + '</span></a>' : '');
+    }
+    function crumbFor(w, ctx) {
+        let h = '';
+        if (ctx && ctx.a) h += '<a class="sess" href="' + COURSE + '#s' + ctx.a.s.n + '">Session ' + ctx.a.s.n + ' &middot; ' + (ctx.a.s.p ? ctx.a.s.p.md : esc(ctx.a.s.date)) + '</a><span class="sep">&rsaquo;</span>';
+        else if (w.isFull) h += '<a class="sess" href="#" data-tab="full">Full texts</a><span class="sep">&rsaquo;</span>';
+        h += '<span class="cur">' + esc(w.labelText) + '</span>' + (w.short ? '<span class="sep">&middot;</span><span class="ttl">' + w.short + '</span>' : '');
+        el.crumb.innerHTML = h;
+    }
+    async function openWork(w, page, ctx) {
+        if (cur && cur.work === w) {          // another assignment of the same PDF, or a page link: keep the loaded PDF
+            cur.row = ctx ? ctx.row : null;
+            el.card.innerHTML = cardHtml(w, ctx); chapNav(w); crumbFor(w, ctx); markCurrent(w);
+            if (page) scrollToPage(page); else el.main.scrollTop = 0;
+            return;
+        }
+        gen++; const g = gen;
+        dropPdf();
+        cur = { work: w, pdf: null, pages: [], labels: null, pw: 0, row: ctx ? ctx.row : null };
+        curPage = null;
+        el.landing.hidden = true; el.doc.hidden = false; el.status.hidden = true;
+        el.pages.innerHTML = ''; el.card.innerHTML = cardHtml(w, ctx);
+        chapNav(w); crumbFor(w, ctx); markCurrent(w);
+        document.title = w.labelText + ' · Reader · Phil 286';
+        el.pageno.textContent = ''; el.goto.value = '';
+        el.filelink.innerHTML = w.file ? '<a href="' + esc(w.file) + '" download title="Download the PDF">PDF &darr;</a>' : (w.ext ? '<a href="' + esc(w.ext) + '" target="_blank" rel="noopener">Open &#8599;</a>' : '');
+        el.zoomwrap.hidden = !w.file; el.gotowrap.hidden = !w.file;
+        if (observer) observer.disconnect();
+        el.main.scrollTop = 0;
+        if (!w.file) return;
+        store.set('last', { key: w.key, page: page || null });
+        el.status.hidden = false; el.status.textContent = 'Loading…';
+        try {
+            // range requests only: a 400-page book opens at chapter 5 without downloading the rest first
+            const pdf = await pdfjsLib.getDocument({ url: w.file, disableStream: true, disableAutoFetch: true }).promise;
+            if (gen !== g) { pdf.destroy(); return; }
+            cur.pdf = pdf;
+            try { const L = await pdf.getPageLabels(); if (L && L.some((x, i) => x && x !== String(i + 1))) cur.labels = L; } catch (e) { /* no labels */ }
+            const first = await pdf.getPage(Math.min(page || 1, pdf.numPages));
+            if (gen !== g) return;
+            const vp = first.getViewport({ scale: 1 });
+            cur.w0 = vp.width;
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const div = document.createElement('div'); div.className = 'pg'; div.dataset.p = i; div.setAttribute('aria-label', 'Page ' + (cur.labels ? cur.labels[i - 1] : i));
+                el.pages.appendChild(div);
+                cur.pages.push({ i, el: div, pdfPage: i === first.pageNumber ? first : null, w: vp.width, h: vp.height, rendered: null, rendering: false, task: null, near: false });
+            }
+            el.status.hidden = true;
+            layout();
+            observer = new IntersectionObserver(onIntersect, { root: el.main, rootMargin: '120% 0px', threshold: 0 });
+            cur.pages.forEach((pg) => observer.observe(pg.el));
+            if (page) scrollToPage(page); else onScroll();
+        } catch (err) {
+            if (gen !== g) return;
+            el.status.hidden = false;
+            el.status.innerHTML = 'Couldn&rsquo;t load the PDF (' + esc(err && err.message || err) + '). <a href="' + esc(w.file) + '">Open it directly</a>.';
+        }
+    }
+    function fitWidth() { const w = el.main.clientWidth - (window.innerWidth <= 900 ? 16 : 32); return Math.max(200, Math.min(w, PAGE_MAX)); }
+    function layout() { if (!cur || !cur.pdf) return; cur.pw = Math.round(fitWidth() * zoom); cur.pages.forEach(sizePage); }
+    function sizePage(pg) {
+        const s = cur.pw / pg.w;               // each page's own scale (pages can differ in size)
+        pg.scale = s;
+        pg.el.style.setProperty('--pw', cur.pw + 'px'); pg.el.style.setProperty('--ph', Math.round(pg.h * s) + 'px'); pg.el.style.setProperty('--scale-factor', s);
+    }
+    function pageTop(p) { const pg = cur && cur.pages[p - 1]; return pg ? pg.el.offsetTop : 0; }
+    function scrollToPage(p) {
+        if (!cur || !cur.pages.length) return;
+        p = Math.max(1, Math.min(cur.pages.length, p));
+        el.main.scrollTop = Math.max(0, pageTop(p) - 12);
+        onScroll();
+    }
+    function onIntersect(entries) {
+        if (!cur) return;
+        entries.forEach((e) => { const pg = cur.pages[+e.target.dataset.p - 1]; if (pg) pg.near = e.isIntersecting; });
+        cur.pages.forEach((pg) => {
+            if (pg.near) renderPage(pg);
+            else if (pg.rendered != null && Math.abs(pg.i - (curPage || 0)) > 4) releasePage(pg);
+        });
+    }
+    function releasePage(pg) {
+        if (pg.task) { try { pg.task.cancel(); } catch (e) { /* already done */ } pg.task = null; }
+        pg.el.querySelectorAll('canvas, .textLayer').forEach((x) => x.remove());
+        pg.rendered = null; pg.rendering = false;
+    }
+    async function renderPage(pg) {
+        if (!cur || !cur.pdf || pg.rendering || pg.rendered === cur.pw) return;
+        const g = gen, pw = cur.pw;
+        pg.rendering = true;
+        try {
+            if (!pg.pdfPage) pg.pdfPage = await cur.pdf.getPage(pg.i);
+            if (gen !== g) return;
+            const page = pg.pdfPage;
+            const v1 = page.getViewport({ scale: 1 });
+            if (Math.abs(v1.width - pg.w) > 0.5 || Math.abs(v1.height - pg.h) > 0.5) { pg.w = v1.width; pg.h = v1.height; sizePage(pg); }
+            const viewport = page.getViewport({ scale: pg.scale });
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.floor(viewport.width * dpr); canvas.height = Math.floor(viewport.height * dpr);
+            const ctx = canvas.getContext('2d', { alpha: false });
+            pg.task = page.render({ canvasContext: ctx, viewport, transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null });
+            await pg.task.promise; pg.task = null;
+            if (gen !== g || cur.pw !== pw) { pg.rendering = false; if (gen === g) renderPage(pg); return; }
+            pg.el.querySelectorAll('canvas').forEach((x) => x.remove());
+            pg.el.prepend(canvas);
+            const tl = document.createElement('div'); tl.className = 'textLayer';
+            pg.el.querySelectorAll('.textLayer').forEach((x) => x.remove());
+            pg.el.appendChild(tl);
+            const textLayer = new pdfjsLib.TextLayer({ textContentSource: page.streamTextContent(), container: tl, viewport });
+            await textLayer.render();
+            const eoc = document.createElement('div'); eoc.className = 'endOfContent'; tl.appendChild(eoc);
+            pg.rendered = pw; pg.rendering = false;
+        } catch (err) {
+            pg.rendering = false;
+            if (err && err.name !== 'RenderingCancelledException') console.warn('render', pg.i, err);
+        }
+    }
+    function rerenderAll() {
+        if (!cur || !cur.pdf) return;
+        const keep = curPage, frac = keep ? (el.main.scrollTop - pageTop(keep)) / Math.max(1, cur.pages[keep - 1].el.offsetHeight) : 0;
+        layout();
+        cur.pages.forEach((pg) => { if (pg.rendered != null) releasePage(pg); });
+        if (keep) el.main.scrollTop = pageTop(keep) + frac * cur.pages[keep - 1].el.offsetHeight;
+        cur.pages.forEach((pg) => { if (pg.near) renderPage(pg); });
+        onScroll();
+    }
+    function labelOf(i) { return cur && cur.labels ? String(cur.labels[i - 1] || i).trim() : String(i); }
+    function gotoPage(v) {
+        if (!cur || !cur.pages.length) return;
+        v = String(v || '').trim().replace(/^p\.?\s*/i, '');
+        if (!v) return;
+        let i = -1;
+        if (cur.labels) i = cur.labels.findIndex((x) => x && x.toLowerCase() === v.toLowerCase());
+        if (i < 0 && /^\d+$/.test(v) && +v >= 1 && +v <= cur.pages.length) i = +v - 1;
+        if (i < 0) { el.goto.setCustomValidity('No such page'); el.goto.reportValidity(); return; }
+        el.goto.setCustomValidity('');
+        scrollToPage(i + 1);
+        el.goto.blur();
+    }
+
+    // ------------------------------------------------------------ position
+    let scrollPending = false;
+    function onScroll() { if (scrollPending) return; scrollPending = true; requestAnimationFrame(() => { scrollPending = false; trackPosition(); }); }
+    function trackPosition() {
+        if (!cur || !cur.pages.length) return;
+        const mid = el.main.scrollTop + el.main.clientHeight * 0.45;
+        let page = cur.pages[0];
+        for (const pg of cur.pages) { if (pg.el.offsetTop <= mid) page = pg; else break; }
+        if (page.i !== curPage) {
+            curPage = page.i;
+            const lab = labelOf(page.i);
+            // "p. 64 · 65/146" when the PDF carries the book's page numbers; "Cover · 1/146" for a named page
+            const pre = /^(\d+(\.e?\d+)?|[ivxlcdm]+)$/.test(lab) ? 'p. ' : '';
+            el.pageno.textContent = cur.labels ? pre + lab + ' · ' + page.i + '/' + cur.pages.length : 'p. ' + page.i + ' of ' + cur.pages.length;
+            store.set('last', { key: cur.work.key, page: page.i, label: cur.labels ? lab : null });
+            history.replaceState(null, '', hashFor(cur.work.key, page.i > 1 ? page.i : null));
+        }
+    }
+
+    // ------------------------------------------------------------ routing
+    let pendingRow = null;
+    function route() {
+        const h = decodeURIComponent(location.hash.slice(1));
+        const m = h.match(/^([a-z0-9-]+)(?:\/p(\d+))?$/i);
+        if (!h) showLanding();
+        else if (m && byKey[m[1]]) {
+            const w = byKey[m[1]], page = m[2] ? +m[2] : null;
+            let row = pendingRow; pendingRow = null;
+            const list = rows[sort];
+            if (row == null || !list[row] || list[row].key !== w.key) row = list.findIndex((r) => r.key === w.key && (page == null || r.page == null || r.page === page));
+            const r = row >= 0 ? list[row] : null;
+            if (!w.assignments.length && tab !== 'full') { tab = 'full'; buildList(); }
+            else if (!w.isFull && tab === 'full') { tab = 'readings'; buildList(); }
+            openWork(w, page, { a: r && r.a ? r.a : (w.assignments[0] || null), row: row >= 0 ? row : null });
+        } else showLanding();
+        if (window.innerWidth <= 900) openSide(false);
+    }
+
+    // ------------------------------------------------------------ events
+    function wire() {
+        window.addEventListener('hashchange', route);
+        el.main.addEventListener('scroll', onScroll, { passive: true });
+        new ResizeObserver(() => { if (cur && cur.pdf) { const w = Math.round(fitWidth() * zoom); if (w !== cur.pw) rerenderAll(); } }).observe(el.main);
+        el.zoom.value = String(zoom);
+        el.zoom.addEventListener('change', () => { zoom = +el.zoom.value || 1; store.set('zoom', zoom); rerenderAll(); });
+        el.goto.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); gotoPage(el.goto.value); } });
+        el.goto.addEventListener('input', () => el.goto.setCustomValidity(''));
+        el.menu.addEventListener('click', () => openSide(!el.side.classList.contains('open')));
+        el.backdrop.addEventListener('click', () => openSide(false));
+        document.querySelectorAll('.sortbtn').forEach((b) => b.addEventListener('click', () => setSort(b.dataset.sort)));
+        document.querySelectorAll('.tab').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+        el.crumb.addEventListener('click', (e) => {
+            const t = e.target.closest('[data-tab]');
+            if (t) { e.preventDefault(); setTab(t.dataset.tab); if (window.innerWidth <= 900) openSide(true); }
+        });
+        el.list.addEventListener('click', (e) => {
+            const rt = e.target.closest('button.rectog');
+            if (rt) { e.preventDefault(); const box = rt.closest('.recbox'); const on = box.classList.toggle('open'); rt.setAttribute('aria-expanded', on ? 'true' : 'false'); return; }
+            const a = e.target.closest('.row a.go'); if (!a) return;
+            const all = [...el.list.querySelectorAll('.row a.go')];
+            pendingRow = tab === 'readings' ? all.indexOf(a) : null;
+            if (a.getAttribute('href') === location.hash) { e.preventDefault(); route(); }
+        });
+        el.chapnav.addEventListener('click', (e) => { const a = e.target.closest('a[data-row]'); if (a) pendingRow = +a.dataset.row; });
+        el.pages.addEventListener('mousedown', (e) => { const tl = e.target.closest('.textLayer'); if (tl) tl.classList.add('selecting'); });
+        document.addEventListener('mouseup', () => { el.pages.querySelectorAll('.textLayer.selecting').forEach((t) => t.classList.remove('selecting')); });
+        document.addEventListener('keydown', (e) => {
+            if (e.metaKey || e.ctrlKey || e.altKey) return;
+            if (/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement && document.activeElement.tagName)) return;
+            if (e.key === 'Escape') { openSide(false); return; }
+            if (!cur) return;
+            const list = rows[sort], i = cur.row != null ? cur.row : list.findIndex((r) => r.key === cur.work.key);
+            const go = (j) => { if (list[j]) { pendingRow = j; location.hash = hashFor(list[j].key, list[j].page); } };
+            if (e.key === 'ArrowRight' || e.key === 'j') { e.preventDefault(); if (cur.pdf && curPage < cur.pages.length) scrollToPage(curPage + 1); else go(i + 1); }
+            else if (e.key === 'ArrowLeft' || e.key === 'k') { e.preventDefault(); if (cur.pdf && curPage > 1) scrollToPage(curPage - 1); else go(i - 1); }
+            else if (e.key === ']') go(i + 1);
+            else if (e.key === '[') go(i - 1);
+        });
+    }
+
+    // ------------------------------------------------------------ go
+    fetch(DATA, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then((data) => {
+        buildModel(data); buildList(); wire(); route();
+    }).catch((err) => {
+        el.status.hidden = false;
+        el.status.innerHTML = 'Couldn&rsquo;t load the reading list (' + esc(err && err.message || err) + '). <a href="' + COURSE + '">Back to the syllabus</a>.';
+    });
+    </script>
+</body>
+</html>
