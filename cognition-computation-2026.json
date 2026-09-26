@@ -169,24 +169,31 @@
       "number": 4,
       "title": "Case Study: Face Recognition",
       "date": "10/15",
-      "readingsLabel": "Possible readings",
       "handouts": [],
       "readings": [
+        {
+          "author": "Tsao",
+          "year": "2019",
+          "title": "Face Values",
+          "style": "quotes",
+          "detail": ", <i>Scientific American</i> 320(2): 22&ndash;29",
+          "url": "docs/cc2026/tsao-2019-face-values.pdf"
+        },
         {
           "author": "Chang and Tsao",
           "year": "2017",
           "title": "The Code for Facial Identity in the Primate Brain",
           "style": "quotes",
-          "detail": ", <i>Cell</i> 169: 1013&ndash;1028",
+          "detail": ", <i>Cell</i> 169, excerpts",
           "url": "docs/cc2026/chang-tsao-2017-facial-identity.pdf"
         },
         {
-          "author": "Hesse and Tsao",
-          "year": "2020",
-          "title": "The Macaque Face Patch System: A Turtle's Underbelly for the Brain",
+          "author": "Kanwisher, Khosla, and Dobs",
+          "year": "2023",
+          "title": "Using Artificial Neural Networks to Ask &lsquo;Why&rsquo; Questions of Minds and Brains",
           "style": "quotes",
-          "detail": ", <i>Nature Reviews Neuroscience</i> 21: 695&ndash;716",
-          "url": "https://www.nature.com/articles/s41583-020-00393-w"
+          "detail": ", <i>Trends in Neurosciences</i> 46, excerpts",
+          "url": "docs/cc2026/kanwisher-khosla-dobs-2023-why-questions.pdf"
         },
         {
           "author": "Quian Quiroga",
@@ -194,7 +201,44 @@
           "title": "How Do We Recognize a Face?",
           "style": "quotes",
           "detail": ", <i>Cell</i> 169: 975&ndash;977",
-          "url": "https://www.cell.com/cell/fulltext/S0092-8674(17)30539-1"
+          "url": "docs/cc2026/quian-quiroga-2017-how-do-we-recognize-a-face.pdf",
+          "tag": "recommended"
+        },
+        {
+          "author": "Burton",
+          "year": "2024",
+          "title": "Face Perception",
+          "style": "quotes",
+          "detail": ", <i>Open Encyclopedia of Cognitive Science</i>",
+          "url": "https://oecs.mit.edu/pub/h0rivqh3/release/1",
+          "tag": "recommended"
+        },
+        {
+          "author": "Yildirim, Belledonne, Freiwald, and Tenenbaum",
+          "year": "2020",
+          "title": "Efficient Inverse Graphics in Biological Face Processing",
+          "style": "quotes",
+          "detail": ", <i>Science Advances</i> 6: eaax5979",
+          "url": "docs/cc2026/yildirim-2020-efficient-inverse-graphics.pdf",
+          "tag": "recommended"
+        },
+        {
+          "author": "Hesse and Tsao",
+          "year": "2020",
+          "title": "The Macaque Face Patch System: A Turtle's Underbelly for the Brain",
+          "style": "quotes",
+          "detail": ", <i>Nature Reviews Neuroscience</i> 21: 695&ndash;716",
+          "url": "https://www.nature.com/articles/s41583-020-00393-w",
+          "tag": "recommended"
+        },
+        {
+          "author": "Kanwisher",
+          "year": "2014",
+          "title": "A Neural Portrait of the Human Mind",
+          "style": "quotes",
+          "detail": " (TED talk, 17 min.)",
+          "url": "https://www.ted.com/talks/nancy_kanwisher_a_neural_portrait_of_the_human_mind",
+          "tag": "recommended"
         }
       ]
     },
