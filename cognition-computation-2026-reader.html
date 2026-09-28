@@ -20,8 +20,10 @@
         /* Cognition & Computation (Phil 286) · Reader.
            Modelled on the Phil 133 Reader (makingminds.org/reader/). Everything comes from cognition-computation-2026.json:
            the sessions' readings, grouped into one entry per PDF (or per outside link), and the full texts that excerpts
-           are taken from (a reading's `full`, plus the local PDFs under resources → Reference). PDFs are drawn in the
-           page with pdf.js (docs/pdfjs/). Hash forms: #<key> and #<key>/p12 (PDF page 12). */
+           are taken from (a reading's `full`, plus the local PDFs under resources → Reference). Local PDFs in a resources
+           group headed "Background" are unassigned articles: they get their own Background block at the end of the
+           sidebar list instead of joining the full texts. PDFs are drawn in the page with pdf.js (docs/pdfjs/).
+           Hash forms: #<key> and #<key>/p12 (PDF page 12). */
 
         :root {
             --bg: #FAF9F7;
@@ -236,6 +238,9 @@
         .whens { display: inline-block; margin-left: 5px; vertical-align: 1px; }
         .when { display: inline-block; font-size: 10.5px; font-weight: 600; color: var(--date); margin-right: 5px; font-variant-numeric: tabular-nums; }
         .when.rec { color: var(--ink-3); font-weight: 400; }
+        /* Background: unassigned articles, after the sessions (or after A–Z) */
+        .az + .bgsec { border-top: 1px solid var(--line); margin-top: 6px; }
+        .bgsec .sh .d { color: var(--ink-3); font-weight: 400; }
         .sidefoot { margin-top: auto; padding: 12px 18px 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-2); display: grid; gap: 5px; }
         .sidefoot a { color: var(--ink-2); }
         .sidefoot a:hover { color: var(--accent); text-decoration: none; }
@@ -463,6 +468,7 @@
     let sessions = [];               // [{n, date, iso, dow, md, title, endAt, main:[a], rec:[a], opt:[a]}]
     let fulls = [];                  // the full texts, A–Z
     let links = [];                  // outside resources (companion course etc.) for the sidebar foot
+    let bgs = [];                    // background articles (resources → Background), A–Z
     let rows = { date: [], name: [] };
     let az = [];
     let sort = store.get('sort', 'date') === 'name' ? 'name' : 'date';
@@ -512,7 +518,7 @@
         return w;
     }
     function buildModel(data) {
-        D = data; works = []; byKey = {}; sessions = []; fulls = []; links = [];
+        D = data; works = []; byKey = {}; sessions = []; fulls = []; links = []; bgs = [];
         const m = /(\d{4})/.exec((data.course && data.course.term) || ''); year = m ? +m[1] : new Date().getFullYear();
         const t = /(\d{1,2}):(\d{2})\s*[-–]\s*(\d{1,2}):(\d{2})/.exec((data.course && data.course.when) || '');
         if (t) { let h = +t[3]; if (h < 8) h += 12; endHM = String(h).padStart(2, '0') + ':' + t[4]; }
@@ -532,14 +538,16 @@
             });
             sessions.push(S);
         });
-        // 2. the full texts: a reading's `full`, and the PDFs under resources (an item whose PDF is already an entry joins it)
+        // 2. the full texts: a reading's `full`, and the PDFs under resources (an item whose PDF is already an entry joins it);
+        //    PDFs in a "Background" group are background articles rather than full texts
         const fileWork = (f) => works.find((w) => w.file === f);
         (data.resources || []).forEach((g) => (g.items || []).forEach((it) => {
             if (!it.url || isExt(it.url)) { if (it.url) links.push(it); return; }
             const c = parseCite(it.title);
             let w = fileWork(it.url);
             if (!w) w = workFor(fileKey(it.url), { author: c.author, year: c.year, file: it.url, citeTitle: c.title });
-            w.isFull = true; w.res = it; w.note = it.note || '';
+            if (/^background/i.test(g.heading || '') && !w.assignments.length) w.bg = true; else w.isFull = true;
+            w.res = it; w.note = it.note || '';
             if (!w.citeTitle) w.citeTitle = c.title;
             if (c.year) w.fullYear = c.year;
         }));
@@ -572,10 +580,13 @@
         });
         const byName = (a, b) => a.sortName.localeCompare(b.sortName) || String(a.fullYear || a.year).localeCompare(String(b.fullYear || b.year)) || a.labelText.localeCompare(b.labelText);
         fulls = works.filter((w) => w.isFull).sort(byName);
+        bgs = works.filter((w) => w.bg && !w.isFull).sort(byName);
         az = works.filter((w) => w.assignments.length).sort(byName);
-        // prev/next orders: date mode walks the sessions (required, then recommended, then optional); name mode walks A–Z; both end with the full texts
+        // prev/next orders: date mode walks the sessions (required, then recommended, then optional); name mode walks A–Z;
+        // both go on to the background articles (the sidebar's order) and end with the full texts
         rows.date = []; sessions.forEach((S) => S.main.concat(S.rec, S.opt).forEach((a) => rows.date.push({ key: a.w.key, page: a.page, a })));
         rows.name = az.map((w) => ({ key: w.key, page: null }));
+        bgs.forEach((w) => { rows.date.push({ key: w.key, page: null }); rows.name.push({ key: w.key, page: null }); });
         fulls.forEach((w) => { if (!w.assignments.length) { rows.date.push({ key: w.key, page: null }); rows.name.push({ key: w.key, page: null }); } });
     }
 
@@ -597,6 +608,11 @@
         return '<li class="row' + (rec ? ' rec' : '') + '" data-key="' + esc(w.key) + '"><a class="go" href="' + hashFor(w.key, a ? a.page : null) + '">' +
             '<span class="l1"><span class="au">' + esc(strip(w.author || '')) + '</span> <span class="yr">(' + esc(w.fullYear || w.year) + ')</span>' + (extra || '') + '</span>' +
             (sub ? '<span class="l2">' + sub + '</span>' : '') + '</a>' + avail(w) + (a ? fullLink(a) : '') + '</li>';
+    }
+    function bgBlock() {
+        if (!bgs.length) return '';
+        return '<div class="sess bgsec" id="side-bg"><div class="sh"><span class="d">Not assigned to a session</span><span class="t">Background</span></div>' +
+            '<ol>' + bgs.map((w) => rowHtml(w, null)).join('') + '</ol></div>';
     }
     function nextSession() { const now = nowIn(TZ); return sessions.find((S) => S.endAt > now) || null; }
     function buildList() {
@@ -632,6 +648,7 @@
                 }
                 h += '</div>';
             });
+            h += bgBlock();
         } else {
             let last = '';
             h += '<ol class="az">';
@@ -644,7 +661,7 @@
                 const req = w.assignments.some((a) => a.kind === 'main');
                 h += rowHtml(w, null, '<span class="whens">' + chips + '</span>', !req);
             });
-            h += '</ol>';
+            h += '</ol>' + bgBlock();
         }
         el.list.innerHTML = h;
         document.querySelectorAll('.sortbtn').forEach((b) => b.setAttribute('aria-checked', b.dataset.sort === sort ? 'true' : 'false'));
@@ -705,10 +722,12 @@
         h += '<section class="how"><h2 class="eyebrow">How it works</h2><ul>' +
             '<li>The sidebar lists the readings <b>by session</b> (recommended and optional ones folded under each session) or <b>by author</b>.</li>' +
             '<li><b>Full texts</b> lists the whole books and articles. Each excerpt links to its full text (<b>+ full book</b>), and each full text lists the excerpts taken from it.</li>' +
+            (bgs.length ? '<li><b>Background</b>, at the end of the reading list, has articles that aren&rsquo;t assigned for any session but fill in the picture.</li>' : '') +
             '<li>For long books, type a page number in <b>Go to p.</b> (the book&rsquo;s own numbering where the PDF has it).</li>' +
             '<li>Keys: <b>j</b>/<b>k</b> or &larr;/&rarr; page down and up; <b>[</b> and <b>]</b> go to the previous or next reading.</li></ul></section>';
         h += '<p class="stats">' + assigned.length + ' readings on the syllabus &middot; <b>' + here + '</b> open here &middot; ' + out + ' link out' +
-            (none ? ' &middot; ' + none + ' without a link yet' : '') + ' &middot; <b>' + fulls.length + '</b> full texts</p>';
+            (none ? ' &middot; ' + none + ' without a link yet' : '') + ' &middot; <b>' + fulls.length + '</b> full texts' +
+            (bgs.length ? ' &middot; ' + bgs.length + ' background' : '') + '</p>';
         el.landing.innerHTML = h;
         el.crumb.innerHTML = '<span class="cur">Readings</span>';
         el.pageno.textContent = ''; el.filelink.innerHTML = ''; el.zoomwrap.hidden = true; el.gotowrap.hidden = true;
@@ -725,6 +744,7 @@
     }
     function cardHtml(w, ctx) {
         let h = '<div class="tags">' + (w.isFull ? '<span class="tag full eyebrow">Full ' + w.kindWord + '</span>' : '') +
+            (w.bg && !w.isFull ? '<span class="tag full eyebrow">Background</span>' : '') +
             (w.excerpt && !w.isFull ? '<span class="tag ex eyebrow">Excerpt</span>' : '') + '</div>';
         h += '<h1>' + w.label + '</h1>' + (w.title ? '<div class="title">' + w.title + '</div>' : '');
         if (w.note) h += '<p class="note">' + w.note + '</p>';
@@ -760,7 +780,7 @@
         let i = list.findIndex((r) => r.key === w.key);
         if (cur && cur.row != null && list[cur.row] && list[cur.row].key === w.key) i = cur.row;
         const prev = i > 0 ? list[i - 1] : null, next = i >= 0 && i < list.length - 1 ? list[i + 1] : null;
-        const lab = (r) => { const x = byKey[r.key]; return esc(x.labelText) + (r.a ? ' <span class="dim">&middot; session ' + r.a.s.n + '</span>' : (x.isFull ? ' <span class="dim">&middot; full ' + x.kindWord + '</span>' : '')); };
+        const lab = (r) => { const x = byKey[r.key]; return esc(x.labelText) + (r.a ? ' <span class="dim">&middot; session ' + r.a.s.n + '</span>' : (x.isFull ? ' <span class="dim">&middot; full ' + x.kindWord + '</span>' : (x.bg ? ' <span class="dim">&middot; background</span>' : ''))); };
         el.chapnav.innerHTML = (prev ? '<a class="prev" href="' + hashFor(prev.key, prev.page) + '" data-row="' + (i - 1) + '"><span class="k eyebrow">Previous</span><span>' + lab(prev) + '</span></a>' : '') +
             (next ? '<a class="next" href="' + hashFor(next.key, next.page) + '" data-row="' + (i + 1) + '"><span class="k eyebrow">Next</span><span>' + lab(next) + '</span></a>' : '');
     }
@@ -768,6 +788,7 @@
         let h = '';
         if (ctx && ctx.a) h += '<a class="sess" href="' + COURSE + '#s' + ctx.a.s.n + '">Session ' + ctx.a.s.n + ' &middot; ' + (ctx.a.s.p ? ctx.a.s.p.md : esc(ctx.a.s.date)) + '</a><span class="sep">&rsaquo;</span>';
         else if (w.isFull) h += '<a class="sess" href="#" data-tab="full">Full texts</a><span class="sep">&rsaquo;</span>';
+        else if (w.bg) h += '<a class="sess" href="#" data-tab="readings">Background</a><span class="sep">&rsaquo;</span>';
         h += '<span class="cur">' + esc(w.labelText) + '</span>' + (w.short ? '<span class="sep">&middot;</span><span class="ttl">' + w.short + '</span>' : '');
         el.crumb.innerHTML = h;
     }
@@ -933,7 +954,7 @@
             const list = rows[sort];
             if (row == null || !list[row] || list[row].key !== w.key) row = list.findIndex((r) => r.key === w.key && (page == null || r.page == null || r.page === page));
             const r = row >= 0 ? list[row] : null;
-            if (!w.assignments.length && tab !== 'full') { tab = 'full'; buildList(); }
+            if (!w.assignments.length && !w.bg && tab !== 'full') { tab = 'full'; buildList(); }
             else if (!w.isFull && tab === 'full') { tab = 'readings'; buildList(); }
             openWork(w, page, { a: r && r.a ? r.a : (w.assignments[0] || null), row: row >= 0 ? row : null });
         } else showLanding();

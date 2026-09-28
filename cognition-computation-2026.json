@@ -217,18 +217,6 @@
           }
         },
         {
-          "author": "Kanwisher, Khosla, and Dobs",
-          "year": "2023",
-          "title": "Using Artificial Neural Networks to Ask &lsquo;Why&rsquo; Questions of Minds and Brains",
-          "style": "quotes",
-          "detail": ", <i>Trends in Neurosciences</i> 46, excerpts",
-          "url": "docs/cc2026/kanwisher-khosla-dobs-2023-why-questions.pdf",
-          "full": {
-            "url": "docs/cc2026/kanwisher-khosla-dobs-2023-why-questions-full.pdf",
-            "text": "full paper"
-          }
-        },
-        {
           "author": "Quian Quiroga",
           "year": "2017",
           "title": "How Do We Recognize a Face?",
@@ -748,6 +736,16 @@
           "title": "<i>Making Minds</i> course book",
           "url": "https://www.makingminds.org/book/",
           "note": "The Phil 133 course book, readable online."
+        }
+      ]
+    },
+    {
+      "heading": "Background",
+      "items": [
+        {
+          "title": "Kanwisher, Khosla, and Dobs (2023), &ldquo;Using Artificial Neural Networks to Ask &lsquo;Why&rsquo; Questions of Minds and Brains&rdquo;",
+          "url": "docs/cc2026/kanwisher-khosla-dobs-2023-why-questions.pdf",
+          "note": "The whole article (PDF; <i>Trends in Neurosciences</i> 46: 240&ndash;254). Background for session 4: networks trained on different tasks as a way of asking why the brain is organized as it is &mdash; for instance, why face recognition has a system of its own."
         }
       ]
     },
