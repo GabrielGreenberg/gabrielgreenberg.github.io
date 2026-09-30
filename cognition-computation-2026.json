@@ -8,6 +8,14 @@
     "when": "Thu 2:30-5:30",
     "where": "Dodd 321",
     "officeHours": "Wed 2:00-3:00, Dodd 351",
+    "officeHoursZoom": {
+      "url": "https://ucla.zoom.us/my/gjgreenberg",
+      "dates": [
+        "9/30",
+        "11/4",
+        "11/25"
+      ]
+    },
     "email": "gabriel.greenberg@gmail.com",
     "syllabusUrl": "",
     "description": "This seminar introduces students to the philosophical foundations of cognitive science. Our focus will be the core hypothesis that cognition is rooted in computations carried out in the brain. We will approach these issues through the lens of classic theoretical texts from the last 75 years, including works by Craik, Turing, Chomsky, Marr, Fodor, and others. This literature will be interleaved with contemporary real-world cases from cognitive science (face recognition, spatial maps in the hippocampus, and semantic priming) and from computer science (finite-state machines, neural networks, and transformer architectures). The last three weeks of the course will focus on understanding contemporary AI models, and comparing them to human cognition."

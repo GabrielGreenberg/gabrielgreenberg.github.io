@@ -213,6 +213,11 @@
         .fact.next dd a { color: var(--ink); font-weight: 600; }
         .fact.next dd a:hover { color: var(--accent); text-decoration: none; }
         .fact .more { display: inline-block; margin-top: 4px; font-size: 13.5px; }
+        .fact .oh-zoom { margin-top: 6px; font-size: 13.5px; }
+        .fact .oh-zoom > * { display: block; }
+        .fact .oh-zoom .oh-label { color: var(--ink-3); }
+        .fact .oh-zoom .sep { color: var(--ink-3); margin: 0 7px; }
+        .fact .oh-zoom a { overflow-wrap: anywhere; }
 
         /* ---------- Syllabus: schedule table ---------- */
         .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
@@ -736,7 +741,19 @@
             }
             if (c.when || c.where) fact('Meets', [dashes(c.when), c.where].filter(Boolean).join(' &middot; '));
             if (c.instructor) fact('Instructor', c.instructor + (c.email ? '<br><a href="mailto:' + c.email + '">' + c.email + '</a>' : ''));
-            if (c.officeHours) fact('Office hrs', dashes(c.officeHours));
+            if (c.officeHours) {
+                var oh = dashes(c.officeHours), z = c.officeHoursZoom;
+                if (z && z.url && z.dates) {   // days held on Zoom instead of in person; past days drop off
+                    var t = todayISO();
+                    var zd = z.dates.map(parseMD).filter(function (p) { return p && p.iso >= t; });
+                    if (zd.length) {
+                        oh += '<div class="oh-zoom"><span class="oh-label">On Zoom, not in person:</span>'
+                            + '<span class="d">' + zd.map(function (p) { return dateHtml(p); }).join('<span class="sep">&middot;</span>') + '</span>'
+                            + '<a href="' + z.url + '"' + linkAttrs(z.url) + '>' + z.url.replace(/^https?:\/\//, '') + '</a></div>';
+                    }
+                }
+                fact('Office hrs', oh);
+            }
             if (data.requirements && data.requirements.length) {
                 var dl = data.requirements.map(function (r) {
                     return '<div class="dl-row"><span class="d">' + dueHtml(r) + '</span><span>' + r.label + '</span></div>';
