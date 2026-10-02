@@ -100,7 +100,12 @@
       "number": 2,
       "title": "Algorithmic Language",
       "date": "10/1",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w2-algorithmic-language-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Chomsky",
