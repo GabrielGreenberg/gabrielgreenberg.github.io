@@ -134,7 +134,12 @@
       "number": 3,
       "title": "Levels of Abstraction",
       "date": "10/8",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w3-levels-of-abstraction-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Marr",
