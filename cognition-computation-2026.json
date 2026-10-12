@@ -214,6 +214,14 @@
       "handouts": [],
       "readings": [
         {
+          "author": "Burton",
+          "year": "2024",
+          "title": "Face Perception",
+          "style": "quotes",
+          "detail": ", <i>Open Encyclopedia of Cognitive Science</i>",
+          "url": "https://oecs.mit.edu/pub/h0rivqh3/release/1"
+        },
+        {
           "author": "Tsao",
           "year": "2019",
           "title": "Face Values",
@@ -241,15 +249,6 @@
           "style": "quotes",
           "detail": ", <i>Cell</i> 169: 975&ndash;977",
           "url": "docs/cc2026/quian-quiroga-2017-how-do-we-recognize-a-face.pdf",
-          "tag": "recommended"
-        },
-        {
-          "author": "Burton",
-          "year": "2024",
-          "title": "Face Perception",
-          "style": "quotes",
-          "detail": ", <i>Open Encyclopedia of Cognitive Science</i>",
-          "url": "https://oecs.mit.edu/pub/h0rivqh3/release/1",
           "tag": "recommended"
         },
         {
