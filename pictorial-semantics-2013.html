@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pictorial Semantics · PHIL 287 · Winter 2013</title>
+    <meta name="description" content="Pictorial Semantics (Winter 2013, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #6b4a33; --accent-bright: #a87a52; --accent-soft: #F5F2F1; --accent-line: #DED7D2; --banner-ink: #F7F7F7;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #333 url(images/pictorial-semantics-2013.jpg) no-repeat 50% 50%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Pictorial Semantics<span class="course">PHIL 287</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 287 &middot; Winter 2013 &middot; UCLA</div>
+            <h1>Pictorial Semantics</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">This course examines the theories on intentionality and information theory, exploring foundational concepts, the evolution of naturalized intentionality, and the role of informational relations in shaping mental states. It delves into the quantification and transfer of information, emphasizing the significance of causality and the conceptual framework for understanding informational content.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 287: Philosophy of Language</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Wednesdays 3&ndash;5:50</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd 399</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Wed</span>1/9</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Systems of Representation</span><div class="handouts"><a href="https://drive.google.com/file/d/1OSAVgSUAjitdAdnGUNl0DDA8rk4tBk_Z/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Saussure</span> <span class="yr">([1923] 1983)</span> <span class="ti"><a href="https://drive.google.com/file/d/182-qnBlthHMm9DmSVvIxqyjmRJmWH-5-/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Course in General Linguistics</i></a></span><span class="dt">Intro: Ch. 3.3, &ldquo;Place of Language in Human Facts: Semiology&rdquo;; Part 1 Ch. 1, &ldquo;Nature of the Linguistic Sign&rdquo;</span></li><li><span class="au">McCloud</span> <span class="yr">(1993)</span> <span class="ti"><a href="https://drive.google.com/file/d/1RcB8-mJi_Y2OY8BiOc5BbRovfsjKLtWA/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Understanding Comics</i></a></span><span class="dt">Ch. 2, &ldquo;The Vocabulary of Comics&rdquo;</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Peirce</span> <span class="yr">(1894)</span> <span class="ti"><a href="https://drive.google.com/file/d/1fHU5tAi1se8PZtIqaDjZHs5n6d_HKwrX/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;What is a sign?&rdquo;</a></span></li><li><span class="au">Schier</span> <span class="yr">(1986)</span> <span class="ti"><a href="https://drive.google.com/file/d/16vDTnOTbvkT9rBA9Q7duNuqZ9JIqF_yl/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Deeper into Pictures</i></a></span><span class="dt">Chapter 3, &ldquo;The Natural and the Unnatural&rdquo;; Chapter 4, &ldquo;A Theory of Depiction&rdquo;</span></li></ul></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Wed</span>1/16</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Pictorial Content</span><div class="handouts"><a href="https://drive.google.com/file/d/1ihTyrnEA9mXpAccLRqYgHrVKqdZK-CaD/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Goodman</span> <span class="yr">(1968)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tZWK59Ei1EUV9I4Vyp4gN8PQBA_LqZfm/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Languages of Art</i></a></span><span class="dt">Chapter 1, &ldquo;Reality Remade&rdquo;: sections 1,5 and 6</span></li><li><span class="au">Blumson</span> <span class="yr">(2009)</span> <span class="ti"><a href="https://drive.google.com/file/d/1rjA72P4Er_Z-YKoni5RU4wnmkAM0rQxj/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Pictures, Perspective, and Possibility&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Ross</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1vgmIOLJFtPQ9a6NVpKxd5BV3RRnBNmFG/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>The Semantics of Media</i></a></span><span class="dt">Chapter 3, &ldquo;Reflections on Content&rdquo;; Chapter 5, &ldquo;The Semantics of Viewpoint&rdquo;</span></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Wed</span>1/23</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Systems of Depiction</span><div class="handouts"><a href="https://drive.google.com/file/d/1b-wdxTcAw3H5hNBo_LW1GQV1qWgaZtc5/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Goodman</span> <span class="yr">(1968)</span> <span class="ti"><a href="https://drive.google.com/file/d/1elJOoL0VAcDCJsSRBUN_GiYUaFHZpIVC/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Languages of Art</i></a></span><span class="dt">Chapter 1, &ldquo;Reality Remade&rdquo;: sections 2-3 and 7-9</span></li><li><span class="au">Willats</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1GR3S55cDmUU6pDW1lHaHMizlZ_CG-m8G/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Art and Representation</i></a></span><span class="dt">Chapter 1, &ldquo;Introduction&rdquo;</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Lewis</span> <span class="yr">(1969)</span> <span class="ti"><a href="https://drive.google.com/file/d/1ZBourWnaUg7u-BF3otRJ-xXUAjI5LQkp/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Convention&rdquo;</a></span></li><li><span class="au">Healy et al</span> <span class="yr">(2007)</span> <span class="ti"><a href="https://drive.google.com/file/d/1JkkQYYld-U4NWh9k8Uxwdytl0qRFDrsP/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Graphical Language Games&rdquo;</a></span></li></ul></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Wed</span>1/30</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Geometrical Projection</span><div class="handouts"><a href="https://drive.google.com/file/d/16PkzB06gfhWPlAUY64UHF64GrblUBgHB/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Sedgewick</span> <span class="yr">(1980)</span> <span class="ti"><a href="https://drive.google.com/file/d/1UcrnKmghEPAeZKwoJwHfvV1pBt6DrWVd/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;The Geometry of Spatial Layout in Pictorial Representation&rdquo;</a></span><span class="dt">from Hagen (1980) <i>The Perception of Pictures</i>, pages 34-48</span></li><li><span class="au">Willats</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1GR3S55cDmUU6pDW1lHaHMizlZ_CG-m8G/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Art and Representation</i></a></span><span class="dt">Chapter 2, &ldquo;Projection Systems&rdquo;</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Hagen</span> <span class="yr">(1986)</span> <span class="ti"><a href="https://drive.google.com/file/d/1jBC24RMsZqOYe8b0l5UX3yTnpSvRbmbB/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Varieties of Realism</i></a></span><span class="dt">especially chapters 5-9</span></li><li>Wikipedia series on <a href="http://en.wikipedia.org/wiki/Graphical_projection" class="out" target="_blank" rel="noopener">Graphical Projection</a></li></ul></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Wed</span>2/6</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">Light and Line</span><div class="handouts"><a href="https://drive.google.com/file/d/1WCVYPsRdflPEtlWqCzXSiQogWZ6G4Nsb/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Willats</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1GR3S55cDmUU6pDW1lHaHMizlZ_CG-m8G/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Art and Representation</i></a></span><span class="dt">Chapter 4, &ldquo;Regions as Picture Primitives&rdquo;; Chapter 5, &ldquo;Line Drawing&rdquo;; Chapter 6, &ldquo;Optical Denotation Systems&rdquo;</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Wed</span>2/13</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Depiction, Perception, and Convention</span><div class="handouts"><a href="https://drive.google.com/file/d/1_ImuUCNntONSmYptXYD_aGqrOf-eDVcR/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Lewis</span> <span class="yr">(1969)</span> <span class="ti"><a href="https://drive.google.com/file/d/1ZBourWnaUg7u-BF3otRJ-xXUAjI5LQkp/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Convention&rdquo;</a></span><span class="dt">Chapter 1, &ldquo;Coordination and Convention&rdquo;; Chapter 4, &ldquo;Convention and Communication&rdquo;</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Wed</span>2/20</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Bare-bones and Fleshed-out Content</span><div class="handouts"><a href="https://drive.google.com/file/d/1qrsHY69F_9Uk5y2dTo3xZ3Sxzqu3jDQH/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Kulvicki</span> <span class="yr">(1996)</span> <span class="ti"><a href="https://drive.google.com/file/d/1n8dgEOive0XihnssRh5Uw97rMjDRwAx8/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>On Images</i></a></span><span class="dt">Chapter 3, &ldquo;Transparency&rdquo;: pages 49-63</span></li><li><span class="au">Malinas</span> <span class="yr">(1991)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tNGHfk5vjZfCRbskHk2FyyDLONZr1j89/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;A Semantics for Pictures&rdquo;</a></span><span class="dt">Section I</span></li><li><span class="au">Burge</span> <span class="yr">(2010)</span> <span class="ti"><a href="https://drive.google.com/file/d/1W-n4Aes-cYVcbidnogN8hpVFmvCFKMGy/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Origins of Objectivity</i></a></span><span class="dt">Chapter 2, &ldquo;Terminology&rdquo;, pages 30-46; Chapter 9, &ldquo;Origins&rdquo;, pages 379-384</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s8"><td class="date"></td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Fleshed-out Content and Direct Reference</span><div class="handouts"><a href="https://drive.google.com/file/d/18NAv-CSplIcHwmCqT--0tKA2M8HjeYjl/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">DeCarlo and Stone</span> <span class="yr">(2010)</span> <span class="ti"><a href="https://drive.google.com/file/d/1au3BtcY0ABlYL-XcCjDSZoPow-v4wG1r/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Visual Explanations&rdquo;</a></span></li><li><span class="au">Schier</span> <span class="yr">(2010)</span> <span class="ti"><a href="https://drive.google.com/file/d/16vDTnOTbvkT9rBA9Q7duNuqZ9JIqF_yl/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Deeper into Pictures</i></a></span><span class="dt">Chapter 5, &ldquo;Recognition and Iconic Reference&rdquo;</span></li><li><span class="au">Kaplan</span> <span class="yr">(1977)</span> <span class="ti"><a href="https://drive.google.com/file/d/1n88tFemivF6W8MhOfF08T0c-9xccIUE4/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Demonstratives&rdquo;</a></span><span class="dt">On character vs. content: sections VI(i), VI(ii), VII, XI, XIII, XIV; on direct reference: preface, III, IV, V, IX, IX(i)</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Wed</span>3/6</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">Semantics of Fleshed-out Content</span><div class="handouts"><a href="https://drive.google.com/file/d/1Pzbj9Vsqul2r8QfKZEF728FHtuVJzHYG/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Malinas</span> <span class="yr">(1991)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tNGHfk5vjZfCRbskHk2FyyDLONZr1j89/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;A Semantics for Pictures&rdquo;</a></span><span class="dt">Sections II-end</span></li><li><span class="au">Marr</span> <span class="yr">(1982)</span> <span class="ti"><a href="https://drive.google.com/file/d/1rolVyc5JEg4g5uOkUfHw5mUgTlGjqL__/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Vision</i></a></span><span class="dt">Chapter 4, &ldquo;The Immediate Representation of Visible Surfaces&rdquo;, sections 4.1 and 4.3-5</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1977)</span> <span class="ti"><a href="https://drive.google.com/file/d/1n88tFemivF6W8MhOfF08T0c-9xccIUE4/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Demonstratives&rdquo;</a></span><span class="dt">The formal system: XVIII, XIX</span></li></ul></td></tr>
+<tr id="s10"><td class="date"><span class="dow">Mon</span>3/11</td><td class="topic"><span class="num eyebrow">Session 10</span><span class="title">Enriched Regions</span><div class="handouts"><a href="https://drive.google.com/file/d/1xSxCfgkUWY-ygvJ_Pf-QKD30zElchkDF/view?usp=drive_link" target="_blank" rel="noopener">Handout</a><br><a href="https://drive.google.com/file/d/1pskpy_TzKt5HS-R6H18WuP0s7yS9KRim/view?usp=drive_link" target="_blank" rel="noopener">Slides</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1989)</span> <span class="ti"><a href="https://drive.google.com/file/d/1n88tFemivF6W8MhOfF08T0c-9xccIUE4/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Afterthoughts&rdquo;</a></span><span class="dt">&ldquo;Taxonomy&rdquo; (pp. 573-576) &amp; Section II</span></li><li><span class="au">Walton</span> <span class="yr">(1984)</span> <span class="ti"><a href="https://drive.google.com/file/d/1kcDAvqD-gfH-vIf8s_n0PTJBjxSr_sa3/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Transparent Pictures&rdquo;</a></span><span class="dt">Section 5</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 287 &middot; Pictorial Semantics &middot; Winter 2013 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>

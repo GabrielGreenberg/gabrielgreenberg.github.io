@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Objects · PHIL 281 · Winter 2018</title>
+    <meta name="description" content="Visual Objects (Winter 2018, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #3e5f74; --accent-bright: #587384; --accent-soft: #F1F4F5; --accent-line: #D5DCE0; --banner-ink: #1c2a35;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #ddd url(images/visual-objects-2018.jpg) no-repeat 50% 40%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Visual Objects<span class="course">PHIL 281</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#requirements">Requirements</a>
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner light">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 281 &middot; Winter 2018 &middot; UCLA</div>
+            <h1>Visual Objects</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">This seminar series begins by distinguishing cognitive and perceptual processes, focusing on visual reference. It critically examines perceptual content, questioning direct realism and introducing the concept of visual space. The course covers perceptual reference and the computational aspects of vision, emphasizing inference and processing stages. It addresses the vehicle, content, and meta-semantics of visual reference, exploring how visual perception is constrained by and connected to its content and causal relationships.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 281: Visual Objects</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Tue</span>1/9</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Perception, Cognition, and Reference</span><div class="handouts"><a href="https://drive.google.com/file/d/104Fe_f5N_LxLywUtzjVchgQiQv2avqE8/view?usp=drive_link" target="_blank" rel="noopener">Introduction</a></div><div class="s-note">No reading.</div></td><td class="read empty" data-label="Reading"><span class="none">&mdash;</span></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Tue</span>1/16</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">External Conditions</span><div class="handouts"><a href="https://drive.google.com/file/d/1x8GLIXoInSGdwcx7UxbKrtRtqLrFMIjh/view?usp=drive_link" target="_blank" rel="noopener">Causal Analysis</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Pears</span> <span class="yr">(1976)</span> <span class="ti"><a href="https://drive.google.com/file/d/1dkhhSNA7bPsGNaomqjo8z1Kdmx4rqtWs/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The causal conditions of perception&rdquo;</a></span></li><li><span class="au">Tye</span> <span class="yr">(1982)</span> <span class="ti"><a href="https://drive.google.com/file/d/1r6qMS-VhpMz-wi0D00QHlZLn6HcJyieV/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;A causal analysis of seeing&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Goldman</span> <span class="yr">(1977)</span> <span class="ti"><a href="https://drive.google.com/file/d/1g7R3QaUNJWXjupvc0vDhBwg4epJsf20X/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Perceptual objects&rdquo;</a></span></li><li><span class="au">Evans</span> <span class="yr">(1982)</span> <span class="ti"><a href="https://drive.google.com/file/d/16Bz9yIxTyw738zW7AmhCe6p2DFNPanTD/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Varieties of Reference</i></a></span><span class="dt">, Chapter 6</span></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Tue</span>1/23</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Internal Conditions</span><div class="handouts"><a href="https://drive.google.com/file/d/1Q-Ose7nPc2TTixhG1ZGENYFmz53Oo3od/view?usp=drive_link" target="_blank" rel="noopener">Meta-semantics: Internal Conditions</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Warnock</span> <span class="ti"><a href="https://drive.google.com/file/d/1cZBfLwpOqpbpzds4PxWxfR_HzbhaY8bE/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Seeing,&rdquo;</a></span><span class="dt"> Section I (pp. 201-210)</span></li><li><span class="au">Dretske</span> <span class="yr">(1969)</span> <span class="ti"><a href="https://drive.google.com/file/d/1kpBwYjX9qM7EBptFvLGhem37L3TwPTFd/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Non-epistemic seeing,&rdquo;</a></span><span class="dt"> Section 2 (pp. 18-35)</span></li><li><span class="au">Siegel</span> <span class="yr">(2006)</span> <span class="ti"><a href="https://drive.google.com/file/d/15iN7-oNs_veghpRN07Fgqblx-l-my8yf/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;How does visual phenomenology constrain object-seeing?&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Tue</span>1/30</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Reference, Description, and Accuracy</span><div class="handouts"><a href="https://drive.google.com/file/d/1tdywQ5fkjIMQ2UOR5uypY_wdvCIW_mPU/view?usp=drive_link" target="_blank" rel="noopener">Direct Reference</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Dickie</span> <span class="yr">(2015)</span> <span class="ti"><a href="https://drive.google.com/file/d/1hRw0ObjRkG0c86H8Xw0nlo4G9drQ8RPb/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Perception and Demonstratives&rdquo;</a></span></li><li><span class="au">Greenberg</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/1J32Tc3xx2_3fgWd-tsGREpK7E9SJcv12/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Content and Target in Pictorial Representation&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Dickie</span> <span class="yr">(2011)</span> <span class="ti"><a href="https://drive.google.com/file/d/14Dh8J7lhVqwB8ikax6GvreS28dPIjCD4/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Visual Attention Fixes Demonstrative Reference by Eliminating Referential Luck&rdquo;</a></span></li></ul></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Tue</span>2/6</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">Feature Maps and Object Files</span><div class="handouts"><a href="https://drive.google.com/file/d/1aw9jZT9uExheNnrBgam35qggFVZwmBRB/view?usp=drive_link" target="_blank" rel="noopener">Feature Maps and Object Files</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Treisman</span> <span class="yr">(1986)</span> <span class="ti"><a href="https://drive.google.com/file/d/1fxI3tGvHnjXYveWJ_cmF1POJA2hrn5XJ/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Features and objects in visual processing&rdquo;</a></span></li><li><span class="au">Treisman</span> <span class="yr">(1988)</span> <span class="ti"><a href="https://drive.google.com/file/d/1zX63Qzr2_RoUrJXwmb85iDrocPuSPdG1/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Features and objects&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Treisman and Gelade</span></li><li><span class="au">Treiseman, Khaneman, and Gibbs</span></li></ul></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Tue</span>2/13</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Visual Indexes</span><div class="handouts"><a href="https://drive.google.com/file/d/1TebilMcIci5_tztiMvAPmz2n5KIYjNZ6/view?usp=sharing" target="_blank" rel="noopener">Visual Indexes</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Pylyshyn</span> <span class="yr">(2001)</span> <span class="ti"><a href="https://drive.google.com/file/d/1t2sGLJk-r4Y-AdyFkq3ED1oR1v977Opb/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Visual indexes, preconceptual objects, and situated vision&rdquo;</a></span></li><li><span class="au">Green and Quilty-Dunn</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/1-ubf3rlgT8vEwm0Nc-mxtDY-h6KA3yHl/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;What is an object file?&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Pylshyn</span> <span class="yr">(2003)</span> <span class="ti"><a href="https://drive.google.com/file/d/1GLpNypPvkR5Tg4dbb5qpiRwja6b86pSL/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Seeing and Visualizing</i></a></span><span class="dt">, Chapter 4 and 5</span></li><li><span class="au">Green</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/1vv6nnUyXI_-tc3PL9BJG43mtKuqeIUJn/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;What do object files pick out?&rdquo;</a></span></li></ul></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Tue</span>2/20</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Segmentation and Object Representation</span><div class="handouts"><a href="https://drive.google.com/file/d/18_kA9livm0lF2CykDumOVNyKz72CP7nh/view?usp=sharing" target="_blank" rel="noopener">Grouping and Object Representation</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Palmer</span> <span class="yr">(1999)</span> <span class="ti"><a href="https://drive.google.com/file/d/1UaviuaHga7_AijO_5eCjkdyK7P9kipa-/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Chapter 6: Organizing Objects and Scenes&rdquo;</a> in <i>Vision Science</i></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Palmer</span> <span class="yr">(1999)</span> <span class="ti"><a href="https://drive.google.com/file/d/1TehpVOfEF9798x6uZNDHPIT_60p9jRbz/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Chapter 7: Perceiving Object Properties and Parts&rdquo;</a> in <i>Vision Science</i></span></li><li><span class="au">Palmer</span> <span class="yr">(1999)</span> <span class="ti"><a href="https://drive.google.com/file/d/13CaU5uCVQ1OaD8JlaulquG-jkKwZ7PEn/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Chapter 8: Representing Shape and Structure&rdquo;</a> in <i>Vision Science</i></span></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Tue</span>2/27</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Singular Accuracy Conditions</span><div class="handouts"><a href="https://drive.google.com/file/d/1jKgAOchkOwB5D61sKHLpEuOHV8n1j08g/view?usp=sharing" target="_blank" rel="noopener">Singular Accuracy Conditions</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Burge</span> <span class="yr">(2005)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tHYr3Qv5qmYf96O7gb4LX4UzJQREHuQV/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Disjunctivism and perceptual psychology&rdquo;</a></span><span class="dt"> (skip the appendix)</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Tue</span>3/6</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">Grappy Content</span><div class="handouts"><a href="https://drive.google.com/file/d/1f5qDVhNRVhEVoI39yHRDa3HmxSSCMKdb/view?usp=sharing" target="_blank" rel="noopener">Modes of Presentation</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Siegel</span> <span class="yr">(2011)</span> <span class="ti"><a href="https://drive.google.com/file/d/1jMl_4QBwiP6-pMpGPUewduVdpttk1G_v/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Chapter 6: The role of objects in visual experience&rdquo;</a></span></li><li><span class="au">Schellenberg</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/1jMl_4QBwiP6-pMpGPUewduVdpttk1G_v/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Chapter 4: Fregean Particularism&rdquo;</a> in <i>The Contents of Visual Experience</i></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s10"><td class="date"><span class="dow">Tue</span>3/13</td><td class="topic"><span class="num eyebrow">Session 10</span><span class="title">Discourse Referents and Visual Referents</span><div class="handouts"><a href="https://drive.google.com/file/d/1h1HBt44Kna2N0Oc9XuTwO4wDsoeC7Mw_/view?usp=drive_link" target="_blank" rel="noopener">Discourse Referents and Visual Referents</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Karttunen</span> <span class="yr">(1976)</span> <span class="ti"><a href="https://drive.google.com/file/d/1sQ3kMC4ZXK59Mg_nsMFNliWhLjn19NpZ/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Discourse referents&rdquo;</a></span></li><li><span class="au">Clark</span> <span class="yr">(2004)</span> <span class="ti"><a href="https://drive.google.com/file/d/1xZHAlj7a1e1E0rCWtI56CIbXvBzlz_7Z/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Feature placing and proto objects&rdquo;</a></span></li><li><span class="au">Abusch</span> <span class="yr">(2012)</span> <span class="ti"><a href="https://drive.google.com/file/d/1vK-HxbE9X6iJK-CU7bTCY903A6rqrcda/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Applying discourse semantics and pragmatics to co-reference in picture sequences&rdquo;</a></span></li><li><span class="au">Greenberg</span> <span class="yr">(MS)</span> <span class="ti">&ldquo;Visual discourse referents&rdquo;</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <section id="requirements"><h2 class="sec">Requirements</h2><dl class="policies"><dt>1. Short Paper (~5 pages)</dt><dd>Due Thurs, Feb 15. This paper should be exegetical. Pick one fairly specific idea from one of the readings and explain it. Though you may discuss challenges to the ideas under discussion, the emphasis should be on methodical explanation, not theory-building or argument.</dd><dt>2. Long Paper (15-20 pages)</dt><dd>Due Mon, March 26. This paper should advance a thesis and argue for it. It need not be original to the literature, but it should be original to you. Outside reading is not required, but may be recommended. You are encouraged to build upon your first paper. Possible topics might include: develop an objection to a theory; develop a reply to an existing theory; develop a variant of an existing theory; compare two existing theories, and so on. The degree of focus should be comparable to the first paper, but here you should go beyond exegesis.</dd><dt>3. Meetings (minimum 2)</dt><dd>Due: one before Feb 12, one before March 26. These can be short, half-hour meetings. They should be oriented towards the writing you are doing (at least). You should prepare a short list of issues you&rsquo;d like to discuss&mdash; and if possible, a proposed outline for your paper.</dd></dl></section>
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 281 &middot; Visual Objects &middot; Winter 2018 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>

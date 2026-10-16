@@ -11,417 +11,349 @@
       gtag('config', 'G-GQ900QDSEE');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computation &amp; Cognition (2012)</title>
+    <title>Computation &amp; Cognition · PHIL 281 · Winter 2012</title>
+    <meta name="description" content="Computation &amp; Cognition (Winter 2012, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #B34512; --accent-bright: #F2712B; --accent-soft: #FDF1E9; --accent-line: #F5D3BE; --banner-ink: #2a2a2a;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
         * { box-sizing: border-box; }
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #fff;
-        }
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 16px;
-            line-height: 26px;
-            color: #3f3f3f;
-        }
-        a {
-            color: #1382d6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* ============ NAV ============ */
-        .topnav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 20px;
-        }
-        .topnav ul {
-            list-style: none;
             margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
         }
-        .topnav > ul > li {
-            position: relative;
-        }
-        .topnav > ul > li > a {
-            display: block;
-            padding: 4px 15px;
-            font-size: 16px;
-            line-height: 32px;
-            color: #1382d6;
-        }
-        .topnav > ul > li > a:hover {
-            text-decoration: none;
-            color: #0f6bb0;
-        }
-        /* dropdowns */
-        .topnav li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            border: 1px solid rgba(0,0,0,0.1);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            min-width: 250px;
-            padding: 6px 0;
-        }
-        .topnav li:hover > ul {
-            display: block;
-        }
-        .topnav li ul li a {
-            display: block;
-            padding: 6px 18px;
-            font-size: 15px;
-            line-height: 24px;
-            color: #3f3f3f;
-            white-space: nowrap;
-        }
-        .topnav li ul li a:hover {
-            color: #1382d6;
-            text-decoration: none;
-        }
-        .topnav li ul li a.current {
-            color: #1382d6;
-            font-weight: 700;
-        }
-
-        /* ============ BANNER ============ */
-        .banner {
-            background: url(images/cacti.jpg) no-repeat;
-            background-position: 50% 66%;
-            background-size: cover;
-            min-height: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-        }
-        .banner h1 {
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 72px;
-            letter-spacing: 1px;
-            color: #2a2a2a;
-            text-align: center;
-            margin: 0;
-            line-height: 1.1;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
         }
 
-        /* ============ CONTENT ============ */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 50px 15px 70px 15px;
-        }
-        .row {
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
             display: flex;
-            gap: 30px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
         }
-        .col-left {
-            width: 28.8%;
-            flex-shrink: 0;
-        }
-        .col-right {
-            flex: 1;
-            min-width: 0;
-        }
-        .section-label {
-            font-size: 32px;
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            line-height: 1.3;
-            color: #3f3f3f;
+            font-size: 17px;
+            color: var(--ink);
         }
-        .styled-hr {
-            border: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.13);
-            margin: 35px 0;
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
         }
-        .session-title {
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #d9d2c3 url(images/cacti.jpg) no-repeat 50% 66%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: #3f3f3f;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
         }
-        .session-date {
-            color: rgb(36, 103, 141);
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
         }
-        .handout a {
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
             font-weight: 700;
+            line-height: 1.4;
         }
-        .reading-label {
-            font-weight: 700;
-            margin-top: 20px;
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
         }
-        .col-right p {
-            margin: 0 0 10px 0;
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
         }
-        .col-right p:last-child {
-            margin-bottom: 0;
-        }
-        ul.readings {
-            margin: 5px 0 0 0;
-            padding-left: 28px;
-        }
-        ul.readings li {
-            margin-bottom: 2px;
-        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
 
         /* ============ RESPONSIVE ============ */
-        @media screen and (max-width: 900px) {
-            .banner h1 {
-                font-size: 48px;
-            }
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
         }
-        @media screen and (max-width: 768px) {
-            .topnav {
-                padding: 15px 10px;
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
             }
-            .topnav > ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .banner {
-                min-height: 240px;
-            }
-            .banner h1 {
-                font-size: 36px;
-            }
-            .container {
-                padding: 30px 15px 50px 15px;
-            }
-            .row {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .col-left {
-                width: 100%;
-            }
-            .section-label {
-                font-size: 26px;
-            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="topnav">
-        <ul>
-            <li><a href="https://www.metadillo.org/">Home</a></li>
-            <li><a href="#">Classes</a>
-                <ul>
-                    <li><a href="https://www.metadillo.org/visual-signs.html">Visual Signs</a></li>
-                    <li><a href="http://makingminds.org">Computational Theory of Mind</a></li>
-                    <li><a href="http://introphilosophyofmind.com">Introduction to Philosophy of Mind</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Seminars</a>
-                <ul>
-                    <li><a href="cognition-computation-2026.html">Cognition &amp; Computation (2026)</a></li>
-                    <li><a href="https://www.metadillo.org/mental-iconicity-2026.html">Mental Iconicity (2026)</a></li>
-                    <li><a href="https://www.metadillo.org/mental-iconicity-2023.html">Mental Iconicity (2023)</a></li>
-                    <li><a href="https://www.metadillo.org/visual-signs-2023.html">Visual Signs (2023)</a></li>
-                    <li><a href="https://www.metadillo.org/emotions-and-their-expression-2022.html">Emotions and their Expression (2022)</a></li>
-                    <li><a href="https://www.metadillo.org/non-linguistic-representation-2021.html">Non-Linguistic Representation (2021)</a></li>
-                    <li><a href="https://www.metadillo.org/visual-narrative-2020.html">Visual Narrative (2020)</a></li>
-                    <li><a href="https://www.metadillo.org/visual-objects-2018.html">Visual Objects (2018)</a></li>
-                    <li><a href="https://www.metadillo.org/indexicality-2018.html">Indexicality (2018)</a></li>
-                    <li><a href="https://www.metadillo.org/naturalizing-intentionality-2017.html">Naturalizing Intentionality (2017)</a></li>
-                    <li><a href="https://www.metadillo.org/iconicsymbolic-2015.html">Iconic/Symbolic (2015)</a></li>
-                    <li><a href="https://www.metadillo.org/pictorial-semantics-2013.html">Pictorial Semantics (2013)</a></li>
-                    <li><a href="https://www.metadillo.org/the-semantics-of-irreality-2013.html">The Semantics of Irreality (2013)</a></li>
-                    <li><a href="computation-cognition-2012.html" class="current">Computation &amp; Cognition (2012)</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Workshops</a>
-                <ul>
-                    <li><a href="http://gjgreenberg.bol.ucla.edu/visnar/">Visual Narrative (2012)</a></li>
-                    <li><a href="https://www.metadillo.org/iconicity-2015.html">Iconicity (2015)</a></li>
-                    <li><a href="https://infoslime.weebly.com/slime-1.html">SLIME 1 (2022)</a></li>
-                    <li><a href="https://infoslime.weebly.com/">SLIME 2 (2023)</a></li>
-                    <li><a href="https://www.metadillo.org/iconicity-and-cognition-2023.html">Iconicity and Cognition (2023)</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <header class="banner">
-        <h1>Computation &amp; Cognition</h1>
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Computation &amp; Cognition<span class="course">PHIL 281</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="container">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="section-label">ABOUT</div>
-            </div>
-            <div class="col-right">
-                <p>Prof. Gabriel Greenberg<br>
-                PHIL 281: Philosophy of Mind &bull; Winter 2012 &bull; UCLA<br>
-                <strong>When:</strong> Mon 3-5:50<br>
-                <strong>Where:</strong> Dodd 399</p>
-            </div>
+    <header class="banner light">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 281 &middot; Winter 2012 &middot; UCLA</div>
+            <h1>Computation &amp; Cognition</h1>
         </div>
+    </header>
 
-        <hr class="styled-hr">
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">The seminar will investigate the philosophical foundations of contemporary cognitive science as it has emerged over the last 60 years. Proceeding in rough chronological order, we will work through a number of writings by philosophers, linguists, computer scientists, and psychologists. Arguably, the keystone of this scientific movement is the hypothesis that human and animal cognition can be profitably explained by models originally developed in the theory of computation. This hypothesis will be the central topic of the seminar. Just as computational processes can be described at multiple levels of abstraction, psychologists in the computational tradition have found it natural to distinguish multiple levels of explanation within psychological theories, and to attribute multiple levels of representation to psychological subjects. A goal of the course will be to understand the philosophical significance of such levels. Of special interest for us will be the relationship between syntactic levels of explanation and representation, and semantic levels of explanation and representation.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 281: Philosophy of Mind</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Mondays 3&ndash;5:50</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd 399</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div><div class="fact"><dt class="eyebrow">Syllabus</dt><dd><a href="https://drive.google.com/file/d/13HhQ7DMWF_0mt2uR7Hp1QGfFn1HyuCyc/view?usp=drive_link" target="_blank" rel="noopener">PDF</a></dd></div></dl></aside>
+        </section>
 
-        <div class="row">
-            <div class="col-left">
-                <div class="section-label">SYLLABUS</div>
-            </div>
-            <div class="col-right">
-                <p><a href="https://drive.google.com/file/d/13HhQ7DMWF_0mt2uR7Hp1QGfFn1HyuCyc/view?usp=drive_link">Syllabus</a></p>
-                <p style="margin-top: 20px;"><strong>Course description:</strong> The seminar will investigate the philosophical foundations of contemporary cognitive science as it has emerged over the last 60 years. Proceeding in rough chronological order, we will work through a number of writings by philosophers, linguists, computer scientists, and psychologists. Arguably, the keystone of this scientific movement is the hypothesis that human and animal cognition can be profitably explained by models originally developed in the theory of computation. This hypothesis will be the central topic of the seminar. Just as computational processes can be described at multiple levels of abstraction, psychologists in the computational tradition have found it natural to distinguish multiple levels of explanation within psychological theories, and to attribute multiple levels of representation to psychological subjects. A goal of the course will be to understand the philosophical significance of such levels. Of special interest for us will be the relationship between syntactic levels of explanation and representation, and semantic levels of explanation and representation.</p>
-            </div>
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Mon</span>1/9</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Models of Computation</span><div class="handouts"><a href="https://drive.google.com/file/d/15bts0uqw8UUfBzonTS6q3_SXDHnGyRVm/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Helmholtz</span> <span class="yr">(1867)</span> <span class="ti"><a href="https://drive.google.com/file/d/1C6t4nXANOzNG4EHpAlraSAmjLNlMsnpc/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Treatise on Physiological Optics</i></a></span></li><li><span class="au">Turing</span> <span class="yr">(1950)</span> <span class="ti"><a href="https://drive.google.com/file/d/16mUNA_hpgfJWXdDfbyfNwllUAka_CRV3/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Computing machinery and intelligence&rdquo;</a></span></li></ul></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Mon</span>1/23</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Computation and Automata</span><div class="handouts"><a href="https://drive.google.com/file/d/1G-dakJ43anNlaoO9p2aMFOPzFhAV472p/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Chomsky</span> <span class="yr">(1957)</span> <span class="ti"><a href="https://drive.google.com/file/d/1QFuT3y4Fy2vnY8Hu09-9_brOIyIpueW1/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Syntactic structures</i></a></span></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Mon</span>1/30</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Computational Explanations</span><div class="handouts"><a href="https://drive.google.com/file/d/1cbXDhX7i8OI61y_CzBhT7WOiNfN1FyDd/view?usp=drive_link" target="_blank" rel="noopener">Handout 1</a><br><a href="https://drive.google.com/file/d/1SuxxhRXwdl1p6oOdJxwzzl_O75bTqITT/view?usp=drive_link" target="_blank" rel="noopener">Handout 2</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Chomsky</span> <span class="yr">(1965)</span> <span class="ti"><a href="https://drive.google.com/file/d/1K3O_Oc8rkxvaKfvTlqP_A0oDVkX43LBM/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Aspects of the Theory of Syntax</i></a></span></li><li><span class="au">Putnam</span> <span class="yr">(1975)</span> <span class="ti"><a href="https://drive.google.com/file/d/1oNeVnF8pGpBsDdeKq7G3FjNYrBm415qw/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Philosophy and our Mental Life&rdquo;</a></span></li></ul></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Mon</span>2/6</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Language of Thought</span><div class="handouts"><a href="https://drive.google.com/file/d/18jntDS7Qw--yOiaKQhgK_c2YgMJumEGy/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Fodor</span> <span class="yr">(1975)</span> <span class="ti"><a href="https://drive.google.com/file/d/1CjdYBlO2dFQzAdT3JhQcD_QaMacxJ5UH/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>The language of thought</i></a></span></li></ul></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Mon</span>2/13</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">The Knowledge Level</span><div class="handouts"><a href="https://drive.google.com/file/d/18t0sz6lXUOi7SfpMz0mzOhbSZC43Ls75/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Newell and Simon</span> <span class="yr">(1976)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tTR3rEc2iYgi--XU6o6viek_NRfGaq84/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Computer science as empirical inquiry: Symbols and search&rdquo;</a></span></li><li><span class="au">Newell</span> <span class="yr">(1982)</span> <span class="ti"><a href="https://drive.google.com/file/d/1dBPqeXhEU-HRy7uMNdgOEsuxgV2KRNjI/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;The knowledge level&rdquo;</a></span></li></ul></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Mon</span>2/20</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Levels of Explanation</span><div class="handouts"><a href="https://drive.google.com/file/d/1HddJgT5MQMEgqwLLVszr7iSJcwcGUT1A/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Marr</span> <span class="yr">(1982)</span> <span class="ti"><a href="https://drive.google.com/file/d/1iatbC5FfVS8NDU_2wDQQ9JBEaFerTZFh/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Vision</i></a></span></li></ul></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Mon</span>3/5</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Externalism</span><div class="handouts"><a href="https://drive.google.com/file/d/19O7B2GcI8RSpU_1RdqzEbI2mckFuzSsi/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Burge</span> <span class="yr">(1986)</span> <span class="ti"><a href="https://drive.google.com/file/d/1ejG_QnJSg9_c2FJEzkNUYiqle3H4GcPW/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Individualism and psychology&rdquo;</a></span></li><li><span class="au">Egan</span> <span class="yr">(1995)</span> <span class="ti"><a href="https://drive.google.com/file/d/1XOjpJfezmxS_nt--FhiWW3XzzzB4LIzk/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Computation and content&rdquo;</a></span></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Mon</span>3/12</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Computationalism</span><div class="handouts"><a href="https://drive.google.com/file/d/1bPDknGndI_ZCUzyrm4O_FsGI9eulTXql/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Pylyshyn</span> <span class="yr">(1986)</span> <span class="ti"><a href="https://drive.google.com/file/d/1PNfm06XqvuA1f0KJq2820uS_qhl72hkM/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Computation and cognition: Toward a foundation for cognitive science</i></a></span></li><li><span class="au">Churchland and Sejnowski</span> <span class="yr">(1990)</span> <span class="ti"><a href="https://drive.google.com/file/d/1-r15u42OZO4FDEbBkuAd_44i4SsSSVsk/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Neural representation and neural computation&rdquo;</a></span></li><li><span class="au">Gallistel and King</span> <span class="yr">(2009)</span> <span class="ti"><a href="https://drive.google.com/file/d/1pppq5H2Z2L2ix9ZOaU20Dzwj2DOE8WU7/view?usp=drive_link" class="out" target="_blank" rel="noopener"><i>Memory and the computational brain</i></a></span></li></ul></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 281 &middot; Computation &amp; Cognition &middot; Winter 2012 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
         </div>
+    </footer>
 
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">1. Models of Computation</div>
-                <div class="session-date">1/9</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/15bts0uqw8UUfBzonTS6q3_SXDHnGyRVm/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Helmholtz (1867) <a href="https://drive.google.com/file/d/1C6t4nXANOzNG4EHpAlraSAmjLNlMsnpc/view?usp=drive_link"><em>Treatise on Physiological Optics</em></a></li>
-                    <li>Turing (1950) <a href="https://drive.google.com/file/d/16mUNA_hpgfJWXdDfbyfNwllUAka_CRV3/view?usp=drive_link">&ldquo;Computing machinery and intelligence&rdquo;</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">2. Computation and Automata</div>
-                <div class="session-date">1/23</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/1G-dakJ43anNlaoO9p2aMFOPzFhAV472p/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Chomsky (1957) <a href="https://drive.google.com/file/d/1QFuT3y4Fy2vnY8Hu09-9_brOIyIpueW1/view?usp=drive_link"><em>Syntactic structures</em></a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">3. Computational Explanations</div>
-                <div class="session-date">1/30</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/1cbXDhX7i8OI61y_CzBhT7WOiNfN1FyDd/view?usp=drive_link">Handout 1</a><br>
-                <a href="https://drive.google.com/file/d/1SuxxhRXwdl1p6oOdJxwzzl_O75bTqITT/view?usp=drive_link">Handout 2</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Chomsky (1965) <a href="https://drive.google.com/file/d/1K3O_Oc8rkxvaKfvTlqP_A0oDVkX43LBM/view?usp=drive_link"><em>Aspects of the Theory of Syntax</em></a></li>
-                    <li>Putnam (1975) <a href="https://drive.google.com/file/d/1oNeVnF8pGpBsDdeKq7G3FjNYrBm415qw/view?usp=drive_link">&ldquo;Philosophy and our Mental Life&rdquo;</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">4. Language of Thought</div>
-                <div class="session-date">2/6</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/18jntDS7Qw--yOiaKQhgK_c2YgMJumEGy/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Fodor (1975) <a href="https://drive.google.com/file/d/1CjdYBlO2dFQzAdT3JhQcD_QaMacxJ5UH/view?usp=drive_link"><em>The language of thought</em></a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">5. The Knowledge Level</div>
-                <div class="session-date">2/13</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/18t0sz6lXUOi7SfpMz0mzOhbSZC43Ls75/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Newell and Simon (1976) <a href="https://drive.google.com/file/d/1tTR3rEc2iYgi--XU6o6viek_NRfGaq84/view?usp=drive_link">&ldquo;Computer science as empirical inquiry: Symbols and search&rdquo;</a></li>
-                    <li>Newell (1982) <a href="https://drive.google.com/file/d/1dBPqeXhEU-HRy7uMNdgOEsuxgV2KRNjI/view?usp=drive_link">&ldquo;The knowledge level&rdquo;</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">6. Levels of Explanation</div>
-                <div class="session-date">2/20</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/1HddJgT5MQMEgqwLLVszr7iSJcwcGUT1A/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Marr (1982) <a href="https://drive.google.com/file/d/1iatbC5FfVS8NDU_2wDQQ9JBEaFerTZFh/view?usp=drive_link"><em>Vision</em></a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">7. Externalism</div>
-                <div class="session-date">3/5</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/19O7B2GcI8RSpU_1RdqzEbI2mckFuzSsi/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Burge (1986) <a href="https://drive.google.com/file/d/1ejG_QnJSg9_c2FJEzkNUYiqle3H4GcPW/view?usp=drive_link">&ldquo;Individualism and psychology&rdquo;</a></li>
-                    <li>Egan (1995) <a href="https://drive.google.com/file/d/1XOjpJfezmxS_nt--FhiWW3XzzzB4LIzk/view?usp=drive_link">&ldquo;Computation and content&rdquo;</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="styled-hr">
-
-        <div class="row">
-            <div class="col-left">
-                <div class="session-title">8. Computationalism</div>
-                <div class="session-date">3/12</div>
-            </div>
-            <div class="col-right">
-                <div class="handout"><a href="https://drive.google.com/file/d/1bPDknGndI_ZCUzyrm4O_FsGI9eulTXql/view?usp=drive_link">Handout</a></div>
-                <div class="reading-label">Reading:</div>
-                <ul class="readings">
-                    <li>Pylyshyn (1986) <a href="https://drive.google.com/file/d/1PNfm06XqvuA1f0KJq2820uS_qhl72hkM/view?usp=drive_link"><em>Computation and cognition: Toward a foundation for cognitive science</em></a></li>
-                    <li>Churchland and Sejnowski (1990) <a href="https://drive.google.com/file/d/1-r15u42OZO4FDEbBkuAd_44i4SsSSVsk/view?usp=drive_link">&ldquo;Neural representation and neural computation&rdquo;</a></li>
-                    <li>Gallistel and King (2009) <a href="https://drive.google.com/file/d/1pppq5H2Z2L2ix9ZOaU20Dzwj2DOE8WU7/view?usp=drive_link"><em>Memory and the computational brain</em></a></li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
 </body>
 </html>

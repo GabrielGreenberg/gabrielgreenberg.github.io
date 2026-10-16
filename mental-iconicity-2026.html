@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Iconicity · PHIL 286 · Winter 2026</title>
+    <meta name="description" content="Mental Iconicity (Winter 2026, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #4f3d91; --accent-bright: #7d6bd0; --accent-soft: #F3F1F7; --accent-line: #D8D4E7; --banner-ink: #F7F7F7;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #333 url(images/mental-iconicity-2026.jpg) no-repeat 50% 100%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Mental Iconicity<span class="course">PHIL 286</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#requirements">Requirements</a>
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 286 &middot; Winter 2026 &middot; UCLA</div>
+            <h1>Mental Iconicity</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">This seminar will examine the question of format in mental representation, from the perspective of an informational and computational theory of mind. Taking the language of thought hypothesis as our foil, we will look at evidence and arguments for the existence of diagrammatic, pictorial, and map-like representations in the mind and in the brain.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 286: Graduate Seminar in Philosophy of Mind</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Tuesdays 2&ndash;5 pm</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd 399</dd></div><div class="fact"><dt class="eyebrow">Office hours</dt><dd>Wednesdays 1 pm, GG office</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Tue</span>1/6</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Iconic and symbolic representation</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w1_-_iconic_and_symbolic_mental_representation.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Greenberg</span> <span class="yr">(2023)</span> <span class="ti"><a href="https://drive.google.com/file/d/11zWBEjdaKBkg7uH4IZlrETjMV2EbcBE9/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;The iconic-symbolic spectrum&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Shimojima</span> <span class="yr">(2001)</span> <span class="ti"><a href="https://drive.google.com/file/d/1z1FfvjX4YBV_T9f6mebqmG9wtflltvLF/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;The graphic-linguistic distinction&rdquo;</a></span></li><li><span class="au">Giardino and Greenberg</span> <span class="yr">(2015)</span> <span class="ti"><a href="https://drive.google.com/file/d/1QknmyUKv3Ps_9gvOk2eerZV5NyMIl8bt/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Varieties of iconicity&rdquo;</a></span></li></ul></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Tue</span>1/13</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Teleosemantics</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w2_-_informational_teleosemantics.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="docs/seminars/mental-iconicity-2026/naturalizing_intentionality.pdf" class="out" target="_blank" rel="noopener">Introduction to naturalizing intentionality</a>, includes:<br>Dretske <span class="yr">(2009)</span> &ldquo;Information-theoretic Semantics&rdquo;<br>Millikan <span class="yr">(2009)</span> &ldquo;Biosemantics&rdquo;</li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Garson</span> <span class="yr">(2019)</span> <span class="ti">&ldquo;A new kind of teleosemantics&rdquo; from <i>What Biological Functions Are and Why They Matter</i></span></li><li><span class="au">Shea</span> <span class="yr">(2018)</span> <span class="ti"><i>Representations in Cognitive Science</i>, Chapter 3: &ldquo;Functions for representation&rdquo;, and Chapter 4: <a href="https://drive.google.com/file/d/13uE0MQlnN_C3M2iEaFZrZHxuOWqC8Knp/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Correlational Information&rdquo;</a></span></li><li><span class="au">Neander</span> <span class="yr">(2017)</span> <span class="ti"><i>A Mark of the Mental</i>, Ch. 5: <a href="https://drive.google.com/file/d/1x0Uy2cPgJ_4LQUNVDPSAP3FZg-r28KvP/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Simple Minds&rdquo;</a></span></li><li><span class="au">Gallistel and King</span> <span class="yr">(2009)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1dSyaYTyLmFkybSLTgB9dbRsoChZyoawI/view?usp=share_link" class="out" target="_blank" rel="noopener">Memory and the Computational Brain</a></i>, Chapter 4: <a href="https://drive.google.com/file/d/1QTpzt65kGhoo-ZnmOZE8bVwGaLz_E7p5/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Representations&rdquo;</a> and Chapter 5: <a href="https://drive.google.com/file/d/1EsFJN5ajsYuPFhvc6D_N7E73_Pk8pvOV/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Symbols&rdquo;</a></span></li><li><span class="au">Schulte and Neander</span> <span class="yr">(2002)</span> <span class="ti">SEP: <a href="https://plato.stanford.edu/entries/content-teleological/" class="out" target="_blank" rel="noopener">&ldquo;Teleological Theories of Mental Content&rdquo;</a></span></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Tue</span>1/20</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Language of thought</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w3_-_language-like_thought.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Fodor</span> <span class="yr">(1987)</span> <span class="ti"><a href="https://drive.google.com/file/d/11-CLcKxfBHZnpQLGKBKDu6wTkrk2Cz59/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Why there still has to be a language of thought&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Rescorla</span> <span class="yr">(2021)</span> <span class="ti">SEP: <a href="https://plato.stanford.edu/entries/language-thought/" class="out" target="_blank" rel="noopener">&ldquo;The language of thought hypothesis&rdquo;</a></span></li><li><span class="au">Quilty-Dunn, Porot, and Mandelbaum</span> <span class="yr">(2022)</span> <span class="ti"><a href="https://drive.google.com/file/d/19XeVRLeHHWUBl2qpF85MA4RciFAPrJsU/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;The best game in town: the re-emergence of the language of thought hypothesis across the cognitive sciences&rdquo;</a></span></li><li><span class="au">Anthony</span> <span class="ti">&ldquo;Thinking&rdquo;</span></li></ul></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Tue</span>1/27</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Map-like thought</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w4_-_map-like_thought.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Camp</span> <span class="yr">(2007)</span> <span class="ti"><a href="https://drive.google.com/file/d/1HLpQG9vZCHu-9kltDH0LK3RON4uvisce/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Thinking with maps&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Rescorla</span> <span class="yr">(2009)</span> <span class="ti"><a href="https://drive.google.com/file/d/1xjAoTnFLqsV5vrGBrgd1fWOKGrjwi3uE/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Cognitive maps and the language of thought&rdquo;</a></span></li><li><span class="au">Camp</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/1Lvb4wlMk_-rAx1SIhcQc2LE7fF2oGcym/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Why maps are not propositional&rdquo;</a></span></li><li><span class="au">Peer et al.</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/1MjI8ybfYX-lqS908wEozNWVeDZD9GBjN/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Structuring knowledge with cognitive maps and cognitive graphs&rdquo;</a></span></li><li><span class="au">Greenberg</span> <span class="ti">&ldquo;Map Semantics and the Geography of Meaning&rdquo;</span></li></ul></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Tue</span>2/3</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">Analog Magnitude Representation</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w5_-_amrs.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Beck</span> <span class="yr">(2014)</span> <span class="ti"><a href="http://www.jacobbeck.org/wp-content/uploads/2018/08/amrs-a-philosophical-introd.pdf" class="out" target="_blank" rel="noopener">&ldquo;Analogue Magnitude Representations: A Philosophical Introduction&rdquo;</a></span></li><li><span class="au">Harvey et al</span> <span class="yr">(2013)</span> <span class="ti"><a href="docs/seminars/mental-iconicity-2026/science.1239052.pdf">&ldquo;Topographic Representation of Numerosity in the Human Parietal Cortex&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Beck</span> <span class="yr">(2012)</span> <span class="ti">&ldquo;The Generality Constraint and the Structure of Thought&rdquo;</span></li><li><span class="au">Carey</span> <span class="yr">(2009)</span> <span class="ti"><i>The Origin of Concepts</i></span></li><li><span class="au">Beck and Clarke</span> <span class="yr">(2021)</span> <span class="ti">&ldquo;The number sense represents (rational) numbers&rdquo;</span></li></ul></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Tue</span>2/10</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Iconic Teleosemantics</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w6_-_structural_representation.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Shea</span> <span class="yr">(2014)</span> <span class="ti"><a href="https://philpapers.org/rec/SHEEIA-2" class="out" target="_blank" rel="noopener">&ldquo;Exploitable Isomorphism and Structural Representation&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Neander</span> <span class="yr">(2017)</span> <span class="ti"><i>A Mark of the Mental</i>, Ch. 8: <a href="https://drive.google.com/file/d/1SqZC4omIRZqLhJDUetgAdFldThvqPCZm/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Causally driven analogs&rdquo;</a></span></li><li><span class="au">Shea</span> <span class="yr">(2023)</span> <span class="ti">&ldquo;Organized representations forming a computationally useful processing structure&rdquo;</span></li><li><span class="au">Shea</span> <span class="yr">(2018)</span> <span class="ti"><i>Representations in Cognitive Science</i>, Ch. 5: <a href="https://drive.google.com/file/d/1LHyco_z27HC2X1-xQhCFaIpGvs7EjUTj/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Structural correspondence&rdquo;</a></span></li><li><span class="au">Moser, Kropff, and Moser</span> <span class="yr">(2008)</span> <span class="ti"><a href="https://drive.google.com/file/d/11gSq2e4pmQpQ8YMoSgsBYY6QPiycMuTi/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Place Cells, Grid Cells, and the Brain’s Spatial Representation System&rdquo;</a></span></li><li><span class="au">Shepard and Chipman</span> <span class="yr">(1970)</span> <span class="ti"><a href="https://drive.google.com/file/d/1ae5852ujtoVSOQS7ywe1Z2vseWXW0Mdy/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Second-order isomorphism of internal representations&rdquo;</a></span></li></ul></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Tue</span>2/17</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Symbolic perception</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w7_-_symbolic_representation_in_perception.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Green and Quilty-Dunn</span> <span class="yr">(2017)</span> <span class="ti"><a href="https://drive.google.com/file/d/1qUIrDQoPM3eqvyotawxZur9vSvugxXMx/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;What is an object file?&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Pylyshyn</span> <span class="yr">(2007)</span> <span class="ti"><i>Things and Places</i>, Ch. 1: <a href="https://drive.google.com/file/d/16HJrNm2-P0OwTmokssvE2pWgmz0j91Ug/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Introducing the problem: connecting perception and the world&rdquo;</a></span></li><li><span class="au">Quilty-Dunn</span> <span class="yr">(2019)</span> <span class="ti"><a href="https://drive.google.com/file/d/18xk9gMt7wBZM9wtT1gWDkJY7FG_ydTQ9/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Perceptual pluralism&rdquo;</a></span></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Tue</span>2/24</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Retinotopic maps</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w8__perceptual_neuroscience_.pdf">Handout</a><br><a href="docs/seminars/mental-iconicity-2026/w8_slides.pdf">Slides</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Schwarzlose</span> <span class="yr">(2021)</span> <span class="ti"><i>Brainscapes</i>, Ch. 1: <a href="https://drive.google.com/file/d/1E2HWRP4WCnV1JUXA_sCxRWWCqoHEP5KQ/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;An atlas of you: what is a brain map?&rdquo;</a></span></li><li><span class="au">Frisby and Stone</span> <span class="yr">(2010)</span> <span class="ti"><i>Seeing</i>, Ch. 9: <a href="https://drive.google.com/file/d/1pvooZrabnBpgVTrt9MnnwQYBBgUlbaXw/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Seeing with brain maps&rdquo;</a></span><span class="dt"> [229-238, 247-253]</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Kaas</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1QZ7urhPEBeYYR7fyMmHy4M-dNkn-jVcA/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Topographic Maps are Fundamental to Sensory Processing&rdquo;</a></span></li><li><span class="au">Chklovskii and Koulakov</span> <span class="yr">(2004)</span> <span class="ti"><a href="https://drive.google.com/file/d/1gvChVFmnMq3F_a-DDmZzoF9x7R7w3S3g/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Maps in the brain: What can we learn from them?&rdquo;</a></span><span class="dt"> [369-374, 384-388]</span></li><li><span class="au">Brewer and Barton</span> <span class="yr">(2012)</span> <span class="ti"><a href="https://drive.google.com/file/d/14QeM7puH_J3sKCYUsAQCH3854xi6_XZe/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Visual field map organization in human visual cortex&rdquo;</a></span></li><li><span class="au">Wandell et al.</span> <span class="yr">(2007)</span> <span class="ti"><a href="https://drive.google.com/file/d/1umBc8n8Du-RZ_S8AsCTfySFuX5xPPVye/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Visual field maps in human cortex&rdquo;</a></span></li><li><span class="au">Schwarzlose</span> <span class="yr">(2021)</span> <span class="ti"><i>Brainscapes</i>:<br>Ch. 2: <a href="https://drive.google.com/file/d/175RmnPAVXKPM3WTanbAPbU_VPiwapQqz/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The tyranny of numbers: why brain maps exist&rdquo;</a><br>Ch. 3: <a href="https://drive.google.com/file/d/16H6fvURd4aDXB7b_tAygMEEl4UA2_-_8/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;How brain maps determine what we see and feel&rdquo;</a></span></li></ul></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Tue</span>3/3</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">The problem of retinotopy</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/w9_-_the_problem_of_retinotopy_-_google_docs.pdf">Handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="docs/seminars/mental-iconicity-2026/proponents_-omnibus.pdf" class="out" target="_blank" rel="noopener">Proponents omnibus</a>, includes:<br>Kosslyn et al <span class="yr">2006</span>, <a href="docs/seminars/mental-iconicity-2026/kosslyn_et_al_2006_case_for_mental_imagery.pdf" class="out" target="_blank" rel="noopener">&ldquo;Depictive Representations in the Brain&rdquo;</a> from <i>The Case for Mental Imagery</i><br>Burge <span class="yr">2022</span>, <a href="docs/seminars/mental-iconicity-2026/pages_from_burge_2022__22perception-__first_form_of_mind_22.pdf" class="out" target="_blank" rel="noopener">&ldquo;Iconic Aspects of Perceptual Spatial Representation&rdquo;</a> from <i>Perception: First Form of Mind</i></li><li><a href="docs/seminars/mental-iconicity-2026/opponents_-_omnibus.pdf" class="out" target="_blank" rel="noopener">Opponents omnibus</a>, includes:<br>Pylyshyn <span class="yr">(2007)</span> <a href="docs/seminars/mental-iconicity-2026/pages_from_pylyshyn_2007__22things_and_places_22.pdf" class="out" target="_blank" rel="noopener">&ldquo;Are neural layouts always representations?&rdquo;</a> from <i>Things and Places</i><br>Lyons <span class="yr">(2022)</span> <a href="docs/seminars/mental-iconicity-2026/lyons_2022_iconic_mental_representations.pdf" class="out" target="_blank" rel="noopener">&ldquo;Iconic Mental Representations&rdquo;</a> from &ldquo;Three grades of iconicity in perception&rdquo;<br>Langland-Hassan <span class="yr">(2025)</span> <a href="docs/seminars/mental-iconicity-2026/_22the_imagery_debate_exhumed_and_reanimated_22_.pdf" class="out" target="_blank" rel="noopener">&ldquo;Deep Neural Networks: An Alternative View of Retinotopic Organization&rdquo;</a> from &ldquo;The The Imagery Debate Exhumed and Reanimated&rdquo;</li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="ti">SEP: <a href="https://plato.stanford.edu/archives/win2017/entries/mental-imagery/quasi-pictorial.html" class="out" target="_blank" rel="noopener">&ldquo;The Quasi-Pictorial Theory of Imagery, and its Problems&rdquo;</a></span></li></ul></td></tr>
+<tr id="s10"><td class="date"><span class="dow">Tue</span>3/10</td><td class="topic"><span class="num eyebrow">Session 10</span><span class="title">Retinotopy and representation</span><div class="handouts"><a href="docs/seminars/mental-iconicity-2026/retinotopy_seminar.pdf">Handout (slides)</a></div><div class="s-note">Recent work on the iconicity of perception:</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Greenberg</span> <span class="yr">(MS)</span> <span class="ti"><a href="docs/seminars/mental-iconicity-2026/neural_images.pdf" class="out" target="_blank" rel="noopener">&ldquo;Neural Images&rdquo;</a></span><span class="dt"> [Rough draft!!]</span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Block</span> <span class="yr">(2022)</span> <span class="ti"><i>The Border Between Seeing and Thinking</i></span></li><li><span class="au">Burge</span> <span class="yr">(2022)</span> <span class="ti"><i>Perception: First Form of Mind</i>, Ch. 9: <a href="https://drive.google.com/file/d/1esnVvgjgAaHmX3ZhUCCOTIkqtApaNXN0/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;The Iconic Nature of Perception&rdquo;</a></span></li><li><span class="au">Clarke</span> <span class="yr">(2022)</span> <span class="ti"><a href="https://drive.google.com/file/d/1n30ZILIOVR3KXeqc2ZlX4lZ5E-4C1Jn6/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Mapping the visual icon&rdquo;</a></span></li><li><span class="au">Peacocke</span> <span class="yr">(2019)</span> <span class="ti"><i>The Primacy of Metaphysics</i>, Ch. 2: <a href="https://drive.google.com/file/d/1-bD4lF3Oq8fyr4syKOzofN5t2F3hdTjI/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Magnitudes&rdquo;</a></span></li><li><span class="au">Beck</span> <span class="yr">(2019)</span> <span class="ti"><a href="https://drive.google.com/file/d/1VnD7R_oPnRk3WdhCQ_LytOiuDnb9foeV/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Perception is analog: the argument from Weber's Law&rdquo;</a></span></li><li><span class="au">Beck</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/1XzEHwtiOlNT6iwqg_aPSSyMgLzMLbJQY/view?usp=share_link" class="out" target="_blank" rel="noopener">&ldquo;Analog mental representation&rdquo;</a></span></li><li><span class="au">Lyons</span> <span class="yr">(2022)</span> <span class="ti">&ldquo;Three grades of iconicity in perception&rdquo;</span></li></ul></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <section id="requirements"><h2 class="sec">Requirements</h2><dl class="policies"><dt>Short paper</dt><dd>Due Sun 2/15. ~5 pages. <b>Primary goal:</b> exposition and strengthening comprehension. <b>Topic:</b> pick one article we've read, and isolate one key idea or argument from that article to discuss. <b>Structure:</b> (1) Present and explain the topic idea/argumnet; (2) identify some weakness or challenge for that view; (3) briefly, indicate some way out of the problem. <b>Note:</b> The challenge in (2) could be a counterexmaple, a lacuna, and missed opportunity, etc.</dd><dt>Long paper outline</dt><dd>Due Tues 3/10.</dd><dt>Long paper meeting</dt><dd>Before 3/20.</dd><dt>Long paper</dt><dd>Due Fri 3/20. ~12&ndash;15 pages. <b>Primary goal:</b> develop a long-form philosophical thesis. <b>Topic:</b> pick a topic of your choice from the reading, or from areas that are (more or less) related to the course. <b>Structure:</b> Your choice. Be sure to have a clear thesis, consider possible objections to your claim, and include multiple detailed examples to illustrate. Prioritize depth over breadth. <b>Notes:</b> Include at least two diagrams or figures, with captions, inserted inline (not at as an appendix). Always include: title, date, name, bibliography, and page numbering. Always submit papers as PDFs. The long paper may build upon the short paper.</dd></dl></section>
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 286 &middot; Mental Iconicity &middot; Winter 2026 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>

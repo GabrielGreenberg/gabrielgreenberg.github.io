@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Narrative · PHILO 287 · Winter 2020</title>
+    <meta name="description" content="Visual Narrative (Winter 2020, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #8a5418; --accent-bright: #d98a2b; --accent-soft: #F7F3EF; --accent-line: #E5D9CC; --banner-ink: #F7F7F7;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #333 url(images/visual-narrative-2020.jpg) no-repeat 50% 50%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Visual Narrative<span class="course">PHILO 287</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHILO 287 &middot; Winter 2020 &middot; UCLA</div>
+            <h1>Visual Narrative</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHILO 287 Seminar: Philosophy of Language</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Th 3:30&ndash;6</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd Hall 325</dd></div><div class="fact"><dt class="eyebrow">Instructors</dt><dd>Prof. Sam Cumming &amp; Prof. Gabriel Greenberg</dd></div><div class="fact"><dt class="eyebrow">Syllabus</dt><dd><a href="https://drive.google.com/file/d/18k1-efOYyQRnf-xYpAAhZcDdWi7u85MT/view?usp=drive_link" class="out" target="_blank" rel="noopener">Seminar syllabus</a></dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Thu</span>1/9</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Introduction to film narrative</span><div class="handouts"><a href="https://drive.google.com/file/d/1LkNDx8wKTSIRNnrL87FInG7cXMYIx4cv/view?usp=drive_link" target="_blank" rel="noopener">Handout by GG</a><br><a href="https://drive.google.com/file/d/10xoMzb-w--1BRYLk3Gh0gIsOhg2z7Jzn/view?usp=sharing" target="_blank" rel="noopener">Handout by SC</a><br><a href="https://drive.google.com/file/d/1-rQJ77Rn4v5KpRyuwdiYD6Fxn2EsJ7OW/view?usp=drive_link" target="_blank" rel="noopener">Slides by SC</a></div><div class="s-note">SC/GG<b>Film clips:</b><ul><li><i>Mary Jane's Mishap</i> (George Albert Smith, 1903)<br><a href="https://www.youtube.com/watch?v=QCm51fg5hpk" class="out" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QCm51fg5hpk</a></li><li><i>The Big Swallow</i> (James Williamson, 1901)<br><a href="https://www.youtube.com/watch?v=I5XJjvlydck" class="out" target="_blank" rel="noopener">https://www.youtube.com/watch?v=I5XJjvlydck</a></li><li><i>Life of an American Fireman</i> [3.44] (Edwin Porter, 1903)<br><a href="https://youtu.be/nyjceskGZIc?t=224" class="out" target="_blank" rel="noopener">https://youtu.be/nyjceskGZIc?t=224</a></li><li>Jump cuts in <i>Breathless</i> (Jean-Luc Godard, 1960)<br><a href="https://www.youtube.com/watch?v=_fcRj0SXYh8" class="out" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_fcRj0SXYh8</a></li><li><i>The Irishman</i>: 1:40:00, 1.42:20, 1.59:35</li></ul></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Bordwell, Thompson, J. Smith</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1FTxhuSa7o05Dn8g_0c3fpgt88_WXRn8-/view?usp=drive_link" class="out" target="_blank" rel="noopener">Film Art</a></i></span> (2017, 11th edition)<br>Ch. 1: pp. 9-12 (Mechanics of the movies)<br>Ch. 1: pp. 17-26 (Film production)<br>Ch. 4: pp. 143-148 (Screen space, scene space)<br>Ch. 5: pp. 168-178, 181-185, 187-194 (Perspective, framing, camera position)<br>Ch. 6: pp. 216-237 (Editing)</li><li><span class="au">Tim Smith</span> <span class="yr">(2012)</span> <span class="ti"><a href="https://drive.google.com/open?id=1y_bT9XTOiZwo0JfGyQfpSMkwHcrwfdWK" class="out" target="_blank" rel="noopener">&ldquo;The Attentional Theory of Cinematic Continuity&rdquo;</a></span><span class="dt"> pp. 4-16 (Editing, change blindness, and continuity)</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Thu</span>1/16</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Discourse coherence</span><div class="handouts"><a href="https://drive.google.com/file/d/1_1dNzc94n-XIxW6-oyU0bEz3YFjH_E__/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div><div class="s-note">SC<b>Film clips:</b><ul><li><i>The Last of the Mohicans</i> (1992) [Fight scene 0:23]<br><a href="https://youtu.be/Dhrg6SH9yvE?t=23" class="out" target="_blank" rel="noopener">https://youtu.be/Dhrg6SH9yvE?t=23</a></li><li><i>Number, Please</i> (1920) [2:49]<br><a href="https://youtu.be/pbYPUxNT-qM?t=169" class="out" target="_blank" rel="noopener">https://youtu.be/pbYPUxNT-qM?t=169</a></li><li><i>Salvation Army Lass</i> (1909) [9:41]<br><a href="https://vimeo.com/173678596" class="out" target="_blank" rel="noopener">https://vimeo.com/173678596</a></li></ul></div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://www.dropbox.com/s/zmalfuia7pdjgtv/hobbs-literatureandcognition.pdf?dl=0" class="out" target="_blank" rel="noopener">Hobbs, <i>Literature and Cognition</i>, Ch. 5</a></li><li><a href="https://www.dropbox.com/s/x3hi26mgy2kiqy2/mccloud-chap-3.pdf?dl=0" class="out" target="_blank" rel="noopener">McCloud, <i>Understanding Comics</i>, Ch. 3</a></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><b>Fun:</b> <a href="https://www.youtube.com/watch?v=1d8iuKk6B8Y&t=2s" class="out" target="_blank" rel="noopener">Leff, &ldquo;How do we understand stories?&rdquo;</a> (short film)</li><li><a href="https://www.dropbox.com/s/smfqz141uceur2a/metz-filmlanguage.pdf?dl=0" class="out" target="_blank" rel="noopener">Metz, <i>Film Language,</i> Ch. 5, pp. 124-133</a></li><li><a href="https://www.dropbox.com/s/mcbccchfnxyvb5d/smith-atocc-projections.pdf?dl=0" class="out" target="_blank" rel="noopener">Smith, &ldquo;The Attentional Theory of Cinematic Continuity,&rdquo; <i>Projections</i></a></li><li><a href="https://www.dropbox.com/s/7bvnq50gn6igmfm/knott-dale-94.pdf?dl=0" class="out" target="_blank" rel="noopener">Knott and Dale, &ldquo;Using linguistic phenomena to motivate a set of coherence relations,&rdquo; <i>Discourse Processes</i></a></li><li><a href="https://www.dropbox.com/s/f9q1qrpfjb22tx1/mulvey-75.pdf?dl=0" class="out" target="_blank" rel="noopener">Mulvey, &ldquo;Visual Pleasure and Narrative Cinema,&rdquo; <i>Screen</i></a></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Thu</span>1/23</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Film space</span><div class="handouts"><a href="https://drive.google.com/file/d/1mo7EA3mHMnK8A1mgq1BnokwDEp1ObrIx/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div><div class="s-due"><span class="due-tag">No class Thu 1/30</span></div><div class="s-note">GG</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Greenberg</span> <span class="ti"><a href="http://gjgreenberg.bol.ucla.edu/docs/visual.pdf" class="out" target="_blank" rel="noopener">&ldquo;The Structure of Visual Content&rdquo;</a></span> (MS), Section 1-4</li><li><span class="au">Klatsky</span> <span class="ti"><a href="http://cogs200.pbworks.com/f/Klatzky+1998+LectNotesCompSci.pdf" class="out" target="_blank" rel="noopener">&ldquo;Allocentric and Egocentric Spatial Representation&rdquo;</a></span> (1998), <i>Lecture Notes in Computer Science</i></li><li><span class="au">Waller and Nadel</span> <span class="ti"><a href="https://drive.google.com/open?id=1H3WvzANxJP4F4wNoedQUwyLx6bAWTc2p" class="out" target="_blank" rel="noopener">&ldquo;Frameworks for Understanding Spatial Thought&rdquo;</a></span> (2013) from <i><a href="https://drive.google.com/open?id=1Zt_ApRVnVmTiLo4HwT8szQ5wjns2w19W" class="out" target="_blank" rel="noopener">Handbook of Spatial Cognition</a></i></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><span class="au">Burgess</span> <span class="ti"><a href="https://www.ucl.ac.uk/icn/sites/icn/files/burgess06tics_0.pdf" class="out" target="_blank" rel="noopener">&ldquo;Spatial memory: how egocentric and allocentric combine&rdquo;</a></span> (2006), <i>TRENDS in Cognitive Science</i></li><li><span class="au">Levin and Wang</span> <span class="ti"><a href="https://pdfs.semanticscholar.org/a009/d41f1278332ba65486f8931f3dbd1888dabd.pdf" class="out" target="_blank" rel="noopener">&ldquo;Spatial Representation in Cognitive Science and Film&rdquo;</a></span> (2009), <i>Projections</i></li><li><span class="au">Warren</span> <span class="ti"><a href="https://drive.google.com/file/d/1oFjRlUR-OH4QH9QKBEG0SLX5eBYfEBph/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Wormholes in virtual space: From cognitive maps to cognitive graphs&rdquo;</a></span> (2017)</li><li><span class="au">Warren</span> <span class="ti"><a href="https://drive.google.com/file/d/18R0ODOhC8yjyMdV1CpkhJQe2tL_3kKY5/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Non-Euclidean navigation&rdquo;</a></span> (2019)</li></ul></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Thu</span>2/6</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Viewpoint constraints</span><div class="handouts"><a href="https://drive.google.com/file/d/1oRw_MOCsW8UHkUB_LkjQrIxI2UiIww7p/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div><div class="s-note">GG</div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://philpapers.org/archive/CUMCOV.pdf" class="out" target="_blank" rel="noopener">Cumming, Greenberg, and Kelly, &ldquo;Conventions of Viewpoint Coherence in Film&rdquo;</a></li><li>watch: Leff, <a href="https://www.youtube.com/watch?v=SjKcGSzfnn0" class="out" target="_blank" rel="noopener">&ldquo;Spatial Coherence in Film&rdquo;</a> (short film)</li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Thu</span>2/13</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">Conventions, focal points, and pragmatics</span><div class="handouts"><a href="https://drive.google.com/file/d/1Pv4bQGMDla5FJ18yW5vHQGKm5YoqQj8F/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">SC</div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://www.dropbox.com/s/ibqsko26889ymst/bordwell-convention.pdf?dl=0" class="out" target="_blank" rel="noopener">Bordwell, &ldquo;Convention, construction, and cinematic vision&rdquo;</a></li><li><a href="https://www.dropbox.com/s/jwtjj3hgpr3j51u/lepore-stone-imaginationandconvention.pdf?dl=0" class="out" target="_blank" rel="noopener">Lepore and Stone, Imagination and Convention, Chs. 2.1; 14.1-14.3</a></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><b>Fun:</b> <a href="https://www.dropbox.com/s/ydqz1q64l3odt90/bordwell_whoblinkedfirst.pdf?dl=0" class="out" target="_blank" rel="noopener">Bordwell, &ldquo;Who Blinked First?&rdquo;</a></li></ul></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Thu</span>2/20</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Point of view</span><div class="handouts"><a href="https://drive.google.com/file/d/1evOEciOgZqu1CyiM729t2_MLs9shQTNm/view?usp=drive_link" target="_blank" rel="noopener">Handout</a><br><a href="https://drive.google.com/file/d/1n9nPOb91jWP-HQtShy7zi8SMnco_5hB4/view?usp=drive_link" target="_blank" rel="noopener">Slides</a></div><div class="s-note">SC</div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://www.dropbox.com/s/6l3afod74noi6rq/Showing%20Seeing%20in%20Film.pdf?dl=0" class="out" target="_blank" rel="noopener">Cumming et al., &ldquo;Showing Seeing in Film&rdquo;</a></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><a href="https://www.dropbox.com/s/3fekev4e47er9si/abusch_rooth_ams_2017.pdf?dl=0" class="out" target="_blank" rel="noopener">Abusch and Rooth, &ldquo;The formal semantics of free perception in pictorial narratives&rdquo;</a></li><li><a href="https://www.dropbox.com/s/mcldp2kyq495cyg/schlenker_19_What-is-Sup.pdf?dl=0" class="out" target="_blank" rel="noopener">Schlenker, &ldquo;What is super semantics?&rdquo;, pp. 406-413</a></li></ul></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Thu</span>2/27</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Time</span><div class="handouts"><a href="https://drive.google.com/file/d/1vsc-ZnXkH8PbGtA5XUttWtyTD6UAYeBg/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div><div class="s-note">SC</div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://www.dropbox.com/s/rn947agmaw2pm5k/Abusch-time.pdf?dl=0" class="out" target="_blank" rel="noopener">Abusch, &ldquo;Temporal Succession and Aspectual Type in Visual Narrative&rdquo;</a></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><a href="https://www.dropbox.com/s/jwtjj3hgpr3j51u/lepore-stone-imaginationandconvention.pdf?dl=0" class="out" target="_blank" rel="noopener">Lepore and Stone, <i>Imagination and Convention</i>, Ch. 7</a></li><li><a href="https://www.dropbox.com/s/3psyt982ut63i51/webber-88.pdf?dl=0" class="out" target="_blank" rel="noopener">Webber, &ldquo;Tense as Discourse Anaphor&rdquo;</a></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Thu</span>3/5</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Dynamic update</span><div class="handouts"><a href="https://drive.google.com/file/d/1x2fww0NRk667eOQWFEdkUKJCeUvvDFe6/view?usp=drive_link" target="_blank" rel="noopener">Handout</a></div><div class="s-note">GG</div></td><td class="read" data-label="Reading"><ul class="rl"><li><a href="https://www.dropbox.com/s/jwtjj3hgpr3j51u/lepore-stone-imaginationandconvention.pdf?dl=0" class="out" target="_blank" rel="noopener">Lepore and Stone, <i>Imagination and Convention</i>, 14.4</a></li><li><a href="https://semanticsarchive.net/Archive/Tg3ZGI2M/Maier.pdf" class="out" target="_blank" rel="noopener">Maier and Bimpikou, &ldquo;Shifting Perspectives in Pictorial Narratives&rdquo;</a></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><a href="https://drive.google.com/open?id=1pBJN7ZgsfVu9t_JFBAT4CxDAEbYVRk3o" class="out" target="_blank" rel="noopener">Wildfleur (2014), <i>Film Discourse Interpretation</i></a></li></ul></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Thu</span>3/12</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">Non-Western visual narrative</span><div class="handouts"><a href="https://drive.google.com/file/d/1IwYBTYk4tlLrZZJ-HikzXMzDQ8PWoe2Q/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">GG</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Munn</span> <span class="ti"><i><a href="https://drive.google.com/open?id=1HUsZPRDkFTq0n5-mKw4spjXkstrmD07H" class="out" target="_blank" rel="noopener">Walbiri Iconography</a></i></span> (1973), Ch. 3: &ldquo;The Sand Story&rdquo;</li><li><span class="au">Wilkins</span> <span class="ti"><a href="https://drive.google.com/file/d/1qNhZfQwrJyqudWpOaO2pxWbnnGikWwnu/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Alternative representations of space: Arrernte narratives in sand&rdquo;</a></span> (1997)</li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s10"><td class="date"></td><td class="topic"><span class="num eyebrow">Session 10</span><span class="title">Student presentations</span><div class="s-note">Week of March 16</div></td><td class="read empty" data-label="Reading"><span class="none">&mdash;</span></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHILO 287 &middot; Visual Narrative &middot; Winter 2020 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>

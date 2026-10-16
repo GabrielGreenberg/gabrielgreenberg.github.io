@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indexicality · PHIL 281 · Fall 2018</title>
+    <meta name="description" content="Indexicality (Fall 2018, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #7a5a22; --accent-bright: #c49a45; --accent-soft: #F6F3F0; --accent-line: #E2DBCE; --banner-ink: #F7F7F7;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #333 url(images/indexicality-2018.jpg) no-repeat 50% 50%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Indexicality<span class="course">PHIL 281</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#requirements">Requirements</a>
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 281 &middot; Fall 2018 &middot; UCLA</div>
+            <h1>Indexicality</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">This seminar will investigate the nature of indexicality. We will start with the semantics of indexicality, with an emphasis on the sign, content, and truth. It involves the discussion of three kinds of semantics representation: icon, symbol, and index. We will explore different types of indexicality, including I, you, that, mental indexicality, pointing, arrows, perception, context-sensitivity. We will examine the nature of content: reference, sense, concepts, character, content and beyond.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 281: Philosophy of Mind</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Tuesdays, 2&ndash;5pm</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd 325</dd></div><div class="fact"><dt class="eyebrow">Office hours</dt><dd>By appointment</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Tue</span>10/2</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">What is semantics?</span><div class="handouts"><a href="https://drive.google.com/file/d/1BwlrDw4c7riU0ILTObnz8URHnqL4JoFd/view?usp=drive_link" target="_blank" rel="noopener">Introduction to Semantics</a></div><div class="s-note">Reading notes: The Portner reading is intended to (re)introduce you to the key concepts of semantics and the method of semantic analysis. Please keep track of any technical questions you may have as you read. In class on Tuesday, we'll use these ideas to develop a formal semantics for Predicate Logic (without quantification). As you read, keep track of... Key concepts: meaning, concept, entailment, truth-condition, truth-value, possible world, expression, proposition, object language v. meta-language, reference, denotation, predicate, argument, compositionality.</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Portner</span> <span class="yr">(2005)</span> <span class="ti"><a href="https://drive.google.com/file/d/1uyei7HIci_uvEu-0f64u392D77XA665k/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Ch 1, Ch 2 (skip 2.5), Ch3 (3.6 and 3.7 only)&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Jacobson</span> <span class="yr">(2014)</span> <span class="ti"><a href="https://drive.google.com/file/d/11nA9zjsn5VLD66wV5Sni0ZD5raVEiO4Q/view?usp=drive_link" class="out" target="_blank" rel="noopener">Section 1.5 &ldquo;Sets and Functions&rdquo;</a></span></li></ul></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Tue</span>10/9</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Demonstratives I</span><div class="handouts"><a href="https://drive.google.com/file/d/1VSQYu8SXzc8f326BOX2Cccu4StVcF5SS/view?usp=drive_link" target="_blank" rel="noopener">Demonstratives I</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1989)</span> <span class="ti"><a href="https://drive.google.com/file/d/11nA9zjsn5VLD66wV5Sni0ZD5raVEiO4Q/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Demonstratives&rdquo;</a></span><span class="dt">, 481-524</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Tue</span>10/16</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Demonstratives II</span><div class="handouts"><a href="https://drive.google.com/file/d/1q3AZJfBbXuUmNh3b9LMFBvQcZEXYReTG/view?usp=drive_link" target="_blank" rel="noopener">Demonstratives II</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1989)</span> <span class="ti"><a href="https://drive.google.com/file/d/11nA9zjsn5VLD66wV5Sni0ZD5raVEiO4Q/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Demonstratives&rdquo;</a></span><span class="dt">, 524-563</span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Tue</span>10/23</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Demonstratives III</span><div class="handouts"><a href="https://drive.google.com/file/d/1XHwz_XWoBbvCa2nZHnjcJ28-L8w2uYqj/view?usp=drive_link" target="_blank" rel="noopener">Afterthoughts</a></div><div class="s-due"><span class="due-tag">Paper 1 due 11/4: Short paper (5pgs) on Kaplan on demonstratives. One short meeting with me before this date.</span></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1989)</span> <span class="ti"><a href="https://drive.google.com/file/d/1UwkVZFPTwHe7cTbIYE0uKb6hp76hvX5b/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Afterthoughts&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s5a"><td class="date"><span class="dow">Tue</span>11/13</td><td class="topic"><span class="num eyebrow">Session 5a</span><span class="title">Mental Indexicals I</span><div class="handouts"><a href="https://drive.google.com/file/d/1T5YAZHAuqOLfA8l_nQLtMEJcgU_N6qwb/view?usp=drive_link" target="_blank" rel="noopener">Mental Indexicals I</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Perry</span> <span class="yr">(1979)</span> <span class="ti"><a href="https://drive.google.com/file/d/1YvJfjkIxOray2k_uQRSp9bkjgtXNoztf/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;The Problem of the Essential Indexical&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s5b"><td class="date"><span class="dow">Thu</span>11/15</td><td class="topic"><span class="num eyebrow">Session 5b</span><span class="title">Mental Indexicals II</span><div class="handouts"><a href="https://drive.google.com/file/d/1itp1CRT1MJX0O3jo8UEv0Fy4F6i7i5hv/view?usp=drive_link" target="_blank" rel="noopener">Mental Indexicals II</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Millikan</span> <span class="yr">(2012)</span> <span class="ti"><a href="https://drive.google.com/file/d/1XxKOT3CxmZxaKnMJIftSJQM_3JkjqhfS/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Are There Mental Indexicals and Demonstratives?&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Tue</span>11/20</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Indexicality in semiotics</span><div class="handouts"><a href="https://drive.google.com/file/d/140X2xlb0YLfYCpJr4LDYCV_waKeCWgHe/view?usp=drive_link" target="_blank" rel="noopener">Indexicality in Semiotics</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Deacon</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1Ps1RZIfwFMJgxI7g6SCjBjjT-LMkt_oi/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Symbols aren&rsquo;t simple&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Tue</span>11/27</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Arrows and Pointing</span><div class="handouts"><a href="https://drive.google.com/file/d/1mWeZGHL5sSR729m-JSl662eBAUvovqZq/view?usp=drive_link" target="_blank" rel="noopener">Arrows and Pointing</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Alihkani and Stone</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://drive.google.com/file/d/123Io7iaCYr5pOqmCVA6cJTQtuKFxVmYb/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Arrows are the Verbs of Diagrams&rdquo;</a></span></li><li><span class="au">Kaplan (G)</span> <span class="yr">(2011)</span> <span class="ti"><a href="https://drive.google.com/file/d/1Tv8XWoriIMoS5ShOMcsQBR4h_kpbuEKY/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Pointing gesture in a bird- merely instrumental or a cognitively complex behavior?&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><span class="group-label eyebrow">Optional</span><ul class="rl"><li><span class="au">Kranstedt et al.</span> <span class="yr">(2005)</span> <span class="ti"><a href="https://drive.google.com/file/d/1tF9ZxihEpRssOZQMeOlbYvn5NQWHDIgE/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Deixis: How to Determine Demonstrated Objects Using a Pointing Cone&rdquo;</a></span></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Tue</span>12/4</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Context sensitivity</span><div class="handouts"><a href="https://drive.google.com/file/d/1zvMs-PQ13beW7JjTwGRRLBzj9hbLLQBb/view?usp=drive_link" target="_blank" rel="noopener">Context and Language</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Lewis</span> <span class="ti"><a href="https://drive.google.com/file/d/1uHDOJ2Kp3Z-MVAuWSzW4wSZ-thxh3p6-/view?usp=drive_link" class="out" target="_blank" rel="noopener">&ldquo;Scorekeeping in a Language Game&rdquo;</a></span></li></ul></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Tue</span>12/11</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">Parting thoughts</span><div class="handouts"><a href="https://drive.google.com/file/d/1FFRfO9FvEl7aKiNprEyvN02WLOw3dVW4/view?usp=drive_link" target="_blank" rel="noopener">Parting thoughts</a></div><div class="s-due"><span class="due-tag">Paper 2 due 1/4: Longer paper (15-20 pgs) on a topic related to indexicality.</span></div></td><td class="read empty" data-label="Reading"><span class="none">&mdash;</span></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <section id="requirements"><h2 class="sec">Requirements</h2><dl class="policies"><dt>Paper 1</dt><dd>Short paper (5pgs) on Kaplan on demonstratives, due 11/4. One short meeting with me before this date.</dd><dt>Paper 2</dt><dd>Longer paper (15-20 pgs) on a topic related to indexicality, due 1/4.</dd></dl></section>
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 281 &middot; Indexicality &middot; Fall 2018 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>

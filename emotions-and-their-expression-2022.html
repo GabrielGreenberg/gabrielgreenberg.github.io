@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ900QDSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GQ900QDSEE');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotions and their Expression · PHIL 281 · Winter 2022</title>
+    <meta name="description" content="Emotions and their Expression (Winter 2022, UCLA): graduate seminar taught by Gabriel Greenberg. Schedule and readings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Archived seminar page, in the format of cognition-computation-2026.html.
+           The banner image and accent colors are this seminar's own. */
+
+        :root {
+            --bg: #FAF9F7;
+            --surface: #FFFFFF;
+            --surface-2: #F4F2EE;
+            --ink: #262626;
+            --ink-2: #474747;
+            --ink-3: #6F6F6F;
+            --ink-4: #A8A39C;
+            --line: #E8E5E0;
+            --line-2: #D7D2CA;
+            --date: #24678D;
+            --link: #1382D6;
+            --topbar-h: 58px;
+            --page-max: 1120px;
+            --accent: #7d3a52; --accent-bright: #d9724a; --accent-soft: #F6F1F3; --accent-line: #E2D4D9; --banner-ink: #F7F7F7;
+            color-scheme: light;
+        }
+
+        /* ============ BASE ============ */
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .page { max-width: var(--page-max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+        a { color: var(--link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        [id] { scroll-margin-top: calc(var(--topbar-h) + 18px); }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 11.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        h2.sec {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin: 0 0 16px;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar { position: sticky; top: 0; z-index: 30; background: #FFFFFF; border-bottom: 1px solid var(--line); }
+        .topbar .page {
+            min-height: var(--topbar-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            padding-block: 8px;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 11px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--ink);
+        }
+        .brand:hover { text-decoration: none; }
+        .brand .course { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 4px 30px; }
+        .topbar nav a {
+            color: var(--ink-3);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 6px 0 5px;
+            border-bottom: 2px solid transparent;
+        }
+        .topbar nav a:hover { color: var(--ink); text-decoration: none; border-bottom-color: var(--accent-bright); }
+
+        /* ============ BANNER ============ */
+        .banner { background: #333 url(images/emotions-and-their-expression-2022.jpg) no-repeat 50% 45%; background-size: cover; color: var(--banner-ink); }
+        .banner-inner {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-block: 34px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(36px, 6.2vw, 70px);
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--banner-ink);
+            text-shadow: 0 2px 26px rgba(0, 0, 0, 0.55);
+        }
+        .banner .eyebrow { color: var(--banner-ink); opacity: 0.9; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7); }
+        .banner.light h1 { text-shadow: 0 0 28px rgba(255, 255, 255, 0.85), 0 0 6px rgba(255, 255, 255, 0.6); }
+        .banner.light .eyebrow { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+
+        /* ============ MAIN ============ */
+        main.page { padding-block: 44px 64px; }
+        main section + section { margin-top: 52px; }
+
+        .intro { display: grid; grid-template-columns: minmax(0, 1fr) 384px; gap: 28px 56px; align-items: start; }
+        .intro .lede { margin: 0; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+        .intro .lede + .lede { margin-top: 14px; }
+        .intro .lede-label { color: var(--accent); margin-bottom: 10px; }
+        .facts {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--accent-bright);
+            border-radius: 4px;
+            padding: 6px 18px;
+        }
+        .facts dl { margin: 0; }
+        .fact {
+            display: grid;
+            grid-template-columns: 84px minmax(0, 1fr);
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        .fact:last-child { border-bottom: 0; }
+        .fact dt { color: var(--ink-3); font-size: 10.5px; letter-spacing: 0.12em; padding-top: 3px; }
+        .fact dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+        /* ---------- schedule ---------- */
+        .sched-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 20px; margin-bottom: 14px; }
+        .sched-head h2.sec { margin: 0; }
+        .sched-head .legend { margin: 0; font-size: 13.5px; color: var(--ink-3); }
+        .sched-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
+        table.sched { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        col.c-date { width: 110px; }
+        col.c-topic { width: 24%; }
+        col.c-rec { width: 31%; }
+        table.sched thead th {
+            position: sticky;
+            top: var(--topbar-h);
+            z-index: 5;
+            background: var(--surface-2);
+            text-align: left;
+            color: var(--ink-3);
+            padding: 11px 18px;
+            border-bottom: 1px solid var(--line-2);
+        }
+        table.sched td { padding: 18px 18px 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+        table.sched tbody tr:last-child td { border-bottom: 0; }
+        table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 54px); }
+        td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--date); font-weight: 600; font-size: 15px; }
+        td.date .dow { font-weight: 400; color: var(--ink-3); margin-right: 5px; }
+        td.topic .num { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 2px; }
+        td.topic .title { font-weight: 700; font-size: 16px; line-height: 1.35; color: var(--ink); }
+        td.topic .handouts { margin-top: 8px; font-size: 14px; }
+        td.topic .handouts a { font-weight: 600; }
+        td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
+        .due-tag {
+            display: inline-block;
+            justify-self: start;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-line);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        td.read { font-size: 14.5px; color: var(--ink-2); }
+        td.rec { font-size: 14px; color: var(--ink-2); background: #FCFBFA; border-left: 1px solid var(--line); }
+        td .group-label { display: block; color: var(--ink-3); font-size: 10.5px; margin-bottom: 7px; }
+        td .rl + .group-label { margin-top: 14px; }
+        td .none { color: var(--ink-4); }
+
+        ul.rl { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+        ul.rl li { position: relative; padding-left: 15px; line-height: 1.5; }
+        ul.rl li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.62em;
+            width: 5px;
+            height: 5px;
+            border-radius: 1px;
+            background: var(--ink-4);
+        }
+        .au { color: var(--ink); font-weight: 600; }
+        .yr { color: var(--ink-3); }
+        .ti a, ul.rl a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--line-2);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .ti a:hover, ul.rl a:hover { color: var(--link); text-decoration-color: currentColor; }
+        .ti a.out::after, ul.rl a.out::after { content: "\202F\2197"; color: var(--ink-3); font-size: 0.85em; font-style: normal; }
+        .dt { color: var(--ink-3); }
+        .star { color: var(--accent); font-weight: 700; margin-left: 3px; }
+
+        /* ---------- requirements ---------- */
+        dl.policies { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0; margin: 0; max-width: 900px; }
+        dl.policies dt, dl.policies dd { padding: 13px 0; border-top: 1px solid var(--line); }
+        dl.policies dt:first-of-type, dl.policies dd:first-of-type { border-top: 0; padding-top: 2px; }
+        dl.policies dt { font-weight: 700; color: var(--ink); padding-right: 24px; }
+        dl.policies dd { margin: 0; color: var(--ink-2); }
+
+        /* ============ FOOTER ============ */
+        footer.page { padding-block: 0 44px; color: var(--ink-3); font-size: 13px; }
+        footer .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+        footer a { color: var(--ink-3); }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 980px) {
+            .intro { grid-template-columns: 1fr; }
+            .facts { max-width: 560px; order: -1; }
+        }
+        @media (max-width: 760px) {
+            :root { --topbar-h: 88px; }
+            body { font-size: 15px; }
+            .topbar .page { padding-block: 10px 0; }
+            .topbar nav { width: 100%; gap: 4px 16px; }
+            .topbar nav a { padding-bottom: 8px; }
+            .banner-inner { min-height: 210px; }
+            main.page { padding-block: 30px 48px; }
+            .fact { grid-template-columns: 1fr; gap: 2px; padding: 10px 0; }
+            .fact dt { padding-top: 0; }
+            .sched-wrap { background: transparent; border: 0; }
+            table.sched, table.sched tbody, table.sched tr, table.sched td { display: block; width: auto; }
+            table.sched thead, table.sched colgroup { display: none; }
+            table.sched tr { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px 16px; margin-bottom: 10px; }
+            table.sched td { padding: 0; border: 0; background: transparent !important; }
+            table.sched tbody tr[id] { scroll-margin-top: calc(var(--topbar-h) + 14px); }
+            table.sched td.date { font-size: 14px; }
+            table.sched td.topic { margin-top: 4px; }
+            td.topic .num { display: none; }
+            table.sched td.read, table.sched td.rec { margin-top: 14px; }
+            table.sched td.rec { border-left: 0; padding-top: 12px; border-top: 1px dashed var(--line-2); }
+            table.sched td.empty { display: none; }
+            table.sched td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                margin-bottom: 7px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 10.5px;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: var(--ink-3);
+            }
+            dl.policies { grid-template-columns: 1fr; }
+            dl.policies dt { padding-bottom: 2px; padding-right: 0; }
+            dl.policies dd { border-top: 0; padding-top: 0; }
+        }
+
+        /* ============ PRINT ============ */
+        @media print {
+            body { background: #fff; font-size: 11.5px; }
+            .topbar, footer { display: none; }
+            .banner { background: none; color: #000; }
+            .banner-inner { min-height: 0; padding-block: 0 12px; align-items: flex-start; text-align: left; }
+            .banner h1, .banner .eyebrow { color: #000; text-shadow: none; }
+            table.sched thead th { position: static; }
+            tr { break-inside: avoid; }
+            a { color: inherit; }
+            .ti a.out::after, ul.rl a.out::after { content: ""; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="page">
+            <a class="brand" href="#">Emotions and their Expression<span class="course">PHIL 281</span></a>
+            <nav aria-label="Seminar pages">
+                <a href="#about">About</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#requirements">Requirements</a>
+                <a href="teaching.html">All seminars</a>
+            </nav>
+        </div>
+    </header>
+
+    <header class="banner">
+        <div class="page banner-inner">
+            <div class="eyebrow">PHIL 281 &middot; Winter 2022 &middot; UCLA</div>
+            <h1>Emotions and their Expression</h1>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="intro" id="about">
+            <div><div class="eyebrow lede-label">About the seminar</div><p class="lede">This course will investigate the nature of the emotions and how they are expressed. The first half of the seminar will focus on the emotions themselves, from the perspective of neuroscience, cognitive science, philosophy, and feminist theory. The second half of the seminar will focus on the expression of emotions in faces, emoji, emotive language, music, and art.</p></div>
+            <aside class="facts" aria-label="Course information"><dl><div class="fact"><dt class="eyebrow">Seminar</dt><dd>PHIL 281: Philosophy of Mind</dd></div><div class="fact"><dt class="eyebrow">Meets</dt><dd>Wed 2&ndash;5</dd></div><div class="fact"><dt class="eyebrow">Where</dt><dd>Dodd 325</dd></div><div class="fact"><dt class="eyebrow">Office hours</dt><dd>Thurs 1&ndash;2</dd></div><div class="fact"><dt class="eyebrow">Instructor</dt><dd>Prof. Gabriel Greenberg</dd></div><div class="fact"><dt class="eyebrow">Course materials</dt><dd><a href="https://drive.google.com/drive/folders/1tbx2IgnS7DTszJzyxyh7PGvs-SMus1X-?usp=sharing" class="out" target="_blank" rel="noopener">Google Drive folder</a></dd></div></dl></aside>
+        </section>
+
+        <section id="schedule">
+            <div class="sched-head"><h2 class="sec">Schedule</h2><p class="legend">&#8599; opens an outside site</p></div>
+            <div class="sched-wrap"><table class="sched">
+                <colgroup><col class="c-date"><col class="c-topic"><col class="c-read"><col class="c-rec"></colgroup>
+                <thead><tr><th class="eyebrow">Date</th><th class="eyebrow">Topic</th><th class="eyebrow">Reading</th><th class="eyebrow">Recommended</th></tr></thead>
+                <tbody>
+<tr id="s1"><td class="date"><span class="dow">Wed</span>1/5</td><td class="topic"><span class="num eyebrow">Session 1</span><span class="title">Introduction: emotion and cognition</span><div class="handouts"><a href="https://drive.google.com/file/d/1B7TOVIbPw31CxzAm01MUyWyuGues7ZTS/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">Part I. Emotions<br>On zoom<br>No reading</div></td><td class="read empty" data-label="Reading"><span class="none">&mdash;</span></td><td class="rec empty" data-label="Recommended"><span class="none">&mdash;</span></td></tr>
+<tr id="s2"><td class="date"><span class="dow">Wed</span>1/12</td><td class="topic"><span class="num eyebrow">Session 2</span><span class="title">Neuroscience</span><div class="handouts"><a href="https://drive.google.com/file/d/1cA8JhOileOTZdhgrk7s4qJMD_q87oLuM/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">On zoom</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Anderson and Adolphs</span> <span class="yr">(2018)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/125Cjb5-tfqwMloitOfy9fy42NwQG3hJ7/view?usp=sharing" class="out" target="_blank" rel="noopener">The Neuroscience of Emotion: A New Synthesis</a></i></span><br>Chapter 6: <a href="https://drive.google.com/file/d/1Q9hej_8Z-YhiISQLhUWnfHJXkIz1ty1Z/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The Neuroscience of Emotion in Rodents&rdquo;</a><br>Chapter 9: <a href="https://drive.google.com/file/d/1FwjfoUSZXD7uLowyB_gojGIaOvyvJxx3/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The Neuroscience of Emotion in Humans&rdquo;</a><br>For the idea of emotions as &ldquo;decoupled&rdquo; (or &ldquo;cognitive&rdquo;) reflexes, see pgs. 18-23, pgs. 143-153, and Chapter 3, &ldquo;Building Blocks and Features of Emotions&rdquo;<br>(You can use this reading as the basis for Paper 1)</li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Dalgleish</span> <span class="yr">(2004)</span> <span class="ti"><a href="https://stanford.edu/~knutson/ans/dalgleish04.pdf" class="out" target="_blank" rel="noopener">&ldquo;The emotional brain&rdquo;</a></span></li></ul></td></tr>
+<tr id="s3"><td class="date"><span class="dow">Wed</span>1/19</td><td class="topic"><span class="num eyebrow">Session 3</span><span class="title">Cognitive science</span><div class="handouts"><a href="https://drive.google.com/file/d/1vqu12bDwRF_DZlc-zrjLMR6WBWDuu7my/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">On zoom</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Ortony, Clore, and Collins</span> <span class="yr">(1988)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/18rakne4IOfjtRZqB7amZ2CQQn3vKLsii/view?usp=sharing" class="out" target="_blank" rel="noopener">The Cognitive Structure of Emotion</a></i></span><br>Chapter 2: <a href="https://drive.google.com/file/d/1wnZ2lkTWOdDCZgpYc1DOibEYnGEfnUqo/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The Structure of the Theory&rdquo;</a><br>Chapter 3: <a href="https://drive.google.com/file/d/1oK66Guouu78zHppbUyeuL3esiY9gZepZ/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The Cognitive Psychology of Appraisal&rdquo;</a><br>Chapter 5: <a href="https://drive.google.com/file/d/1DZGDpniYwtSm709_24zAmAsPAKralYwo/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Reactions to Events&rdquo;</a></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Lazarus</span> <span class="yr">(1991)</span> <span class="ti"><a href="https://drive.google.com/file/d/1Zixem1fDGsZ_TQAIe5LKAY2UM6H4W_BT/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Progress on a cognitive-motivational-relational theory of emotion&rdquo;</a></span></li><li><span class="au">Oatley and Johnson-Laird</span> <span class="yr">(2014)</span> <span class="ti"><a href="https://drive.google.com/file/d/1Nw933dJZEbjeFJVWPGwc2NVze_6L_ZFF/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Cognitive Approaches to the Emotions&rdquo;</a></span></li></ul></td></tr>
+<tr id="s4"><td class="date"><span class="dow">Wed</span>1/26</td><td class="topic"><span class="num eyebrow">Session 4</span><span class="title">Philosophy</span><div class="handouts"><a href="https://drive.google.com/file/d/1q82U8bsZw6oenh6z8x5i2lp05qB2auVg/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">On zoom<br>Presentation: <a href="https://www.youtube.com/watch?v=beOUojhmgKU&ab_channel=FelisOdulleri" class="out" target="_blank" rel="noopener">case 1</a>, <a href="https://www.youtube.com/watch?v=x2KpdJehf78" class="out" target="_blank" rel="noopener">case 2</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Sartre</span> <span class="yr">(1939)</span> <span class="ti"><a href="https://drive.google.com/file/d/1wsNDJYUgUc54-JH7fvQRsXYlG-ZO4_Zp/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Outline of a Phenomenological Theory&rdquo;</a> from <i><a href="https://drive.google.com/file/d/1GpQ-uh4oexe2fC8fffj6EZY3Jrbk7Ui5/view?usp=sharing" class="out" target="_blank" rel="noopener">Sketch for a Theory of Emotions</a></i></span></li><li><span class="au">Nussbaum</span> <span class="yr">(2004)</span> <span class="ti"><a href="https://drive.google.com/file/d/14JpsaTupkBseJstX9w-f3Te-ogNMmag-/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Emotions as Judgments of Value and Importance&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">James</span> <span class="yr">(1884)</span> <span class="ti"><a href="https://drive.google.com/file/d/1vZq0MIuUkTxKxAo24rI5Ob-v3gl8sJr_/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;What is an emotion?&rdquo;</a></span></li><li><span class="au">Stanford Encyclopedia of Philosophy</span> <span class="yr">(2018)</span> <span class="ti"><a href="https://plato.stanford.edu/entries/emotion/" class="out" target="_blank" rel="noopener">&ldquo;Emotion&rdquo;</a></span></li></ul></td></tr>
+<tr id="s5"><td class="date"><span class="dow">Wed</span>2/2</td><td class="topic"><span class="num eyebrow">Session 5</span><span class="title">Feminist theory</span><div class="handouts"><a href="https://drive.google.com/file/d/1MSqAYAbVV_L6O2RwI_a9ys9fAOkYxe8X/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-due"><span class="due-tag">Short paper due Sun 2/6</span></div><div class="s-note">On zoom<br>Presentation: <a href="https://www.youtube.com/watch?v=dM7NX6wBHN8" class="out" target="_blank" rel="noopener">youtube</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Lorde</span> <span class="yr">(1981)</span> <span class="ti"><a href="https://drive.google.com/file/d/1utrrSddj2NpTtktIdI4wNI_0gvpFCqZf/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Uses of Anger&rdquo;</a></span></li><li><span class="au">Jagger</span> <span class="yr">(1989)</span> <span class="ti"><a href="https://philpapers.org/archive/JAGLAK.pdf" class="out" target="_blank" rel="noopener">&ldquo;Love and Knowledge: Emotion in Feminist Epistemology&rdquo;</a></span></li><li><span class="au">Fricker</span> <span class="yr">(1991)</span> <span class="ti"><a href="https://www.radicalphilosophyarchive.com/issue-files/rp57_article3_reasonemotion_fricker.pdf" class="out" target="_blank" rel="noopener">&ldquo;Reason and Emotion&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Campbell</span> <span class="yr">(1994)</span> <span class="ti"><a href="https://drive.google.com/file/d/1JDs9LcEduHXkJ79HMYEOKmQ-QUD9ciDB/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Being Dismissed: The Politics of Emotional Expression&rdquo;</a></span></li></ul></td></tr>
+<tr id="s6"><td class="date"><span class="dow">Wed</span>2/9</td><td class="topic"><span class="num eyebrow">Session 6</span><span class="title">Facial expression</span><div class="handouts"><a href="https://drive.google.com/file/d/1LzD44yo0fTzODmoYcPAbx5lAP8F0yENK/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">Part II. Expression<br>In person!<br>Presentation: <a href="https://www.youtube.com/watch?v=63n1bLhddqo" class="out" target="_blank" rel="noopener">youtube</a><br>Presentation: <a href="https://drive.google.com/file/d/147kC3Sx7_p543QCbIBg54V1CEMjgd8-T/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Russell and Fernandez-Dols</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/11j_1C587Ea5WAT6QiczyNhy3d0vq9Vt5/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;What does a facial expression mean?&rdquo;</a></span></li><li><span class="au">Smith and Scott</span> <span class="yr">(1997)</span> <span class="ti"><a href="https://drive.google.com/file/d/1gESOIoE6FqgPHoTHwoaQ0HStWYiPisDP/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;A Componential Approach to the meaning of facial expressions&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Cowen, Sauter, Tracy, and Keltner</span> <span class="yr">(2019)</span> <span class="ti"><a href="https://drive.google.com/file/d/1zyMC-7cagoFD8TeE2xWHQAb9aRoFO8up/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Mapping the Passions: Toward a High-Dimensional Taxonomy of Emotional Experience and Expression&rdquo;</a></span></li><li><span class="au">Scherer, Mortillaro, Mehu</span> <span class="yr">(2017)</span> <span class="ti"><a href="https://drive.google.com/file/d/17KW6WRs4pvjp41lFXynFur0FFdZwdXFg/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Facial Expression Is Driven by Appraisal and Generates Appraisal Inference&rdquo;</a></span></li></ul><span class="group-label eyebrow">Optional</span><ul class="rl"><li><span class="au">Wegrzyn, Vogt, Kireclioglu, Schneider, Kissler</span> <span class="yr">(2017)</span> <span class="ti"><a href="https://drive.google.com/file/d/1GchXqcpWAge3nWWypL7OHPaNtWq12ZJq/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Mapping the Emotional Face: How Individual Face Parts Contribute to Successful Emotion Recognition&rdquo;</a></span></li><li><span class="au">Du, Tao, and Martinez</span> <span class="yr">(2014)</span> <span class="ti"><a href="https://drive.google.com/file/d/1KuN0WWElPpM-nAXwIF5Qzxa5ZiC_E9eR/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Compound Facial Expressions of Emotion&rdquo;</a></span></li><li><span class="au">Medlej, Joumana</span> <span class="yr">(2010)</span> <span class="ti"><a href="https://www.deviantart.com/majnouna/art/Emotions-and-Facial-Expression-47118559" class="out" target="_blank" rel="noopener"><i>A map of emotions and facial expressions</i></a></span></li></ul></td></tr>
+<tr id="s7"><td class="date"><span class="dow">Wed</span>2/16</td><td class="topic"><span class="num eyebrow">Session 7</span><span class="title">Linguistic expression</span><div class="handouts"><a href="https://drive.google.com/file/d/1hpBJe2_mRxHKeY-7ElVkN4pnPYm8V3Qz/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">Guest lecture: <a href="https://linguistics.ucla.edu/people/Rett/" class="out" target="_blank" rel="noopener">Jessica Rett</a><br>Presentation: <a href="https://www.youtube.com/watch?v=BjmXWevdoQc" class="out" target="_blank" rel="noopener">youtube</a><br>Presentation: <a href="https://drive.google.com/file/d/1xNsSa-clYr1-6LTAIdXrKpkuS96nwDlH/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a><br><b>Warning:</b> The Potts reading explicitly discusses slurs, including the n-word.</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Potts</span> <span class="yr">(2006)</span> <span class="ti"><a href="https://ling.yale.edu/sites/default/files/files/horn/Potts2007_ExpressiveDimension.pdf" class="out" target="_blank" rel="noopener">&ldquo;The expressive dimension&rdquo;</a></span></li><li><span class="au">Rett</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://academic.oup.com/jos/article/38/2/305/6279402?guestAccessKey=52d8a8ba-c75c-489d-b88b-fe50e6cad545" class="out" target="_blank" rel="noopener">&ldquo;The semantics of emotive markers and other illocutionary content&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Kaplan</span> <span class="yr">(1999)</span> <span class="ti"><a href="https://drive.google.com/file/d/1p3qS2bWLChYx2Vw62wTgVltmJQ-pyPvS/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;The meaning of ouch and oops&rdquo;</a></span></li><li><span class="au">Ginzburg, Mazzocconi, and Tian</span> <span class="yr">(2020)</span> <span class="ti"><a href="https://www.glossa-journal.org/article/5352/galley/12970/download/" class="out" target="_blank" rel="noopener">&ldquo;Laughter as language&rdquo;</a></span></li><li><span class="au">Rett</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://linguistics.ucla.edu/people/Rett/Rett%202020%20expressives.pdf" class="out" target="_blank" rel="noopener">&ldquo;A comparison of expressives and miratives&rdquo;</a></span></li></ul></td></tr>
+<tr id="s8"><td class="date"><span class="dow">Wed</span>2/23</td><td class="topic"><span class="num eyebrow">Session 8</span><span class="title">Emoji</span><div class="handouts"><a href="https://drive.google.com/file/d/1i-f7SMxQ20xaZGGZ023F3WpJ5dI39Ofk/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-due"><span class="due-tag">Sun 2/27: Schedule meeting to discuss final paper handout</span></div><div class="s-note">Presentation: <a href="https://drive.google.com/file/d/1NetBt6tOZpSDh-xqX-5gqF-Vm12-S8sy/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a><br><b>Note:</b> Read for the examples and the overall ideas; don't worry about the formal theory. Skip Sections 3.5 and 4.3, Section 5 is optional.</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Grosz, Greenberg, De Leon, and Kaiser</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/1PaJndal6spNAqYPiC7pltx9LAEWzApgV/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;A semantics of face emoji in discourse&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Maier</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/13hZBoOpgXMdQPARrrze3KiaalK7DxkuF/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Emojis as pictures&rdquo;</a></span></li></ul></td></tr>
+<tr id="s9"><td class="date"><span class="dow">Wed</span>3/2</td><td class="topic"><span class="num eyebrow">Session 9</span><span class="title">Art and music</span><div class="handouts"><a href="https://drive.google.com/file/d/1Q-6P8oXDmA5Rfzna5cZbkzQN1A1P9v0l/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-note">Presentation 1: <a href="https://www.youtube.com/watch?v=4-aiSnnghQk" class="out" target="_blank" rel="noopener">music</a>, <a href="https://drive.google.com/file/d/13OLD6Ru94Z_WaZftEeZ9c1Pju0WYwDWX/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a><br>Presentation 2: <a href="https://www.youtube.com/watch?v=r9LCwI5iErE&t=820s" class="out" target="_blank" rel="noopener">music</a>, <a href="https://drive.google.com/file/d/1ZOZoNjljLR6RZaMW--obybpW3JPqXVlm/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a><br><b>Note:</b> Start with the Langer.</div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Langer</span> <span class="yr">(1942)</span> <span class="ti"><a href="https://drive.google.com/file/d/1bGwtyJvjyamzciUj1K3RGmpdpyBxHLPi/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;On significance in music&rdquo;</a></span></li><li><span class="au">Kivy</span> <span class="yr">(2002)</span> <span class="ti"><a href="https://drive.google.com/file/d/1vqV-bJnNEHYrhg3L-lv6MnVeJB7_Sprw/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Emotions in the music&rdquo;</a></span></li><li><span class="au">McCloud</span> <span class="yr">(1993)</span> <span class="ti"><a href="https://drive.google.com/file/d/1uf3t7eGyZ90E1AWTMLvZL2fnDNU2NEL_/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Living in line&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Johnson-Laird and Oatley</span> <span class="yr">(2016)</span> <span class="ti"><a href="https://drive.google.com/file/d/16eaaAgOJgZQkQGdARosXBnWj-JbvssuK/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Emotions in Music, Literature, and Film&rdquo;</a></span></li></ul></td></tr>
+<tr id="s10"><td class="date"><span class="dow">Wed</span>3/9</td><td class="topic"><span class="num eyebrow">Session 10</span><span class="title">Political emotions</span><div class="handouts"><a href="https://drive.google.com/file/d/1BFBdi3UWDYf2DaCbqlFUia8-fdnssJJ6/view?usp=sharing" target="_blank" rel="noopener">Handout</a></div><div class="s-due"><span class="due-tag">Long paper due Sun 3/20</span></div><div class="s-note">Guest lecture: <a href="https://www.myishacherry.org/bio/" class="out" target="_blank" rel="noopener">Myisha Cherry</a><br>Presentation: <a href="https://www.youtube.com/watch?v=9NUBLOK6Zo0" class="out" target="_blank" rel="noopener">youtube</a><br>Presentation: <a href="https://drive.google.com/file/d/1tkGH9POH51aUsP_pSvk4zNLqEl9fKd9O/view?usp=sharing" class="out" target="_blank" rel="noopener">handout</a></div></td><td class="read" data-label="Reading"><ul class="rl"><li><span class="au">Cherry</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/1HekgyM-_sTB1PtbBF_Io8blZLI1OgFD8/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Introduction&rdquo; and &ldquo;Painting in Broad Strokes&rdquo;</a> from <i><a href="https://drive.google.com/file/d/1-4CoCJpjrpCGAmnQPiZpaJBxHLjLHcHi/view?usp=sharing" class="out" target="_blank" rel="noopener">The Case for Rage</a></i></span></li><li><span class="au">Ahmed</span> <span class="yr">(2010)</span> <span class="ti"><a href="https://drive.google.com/file/d/137Ao-p68cg5fsB7b_U_f1kWRxKol7GoY/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Happy Objects&rdquo;</a></span></li></ul></td><td class="rec" data-label="Recommended"><ul class="rl"><li><span class="au">Cherry</span> <span class="yr">(2021)</span> <span class="ti"><a href="https://drive.google.com/file/d/1dNzsrMVngDd5h_DWLqlg4mvN_gorfObG/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Political Anger&rdquo;</a></span></li><li><span class="au">Marcus</span> <span class="yr">(2000)</span> <span class="ti"><a href="https://drive.google.com/file/d/1mC7EPHyk6JPwH745yC0SI7sPpy3uchQC/view?usp=sharing" class="out" target="_blank" rel="noopener">&ldquo;Emotions in Politics&rdquo;</a></span></li></ul></td></tr>
+                </tbody>
+            </table></div>
+        </section>
+
+        <section id="requirements"><h2 class="sec">Requirements</h2><dl class="policies"><dt>Collections</dt><dd><ul><li><span class="au">Barrett, Lewis, and Jones</span> <span class="yr">(2016)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1LEEOqzoh5uNYha3DqDsCgX9q9KB1255R/view?usp=sharing" class="out" target="_blank" rel="noopener">Handbook of Emotions</a></i></span></li><li><span class="au">Gregg and Seigworth</span> <span class="yr">(2010)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1vtE5C5H3gkabanKLwrbEpEz1Ho6CFo-x/view?usp=sharing" class="out" target="_blank" rel="noopener">The Affect Theory Reader</a></i></span></li><li><span class="au">Russell, Fern&aacute;ndez-dols, Miguel, and George</span> <span class="yr">(1997)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/11j_1C587Ea5WAT6QiczyNhy3d0vq9Vt5/view?usp=sharing" class="out" target="_blank" rel="noopener">The Psychology of Facial Expression</a></i></span></li><li><span class="au">Fern&aacute;ndez-dols and Russell</span> <span class="yr">(2017)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1dU0ZlAPqo3ejJaVct-NXgJotor8n7qhL/view?usp=sharing" class="out" target="_blank" rel="noopener">The Science of Facial Expression</a></i></span></li><li><span class="au">Solomon</span> <span class="yr">(2004)</span> <span class="ti"><i><a href="https://drive.google.com/file/d/1NJAQyPxPFr02m-7_7xF04Lgnyr3DHyNj/view?usp=sharing" class="out" target="_blank" rel="noopener">Thinking about Feeling: Contemporary Philosophers on Emotions</a></i></span></li></ul></dd></dl></section>
+    </main>
+
+    <footer class="page">
+        <div class="foot">
+            <span>PHIL 281 &middot; Emotions and their Expression &middot; Winter 2022 &middot; UCLA</span>
+            <a href="index.html">Gabriel Greenberg</a>
+        </div>
+    </footer>
+
+</body>
+</html>
