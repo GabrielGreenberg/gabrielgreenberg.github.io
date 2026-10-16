@@ -211,7 +211,16 @@
       "number": 4,
       "title": "Case Study: Face Recognition",
       "date": "10/15",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w4-face-recognition-handout.pdf"
+        },
+        {
+          "label": "Figures",
+          "url": "docs/cc2026/w4-face-recognition-figures.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Burton",
