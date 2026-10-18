@@ -152,17 +152,38 @@
             margin-top: -0.1rem;
         }
 
+        .asks {
+            max-width: 940px;
+            margin: 3.5rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #eceef1;
+        }
+
+        .asks-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .prompts {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.3rem;
-            margin: 0.35rem 0 0.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .prompts + .prompts {
+            margin-top: 0.6rem;
         }
 
         .prompt {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-style: italic;
+            white-space: nowrap;
             line-height: 1.35;
             color: #4b5563;
             background: #f2f4f7;
@@ -249,20 +270,9 @@
             <div class="column">
                 <h2 class="column-heading">Edit.</h2>
                 <ol class="steps">
-                    <li>Leave AI-requests in Virgil.
-                        <span class="prompts">
-                            <span class="prompt">Grammar check this paragraph.</span>
-                            <span class="prompt">Find sources for this claim.</span>
-                            <span class="prompt">Cut 200 words from this section.</span>
-                        </span>
-                    </li>
+                    <li>Leave AI-requests in Virgil.</li>
                     <li>Open project folder in Claude.</li>
-                    <li>Ask &ldquo;Virgil&rdquo; to review your requests, or start a new task.
-                        <span class="prompts">
-                            <span class="prompt">Virgil, review my requests.</span>
-                            <span class="prompt">Virgil, look for obvious mistakes.</span>
-                        </span>
-                    </li>
+                    <li>Ask &ldquo;Virgil&rdquo; to review your requests, or start a new task.</li>
                     <li>Review and approve changes in Virgil.</li>
                 </ol>
             </div>
@@ -280,15 +290,27 @@
                 <ol class="steps">
                     <li>Populate Virgil-Library with pdfs.</li>
                     <li>In Claude, ask Virgil to index your pdfs.<span class="note">Use deep-index to extract structured text.</span></li>
-                    <li>In Virgil, ask for research targeted at specific articles.
-                        <span class="prompts">
-                            <span class="prompt">Have I described this view correctly?</span>
-                            <span class="prompt">Pull in the examples cited here.</span>
-                        </span>
-                    </li>
+                    <li>In Virgil, ask for research targeted at specific articles.</li>
                 </ol>
             </div>
         </div>
+        <section class="asks">
+            <p class="asks-label">Things to ask Virgil, right in your text</p>
+            <div class="prompts">
+                <span class="prompt">Grammar check this paragraph.</span>
+                <span class="prompt">Cut 200 words here.</span>
+                <span class="prompt">Turn this list into a table.</span>
+                <span class="prompt">Match the notation to Section 2.</span>
+                <span class="prompt">Is this argument valid?</span>
+            </div>
+            <div class="prompts">
+                <span class="prompt">Find sources for this claim.</span>
+                <span class="prompt">Have I described this view correctly?</span>
+                <span class="prompt">Who first raised this objection?</span>
+                <span class="prompt">Pull in the examples cited here.</span>
+                <span class="prompt">Draw this tree in TikZ.</span>
+            </div>
+        </section>
     </main>
     <script>
         // The live version comes from the Virgil deploy itself; the number
