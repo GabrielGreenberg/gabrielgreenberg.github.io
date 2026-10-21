@@ -333,7 +333,11 @@
             "page": 69
           }
         }
-      ]
+      ],
+      "zoom": {
+        "url": "https://ucla.zoom.us/my/gjgreenberg",
+        "label": "On Zoom"
+      }
     },
     {
       "number": 6,

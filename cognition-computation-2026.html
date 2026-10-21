@@ -270,6 +270,24 @@
         td.topic .handouts { margin-top: 8px; font-size: 14px; }
         td.topic .handouts a { font-weight: 600; }
         td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        td.topic a.zoom-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 8px 15px 8px 13px;
+            border-radius: 4px;
+            background: #111;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+            text-decoration: none;
+        }
+        td.topic a.zoom-btn:hover { background: #000; color: #fff; text-decoration: none; box-shadow: 0 0 0 2px var(--accent-bright); }
+        td.topic a.zoom-btn svg { width: 17px; height: 17px; flex: none; }
         td.topic .s-due { margin-top: 10px; display: grid; gap: 4px; }
         .due-tag {
             display: inline-block;
@@ -791,6 +809,12 @@
                     var dueLines = (s.due || []).map(function (d) { return '<span class="due-tag">' + d + '</span>'; });
                     if (dueLines.length) topic += '<div class="s-due">' + dueLines.join('') + '</div>';
                     if (s.note) topic += '<div class="s-note">' + s.note + '</div>';
+                    // A session moved online gets a black "On Zoom" button: zoom = {url, label?}.
+                    if (s.zoom && s.zoom.url) {
+                        topic += '<div><a class="zoom-btn" href="' + s.zoom.url + '" target="_blank" rel="noopener">' +
+                            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10.5l6-3.5v10l-6-3.5z"/></svg>' +
+                            (s.zoom.label || 'On Zoom') + '</a></div>';
+                    }
 
                     var readCell = '';
                     if (s.readingsLabel) readCell += '<span class="group-label eyebrow">' + s.readingsLabel + '</span>';
