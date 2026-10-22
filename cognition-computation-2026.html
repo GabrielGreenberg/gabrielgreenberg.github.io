@@ -270,6 +270,8 @@
         td.topic .handouts { margin-top: 8px; font-size: 14px; }
         td.topic .handouts a { font-weight: 600; }
         td.topic .s-note { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); font-style: italic; }
+        /* A notice on a session row (alert field), e.g. a moved session whose time isn't set. */
+        td.topic .s-alert { display: inline-block; margin-top: 10px; padding: 6px 11px; border: 2px solid var(--ink); border-radius: 4px; color: var(--ink); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; line-height: 1.3; }
         td.topic a.zoom-btn {
             display: inline-flex;
             align-items: center;
@@ -809,6 +811,7 @@
                     var dueLines = (s.due || []).map(function (d) { return '<span class="due-tag">' + d + '</span>'; });
                     if (dueLines.length) topic += '<div class="s-due">' + dueLines.join('') + '</div>';
                     if (s.note) topic += '<div class="s-note">' + s.note + '</div>';
+                    if (s.alert) topic += '<div><span class="s-alert">' + s.alert + '</span></div>';
                     // A session moved online gets a black "On Zoom" button: zoom = {url, label?}.
                     if (s.zoom && s.zoom.url) {
                         topic += '<div><a class="zoom-btn" href="' + s.zoom.url + '" target="_blank" rel="noopener">' +

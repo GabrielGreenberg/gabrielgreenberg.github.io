@@ -23,9 +23,9 @@
   },
   "announcements": [
     {
-      "date": "10/20",
-      "title": "This week on Zoom.",
-      "html": "Thursday&rsquo;s seminar (10/22, 2:30&ndash;5:30) will meet on Zoom instead of Dodd 321, and so will office hours on Wednesday (10/21, 12:00&ndash;1:30). Zoom room: <a href=\"https://ucla.zoom.us/my/gjgreenberg\">ucla.zoom.us/my/gjgreenberg</a>"
+      "date": "10/22",
+      "title": "No class this week.",
+      "html": "Thursday&rsquo;s seminar (10/22) is canceled. The rest of the schedule moves back a week: Semantic Abstraction is now on 10/29, and the last session moves to week 11, time to be determined."
     }
   ],
   "requirements": [
@@ -293,7 +293,7 @@
     {
       "number": 5,
       "title": "Semantic Abstraction",
-      "date": "10/22",
+      "date": "10/29",
       "handouts": [],
       "readings": [
         {
@@ -333,16 +333,12 @@
             "page": 69
           }
         }
-      ],
-      "zoom": {
-        "url": "https://ucla.zoom.us/my/gjgreenberg",
-        "label": "On Zoom"
-      }
+      ]
     },
     {
       "number": 6,
       "title": "Modularity",
-      "date": "10/29",
+      "date": "11/5",
       "handouts": [],
       "readings": [
         {
@@ -387,7 +383,7 @@
     {
       "number": 7,
       "title": "Neural Networks and Connectionism",
-      "date": "11/5",
+      "date": "11/12",
       "handouts": [],
       "readings": [
         {
@@ -438,7 +434,7 @@
     {
       "number": 8,
       "title": "Context Sensitivity",
-      "date": "11/12",
+      "date": "11/19",
       "handouts": [],
       "readings": [
         {
@@ -492,7 +488,7 @@
     {
       "number": 9,
       "title": "Case Study: Transformer Architecture",
-      "date": "11/19",
+      "date": "12/3",
       "handouts": [],
       "readings": [
         {
@@ -532,7 +528,7 @@
     {
       "number": 10,
       "title": "Distributed Thought",
-      "date": "12/3",
+      "date": "12/10",
       "handouts": [],
       "readings": [
         {
@@ -606,10 +602,16 @@
           "url": "https://distill.pub/2020/circuits/zoom-in/",
           "tag": "optional"
         }
-      ]
+      ],
+      "alert": "Time to be determined"
     }
   ],
   "breaks": [
+    {
+      "date": "10/22",
+      "title": "No class",
+      "note": "Canceled"
+    },
     {
       "date": "11/26",
       "title": "No class",
