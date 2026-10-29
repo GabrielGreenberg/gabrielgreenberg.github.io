@@ -288,7 +288,12 @@
       "number": 5,
       "title": "Semantic Abstraction",
       "date": "10/29",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w5-semantic-abstraction-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Pylyshyn",
