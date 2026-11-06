@@ -338,7 +338,12 @@
       "number": 6,
       "title": "Modularity",
       "date": "11/5",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w6-modularity-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Fodor",
