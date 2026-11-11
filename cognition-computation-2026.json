@@ -23,6 +23,10 @@
   },
   "announcements": [
     {
+      "date": "11/11",
+      "title": "No office hours today."
+    },
+    {
       "date": "11/9",
       "title": "Schedule change.",
       "html": "This week and next are swapped: Context Sensitivity (Dreyfus) is now this Thursday, 11/12, and Neural Networks and Connectionism moves to 11/19."
