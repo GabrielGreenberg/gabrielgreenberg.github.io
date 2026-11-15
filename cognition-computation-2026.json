@@ -460,7 +460,8 @@
           "title": "Connectionism",
           "style": "quotes",
           "detail": ", <i>Stanford Encyclopedia of Philosophy</i>",
-          "url": "https://plato.stanford.edu/entries/connectionism/"
+          "url": "https://plato.stanford.edu/entries/connectionism/",
+          "tag": "recommended"
         },
         {
           "author": "Prince",
@@ -468,34 +469,8 @@
           "title": "Understanding Deep Learning",
           "detail": ", Chs. 3&ndash;4 (skim for architecture)",
           "url": "docs/cc2026/prince-understanding-deep-learning.pdf",
-          "page": 39
-        },
-        {
-          "author": "3Blue1Brown",
-          "year": "2017",
-          "title": "But What Is a Neural Network?",
-          "style": "quotes",
-          "detail": " (video series)",
-          "url": "https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi",
+          "page": 39,
           "tag": "recommended"
-        },
-        {
-          "author": "Buckner",
-          "year": "2019",
-          "title": "Deep Learning: A Philosophical Introduction",
-          "style": "quotes",
-          "detail": ", <i>Philosophy Compass</i> 14: e12625",
-          "url": "docs/cc2026/buckner-2019-deep-learning-philosophical-introduction.pdf",
-          "tag": "recommended"
-        },
-        {
-          "author": "Bowers et al.",
-          "year": "2022",
-          "title": "Deep Problems with Neural Network Models of Human Vision",
-          "style": "quotes",
-          "detail": ", <i>Behavioral and Brain Sciences</i> 46: e385",
-          "url": "docs/cc2026/bowers-2022-deep-problems.pdf",
-          "tag": "optional"
         }
       ]
     },
