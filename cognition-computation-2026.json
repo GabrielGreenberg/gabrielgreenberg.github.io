@@ -455,6 +455,22 @@
       "handouts": [],
       "readings": [
         {
+          "author": "3Blue1Brown",
+          "year": "2017",
+          "title": "But What Is a Neural Network?",
+          "style": "quotes",
+          "detail": " (video, 19 min.)",
+          "url": "https://www.youtube.com/watch?v=aircAruvnKk"
+        },
+        {
+          "author": "3Blue1Brown",
+          "year": "2017",
+          "title": "Gradient Descent, How Neural Networks Learn",
+          "style": "quotes",
+          "detail": " (video, 21 min.)",
+          "url": "https://www.youtube.com/watch?v=IHZwWFHWa-w"
+        },
+        {
           "author": "Buckner and Garson",
           "year": "2019",
           "title": "Connectionism",
