@@ -389,7 +389,12 @@
       "number": 7,
       "title": "Context Sensitivity",
       "date": "11/12",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w7-context-sensitivity-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "Dreyfus",
