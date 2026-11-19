@@ -478,6 +478,14 @@
           "url": "https://www.youtube.com/watch?v=yVZTtnSkya8"
         },
         {
+          "author": "Smilkov and Carter",
+          "year": "2016",
+          "title": "A Neural Network Playground",
+          "style": "quotes",
+          "detail": " (interactive, TensorFlow Playground)",
+          "url": "https://playground.tensorflow.org/"
+        },
+        {
           "author": "StatQuest",
           "year": "2023",
           "title": "Word Embedding and Word2Vec, Clearly Explained",
