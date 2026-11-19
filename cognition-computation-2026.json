@@ -469,14 +469,7 @@
           "detail": " (video, 19 min.)",
           "url": "https://www.youtube.com/watch?v=CqOfi41LfDw"
         },
-        {
-          "author": "StatQuest",
-          "year": "2023",
-          "title": "Word Embedding and Word2Vec, Clearly Explained",
-          "style": "quotes",
-          "detail": " (video, 16 min.)",
-          "url": "https://www.youtube.com/watch?v=viZrOnJclY0"
-        },
+
         {
           "author": "Vizuara",
           "year": "n.d.",
@@ -484,6 +477,15 @@
           "style": "quotes",
           "detail": " (video, 19 min.)",
           "url": "https://www.youtube.com/watch?v=yVZTtnSkya8"
+        },
+        {
+          "author": "StatQuest",
+          "year": "2023",
+          "title": "Word Embedding and Word2Vec, Clearly Explained",
+          "style": "quotes",
+          "detail": " (video, 16 min.)",
+          "url": "https://www.youtube.com/watch?v=viZrOnJclY0",
+          "tag": "recommended"
         },
         {
           "author": "StatQuest",
