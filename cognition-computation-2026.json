@@ -443,7 +443,12 @@
       "number": 8,
       "title": "Neural Networks and Connectionism",
       "date": "11/19",
-      "handouts": [],
+      "handouts": [
+        {
+          "label": "Handout",
+          "url": "docs/cc2026/w8-neural-networks-handout.pdf"
+        }
+      ],
       "readings": [
         {
           "author": "3Blue1Brown",
