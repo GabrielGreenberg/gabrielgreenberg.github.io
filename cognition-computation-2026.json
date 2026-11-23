@@ -572,6 +572,15 @@
           "tag": "recommended"
         },
         {
+          "author": "Hinton, McClelland, and Rumelhart",
+          "year": "1986",
+          "title": "Distributed Representations",
+          "style": "quotes",
+          "detail": ", <i>Parallel Distributed Processing</i>, Vol. 1, Ch. 3 (pp. 77&ndash;109)",
+          "url": "docs/cc2026/hinton-mcclelland-rumelhart-1986-distributed-representations.pdf",
+          "tag": "recommended"
+        },
+        {
           "author": "Prince",
           "year": "2023",
           "title": "Understanding Deep Learning",
