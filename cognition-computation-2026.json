@@ -549,6 +549,14 @@
       "handouts": [],
       "readings": [
         {
+          "author": "Blank",
+          "year": "2026",
+          "title": "How Transformers Work: A Detailed, Conceptual Explanation",
+          "style": "quotes",
+          "detail": " (video)",
+          "url": "https://www.youtube.com/watch?v=cGMnNi4XGvc"
+        },
+        {
           "author": "Milli&egrave;re and Buckner",
           "year": "2024",
           "title": "A Philosophical Introduction to Language Models &mdash; Part I: Continuity with Classic Debates",
@@ -560,7 +568,8 @@
           "year": "2018",
           "title": "The Illustrated Transformer",
           "style": "quotes",
-          "url": "https://jalammar.github.io/illustrated-transformer/"
+          "url": "https://jalammar.github.io/illustrated-transformer/",
+          "tag": "recommended"
         },
         {
           "author": "Prince",
